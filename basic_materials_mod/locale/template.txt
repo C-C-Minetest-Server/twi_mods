@@ -1,0 +1,5 @@
+# textdomain: basic_materials_mod
+Oil extracted from leaves.=
+Crafted from 6 leaves. This can be processed into plastic by smelting.=
+Plastic for machine crafting.=
+Produced by smelting oil extracts. This is useful in crafting high-tech items.=
