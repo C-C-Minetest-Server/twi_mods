@@ -30,6 +30,10 @@ minetest.clear_craft({
     },
 })
 
+minetest.override_item("basic_materials:oil_extract", {
+    inventory_image = "twi_oil_extract.png", -- From pipeworks not homedecor
+})
+
 -- Remove the intermediate process of oil -> paraffin -> plastic
 minetest.register_alias_force("basic_materials:paraffin", "basic_materials:plastic_sheet")
 minetest.clear_craft({
