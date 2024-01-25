@@ -1,5 +1,5 @@
 -- twi_mods/ethereal_mod/init.lua
--- Give initial stuffs to new players
+-- Ethereal modifications
 --[[
     Copyright © 2024 1F616EMO
 
