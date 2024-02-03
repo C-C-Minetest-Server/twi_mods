@@ -97,11 +97,10 @@ for wire, ingot in pairs(wire_ingot_pair) do
 end
 
 -- Replace simple Energy Crystal with torch
-minetest.register_alias_force("basic_materials:energy_crystal_simple", "default:torch")
 minetest.clear_craft({
-    output = "basic_materials:energy_crystal_simple 2",
     recipe = {
         { "default:mese_crystal_fragment", "default:torch",      "default:mese_crystal_fragment" },
         { "default:diamond",               "default:gold_ingot", "default:diamond" }
     },
 })
+minetest.register_alias_force("basic_materials:energy_crystal_simple", "default:torch")
