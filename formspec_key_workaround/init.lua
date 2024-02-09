@@ -29,7 +29,11 @@ local F = minetest.formspec_escape
 
 local function replace_formspec(formspec, meta)
     return string.gsub(formspec, "%${(%C+)}", function(key)
-        return meta:get_string(key)
+        local value = meta:get_string(key)
+        if value == "${" .. key .. "}" then
+            return ""
+        end
+        return value
     end)
 end
 
@@ -66,7 +70,7 @@ minetest.register_globalstep(function(dtime)
 
     local processed = {}
     for _, player in ipairs(minetest.get_connected_players()) do
-        local pos = player:get_pos()
+        local pos = vector.round(player:get_pos())
         for x = pos.x - RADIUS, pos.x + RADIUS do
             for y = pos.y - RADIUS, pos.y + RADIUS do
                 for z = pos.z - RADIUS, pos.z + RADIUS do
