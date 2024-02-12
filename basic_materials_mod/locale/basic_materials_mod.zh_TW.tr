@@ -1,4 +1,6 @@
 # textdomain: basic_materials_mod
+
+##[ init.lua ]##
 Oil extracted from leaves.=從樹葉提煉的油。
 Crafted from 6 leaves. This can be processed into plastic by smelting.=由六塊樹葉合成。經過燒煉後，可以轉化爲塑膠。
 Plastic for machine crafting.=用於合成機器的塑膠。

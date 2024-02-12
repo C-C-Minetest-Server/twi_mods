@@ -1,0 +1,4 @@
+# textdomain: cmd_alias
+
+##[ init.lua ]##
+Alias of /@1: @2=/@1 的别名：@2

@@ -1,0 +1,10 @@
+# textdomain: static_spawn
+
+##[ init.lua ]##
+Teleport to spawnpoint=
+Player object not found.=
+Spawn point not set. Consult moderators to set a proper static spawnpoint.=
+Teleported to Spawn!=
+Override the static spawnpoint=
+Invalid position given.=
+Static spawnpoint set to @1.=

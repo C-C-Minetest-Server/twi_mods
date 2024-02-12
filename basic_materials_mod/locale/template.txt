@@ -1,4 +1,6 @@
 # textdomain: basic_materials_mod
+
+##[ init.lua ]##
 Oil extracted from leaves.=
 Crafted from 6 leaves. This can be processed into plastic by smelting.=
 Plastic for machine crafting.=
