@@ -31,11 +31,17 @@ minetest.register_craft({
 	}
 })
 
--- Allow compressed cobbles to be smelt into stone
+-- Allow compressed cobbles to be smelt into stone/grind into gravel
 
 minetest.register_craft({
 	type = "cooking",
 	output = "default:stone 9",
 	recipe = "moreblocks:cobble_compressed",
     cooktime = 3 * 8,
+})
+
+technic.register_grinder_recipe({
+	input = { "moreblocks:cobble_compressed" },
+	time = 3 * 8,
+	output = "default:gravel 9"
 })
