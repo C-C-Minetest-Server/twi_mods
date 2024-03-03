@@ -22,7 +22,6 @@ local S = minetest.get_translator("basic_materials_mod")
 -- Eliminate the need of padlocks, use steel ingot instead
 minetest.register_alias_force("basic_materials:padlock", "default:steel_ingot")
 minetest.clear_craft({
-    output = "basic_materials:padlock 2",
     recipe = {
         { "basic_materials:steel_bar" },
         { "default:steel_ingot" },
@@ -38,13 +37,11 @@ minetest.override_item("basic_materials:oil_extract", {
 minetest.register_alias_force("basic_materials:paraffin", "basic_materials:plastic_sheet")
 minetest.clear_craft({
     type = "cooking",
-    output = "basic_materials:plastic_sheet",
     recipe = "basic_materials:paraffin",
 })
 minetest.clear_craft({
     type = "cooking",
     output = "basic_materials:paraffin",
-    recipe = "basic_materials:oil_extract",
 })
 minetest.register_craft({
     type = "cooking",
@@ -86,7 +83,6 @@ minetest.clear_craft({
 for wire, ingot in pairs(wire_ingot_pair) do
     minetest.register_alias_force(wire, ingot)
     minetest.clear_craft({
-        output = wire .. " 2",
         type = "shapeless",
         recipe = {
             ingot,
