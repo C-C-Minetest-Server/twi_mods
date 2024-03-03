@@ -31,6 +31,6 @@ end
 
 -- Tomato red dye
 minetest.register_craft({
-	output = farming.recipe_items.dye_red,
-	recipe = {{"group:food_tomato"}}
+    output = farming.recipe_items.dye_red,
+    recipe = { { "group:food_tomato" } }
 })

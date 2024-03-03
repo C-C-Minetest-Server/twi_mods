@@ -25,7 +25,7 @@
 -- Autocrafter psudo-item
 -- For unknwon reason this is identical to flux's, but trust me, I wrote this without his
 -- https://discord.com/channels/369122544273588224/369123275877384192/1193075939903553669
-local ndef = minetest.registered_nodes["pipeworks:autocrafter"]
+local ndef                              = minetest.registered_nodes["pipeworks:autocrafter"]
 local old_allow_metadata_inventory_put  = ndef.allow_metadata_inventory_put
 local old_allow_metadata_inventory_take = ndef.allow_metadata_inventory_take
 local old_allow_metadata_inventory_move = ndef.allow_metadata_inventory_move

@@ -61,7 +61,7 @@ minetest.register_chatcommand("setspawn", {
             end
             param = minetest.pos_to_string(pos)
         end
-        
+
         minetest.settings:set("static_spawnpoint", param)
 
         return true, S("Static spawnpoint set to @1.", param)

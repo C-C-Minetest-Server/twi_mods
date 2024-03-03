@@ -29,7 +29,6 @@
 
 --- 1a. Mulch from one tree and 8 leaves
 minetest.clear_craft({
-    output = "bonemeal:mulch 4",
     recipe = {
         { "group:tree",   "group:leaves", "group:leaves" },
         { "group:leaves", "group:leaves", "group:leaves" },
@@ -48,7 +47,6 @@ minetest.register_craft({
 
 --- 1b. Fertiliser from both type of bonemeal
 minetest.clear_craft({
-    output = "bonemeal:fertiliser 2",
     recipe = { { "bonemeal:bonemeal", "bonemeal:mulch" } }
 })
 minetest.register_craft({
