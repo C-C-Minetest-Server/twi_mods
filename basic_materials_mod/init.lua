@@ -71,9 +71,7 @@ local wire_ingot_pair = {
     -- moreores
     ["basic_materials:silver_wire"] = "moreores:silver_ingot",
 }
-minetest.register_alias_force("basic_materials:empty_spool", "")
 minetest.clear_craft({
-    output = "basic_materials:empty_spool 3",
     recipe = {
         { "basic_materials:plastic_sheet", "basic_materials:plastic_sheet", "basic_materials:plastic_sheet" },
         { "",                              "basic_materials:plastic_sheet", "" },
@@ -91,6 +89,7 @@ for wire, ingot in pairs(wire_ingot_pair) do
         },
     })
 end
+minetest.register_alias_force("basic_materials:empty_spool", "")
 
 -- Replace simple Energy Crystal with torch
 minetest.clear_craft({
