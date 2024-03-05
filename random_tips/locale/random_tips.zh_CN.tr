@@ -1,0 +1,31 @@
+# textdomain: random_tips
+
+##[ init.lua ]##
+Type in /spawn to go back to the spawn point, where you can access numerous useful locations and facilities.=输入 /spawn 以回到出生点。出生点附近有许多有用的地点和设施。
+Type in /sethome at where you want to set up your home coordinates, and then type in /home to go back.=在你想设为家的位置输入 /sethome 来设置你的家的坐标，然后输入 /home 即可传送回家。
+To request teleporting to another player's location, type in /tpr <their name>.=如果想请求传送至其他玩家的位置，输入 /tpr <玩家名字>。
+Type in /mail to open the mail dialog, where you can communicate with other players without them being online.=输入 /mail 以打开邮件界面。邮件可以作为玩家之间沟通的渠道，无需对方在线。
+Type in /report if you want to contact our moderation team to report misbehavior or suggest changes.=输入 /report 以对管理团队投诉不当行为或提出修改建议。
+The public farm at Spawn provides an early-game food source. Remember to replant the crops after harvesting them.=出生点的公众农场是获得早期食物的好地方。在采收之后，不要忘记重新种植种子。
+The public tree farm at Spawn can be an easy way to get wood. Don't forget to plant the saplings after chopping down wood.=出生点的公众树木农场是可以轻松获得树木的地方。在砍伐之后，不要忘记重新种植树苗。
+Visit the Plain Houses Area via train or by walk from Spawn for places to settle down.=前往平原住宅区寻找居住地点，你可以乘坐火车或从出生点步行前往。
+Do not walk on tracks. The damage from a running train is deadly.=切勿在轨道上行走。行走中的列车造成的伤害是致命的。
+Right-click a train with an opened door to go onto it.=右键点击一辆开门的列车以乘坐之。
+Using machines from the technic mod speeds up your crafting workflows.=使用科技模组的机器可以加快你的物品制作过程。
+Visit a technic station to use machines from the technic mod without crafting them yourself.=造访科技使用站以使用科技模组的机器，而无需自己合成。
+Tools from the technic mod may require charging. Place them in the "charging" slot of a battery box.=科技模组的工具可能需要充电才能使用。将之放在电池箱的”充电“槽以进行充电。
+Crafting a mining drill can be very helpful in bulk digging tasks.=合成钻头对于大量挖掘方块很有帮助。
+Use a chainsaw to chop down an entire tree at once.=使用电锯以一次砍伐整棵树木。
+Autocrafters are useful in freeing your hand from repeated crafting tasks.=自动合成机可以让你的双手从重复的合成工作中解放出来。
+Item ejectors take items from a container into the pneumatic tube system.=物品提取器可以将容器内的物品提取到气动管道系统中。
+Connect containers to a pneumatic tube system for items to flow in.=将容器接驳到气动管道系统，以便物品流进容器内。
+Always add trash cans at the end of pneumatic tube systems having the risk of overflowing to avoid breaking them.=在有可能溢出的气动管道系统末端放置垃圾桶，以免损坏系统。
+The digtron mod helps construct automated tunnel-boring machines. It is very useful in mining or building repeating patterns.=挖掘机模组可以用于建造自动化隧道掘进机，对于采矿或建造重复的方块组合很有用。
+Punch a grown crop with a mithril scythe to re-plant it while obtaining its drops.=使用秘银镰刀击打成熟的农作物以在获得掉落物的同时重新种植。
+Punch a dirt block with a hoe to turn it into farmlands. Do so near water for the farmland to work.=手持锄头击打泥土可以将其转化为耕地。如果要让耕地可以正常使用，必须在水源附近操作。
+Discover different crops around the world, and plant them in farmlands by right-clicking.=游历世界获得不同的农作物，手持种子右键点击耕地即可种植。
+Bones are dropped by chance when digging dirt blocks. They can be ground into bone meal for fertilizing crops and plants.=挖掘泥土有概率掉落骨头。骨头可以被研磨成骨粉，并用于施肥。
+Using bonemeal on dirt blocks to obtain flowers and grasses naturally found on that type of dirt.=对泥土使用骨粉可以促使自然生长在该种泥土上的花草出现。
+Click on the selling items icon of a smart shop interface to buy them.=在智慧商店的界面内点击待售物品的图标以购买之。
+Right-click an ATM to withdraw or deposit money.=右键点击自动柜员机以进行提款或存款。
+Right-click a wire transfer terminal to start a digital transaction. The receiver will be notified via in-game mail.=右键点击电汇终端以进行数码汇款。收款人将会通过游戏内邮件系统获得通知。
