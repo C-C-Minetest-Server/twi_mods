@@ -44,3 +44,19 @@ technic.register_grinder_recipe({
 	time = 3 * 8,
 	output = "default:gravel 9"
 })
+
+-- Hide deprecated nodes from crafting recipies
+local nodes = {
+	"moreblocks:wood_tile_flipped",
+	"moreblocks:wood_tile_down",
+	"moreblocks:wood_tile_left",
+	"moreblocks:wood_tile_right",
+}
+for _, name in ipairs(nodes) do
+	local groups = table.copy(minetest.registered_nodes[name].groups or {})
+	groups.not_in_creative_inventory = 1
+	groups.not_in_craft_guide = 1
+	minetest.override_item(name, {
+		groups = groups
+	})
+end
