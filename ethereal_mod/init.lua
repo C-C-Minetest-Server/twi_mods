@@ -40,3 +40,20 @@ for _, name in ipairs(node_list) do
         place_param2 = 0
     })
 end
+
+-- Coral group
+for _, prefix in ipairs({
+    "coral2",
+    "coral3",
+    "coral4",
+    "coral5"
+}) do
+    for _, var in ipairs({ "", "_rooted" }) do
+        local name = "ethereal:" .. prefix .. var
+        local groups = table.copy(minetest.registered_nodes[name].groups or {})
+        groups.coral = 1
+        minetest.override_item(name, {
+            groups = groups
+        })
+    end
+end
