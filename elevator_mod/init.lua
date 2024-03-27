@@ -29,5 +29,7 @@ for _, name in ipairs({
             tiles[i] = "technic_wrought_iron_block.png"
         end
     end
-    minetest.override_item(name, tiles)
+    minetest.override_item(name, {
+        tiles = tiles,
+    })
 end
