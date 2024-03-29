@@ -29,7 +29,12 @@ function func_areas.is_in_func_area(pos, id)
     local area = areas.areas[id]
     if not area then return false end
     if area.owner ~= func_account then return end
-    return vector.in_area(pos, area.pos1, area.pos2)
+    return pos.x >= area.pos1.x
+       and pos.y >= area.pos1.y
+       and pos.z >= area.pos1.z
+       and pos.x <= area.pos2.x
+       and pos.y <= area.pos2.y
+       and pos.z <= area.pos2.z
 end
 
 minetest.register_on_prejoinplayer(function(name)
