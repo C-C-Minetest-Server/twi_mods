@@ -27,7 +27,7 @@ local S = minetest.get_translator("func_areas_limitations")
 local function rm_chat_send(pos, player, name, msg)
     minetest.chat_send_player(name, msg)
     if minetest.features.node_interaction_actor then -- https://github.com/minetest/minetest/pull/14505
-        minetest.dig_node(pos, player)
+        minetest.after(0, minetest.dig_node, pos, player)
     else
         if minetest.get_node(pos).name ~= "air" then
             minetest.remove_node(pos)
