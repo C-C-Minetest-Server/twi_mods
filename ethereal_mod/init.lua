@@ -57,3 +57,16 @@ for _, prefix in ipairs({
         })
     end
 end
+
+-- Remove flight potion
+minetest.override_item("ethereal:flight_potion", {
+    on_use = function(itemstack, user, pointed_thing)
+        if user:is_player() then
+            minetest.chat_send_player(user:get_player_name(), S("The flight potion is disabled."))
+        end
+        return itemstack
+    end
+})
+minetest.clear_craft({
+	output = "ethereal:flight_potion",
+})
