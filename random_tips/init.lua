@@ -45,7 +45,7 @@ random_messages_api.from_table({
         "Remember to replant the crops after harvesting them."),
     S("The public tree farm at Spawn can be an easy way to get wood. " ..
         "Don't forget to plant the saplings after chopping down wood."),
-    S("Visit the Plain Houses Area via train or by walk from Spawn for places to settle down."),
+    S("Visit Spawn South via train or by walk from Spawn for places to settle down."),
 
     -- Advtrains
     S("Do not walk on tracks. The damage from a running train is deadly."),
@@ -83,5 +83,8 @@ random_messages_api.from_table({
     S("Click on the selling items icon of a smart shop interface to buy them."),
     S("Right-click an ATM to withdraw or deposit money."),
     S("Right-click a wire transfer terminal to start a digital transaction. " ..
-        "The receiver will be notified via in-game mail.")
+        "The receiver will be notified via in-game mail."),
+
+    -- For Sale Sign
+    S("Vacant plots are indicated by a \"SALE\" sign. Right-click it to buy the plot."),
 })
