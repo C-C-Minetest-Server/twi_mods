@@ -24,44 +24,39 @@
 
 local S = minetest.get_translator("func_areas_limitations")
 
-local function rm_chat_send(pos, player, name, msg)
-    minetest.chat_send_player(name, msg)
-    if minetest.features.node_interaction_actor then -- https://github.com/minetest/minetest/pull/14505
-        minetest.after(0, minetest.dig_node, pos, player)
-    else
-        if minetest.get_node(pos).name ~= "air" then
-            minetest.remove_node(pos)
-            return true
-        end
-    end
-end
-
-minetest.register_on_placenode(function(pos, newnode, placer, oldnode, itemstack, pointed_thing)
+local old_item_place_node_is_protected = extended_protection.item_place_node_is_protected
+function extended_protection.item_place_node_is_protected(itemstack, placer, pointed_thing)
     if not placer:is_player() then return end
     local name = placer:get_player_name()
     local item_name = itemstack:get_name()
+    local pos = extended_protection.pointed_thing_to_pos(pointed_thing)
 
-    -- Public Tree farm top [41]
     if func_areas.is_in_func_area(pos, 41) then
-        return rm_chat_send(pos, placer, name,
-            S("You can only place down apple tree saplings in the Public Tree Farm."))
+        return true
+    elseif func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
+        return true
+    elseif func_areas.is_in_func_area(pos, 13) and minetest.get_item_group(item_name, "seed") == 0 then
+        return true
+    elseif func_areas.is_in_func_area(pos, 136) then
+        return true
     end
 
-    -- Public Tree farm bottom [225]
-    if func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
-        return rm_chat_send(pos, placer, name,
-            S("You can only place down apple tree saplings in the Public Tree Farm."))
-    end
+    return old_item_place_node_is_protected(itemstack, placer, pointed_thing)
+end
 
-    -- Public farm [13]
-    if func_areas.is_in_func_area(pos, 13) and minetest.get_item_group(item_name, "seed") == 0 then
-        return rm_chat_send(pos, placer, name,
-            S("You can only place down plant seeds in the Public Farm."))
-    end
+extended_protection.register_on_item_place_node_protection_violation(function(itemstack, placer, pointed_thing)
+    if not placer:is_player() then return end
+    local name = placer:get_player_name()
+    local item_name = itemstack:get_name()
+    local pos = extended_protection.pointed_thing_to_pos(pointed_thing)
 
-    -- Cactus Farm [136]
-    if func_areas.is_in_func_area(pos, 136) then
-        return rm_chat_send(pos, placer, name,
-            S("You are not allowed to place blocks in the Public Cactus Farm."))
+    if func_areas.is_in_func_area(pos, 41) then
+        minetest.chat_send_player(name, S("You can only place down apple tree saplings in the Public Tree Farm."))
+    elseif func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
+        minetest.chat_send_player(name, S("You can only place down apple tree saplings in the Public Tree Farm."))
+    elseif func_areas.is_in_func_area(pos, 13) and minetest.get_item_group(item_name, "seed") == 0 then
+        minetest.chat_send_player(name, S("You can only place down plant seeds in the Public Farm."))
+    elseif func_areas.is_in_func_area(pos, 136) then
+        minetest.chat_send_player(name, S("You are not allowed to place blocks in the Public Cactus Farm."))
     end
 end)
