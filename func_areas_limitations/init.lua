@@ -30,6 +30,7 @@ function extended_protection.item_place_node_is_protected(itemstack, placer, poi
     local name = placer:get_player_name()
     local item_name = itemstack:get_name()
     local pos = extended_protection.pointed_thing_to_pos(pointed_thing)
+    if not pos then return end
 
     if func_areas.is_in_func_area(pos, 41) then
         return true
@@ -49,6 +50,7 @@ extended_protection.register_on_item_place_node_protection_violation(function(it
     local name = placer:get_player_name()
     local item_name = itemstack:get_name()
     local pos = extended_protection.pointed_thing_to_pos(pointed_thing)
+    if not pos then return end
 
     if func_areas.is_in_func_area(pos, 41) then
         minetest.chat_send_player(name, S("You can only place down apple tree saplings in the Public Tree Farm."))
