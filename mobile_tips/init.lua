@@ -24,7 +24,7 @@
     SOFTWARE.
 ]]
 
-local S = minetest.get_translatr("mobile_tips")
+local S = minetest.get_translator("mobile_tips")
 
 local function is_mobile(name)
     local player_info = minetest.get_player_information(name)
