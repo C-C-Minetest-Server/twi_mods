@@ -25,7 +25,6 @@
 local S = minetest.get_translator("cmd_alias")
 
 local cmd_alias = {
-    tp = "teleport",
     doc = "helpform",
     snp = "snippets",
 }
