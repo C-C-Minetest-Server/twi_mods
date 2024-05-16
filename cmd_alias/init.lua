@@ -27,6 +27,7 @@ local S = minetest.get_translator("cmd_alias")
 local cmd_alias = {
     doc = "helpform",
     snp = "snippets",
+    tp  = "teleport",
 }
 
 local function do_alias(from, to)
