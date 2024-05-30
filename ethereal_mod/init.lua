@@ -70,3 +70,11 @@ minetest.override_item("ethereal:flight_potion", {
 minetest.clear_craft({
 	output = "ethereal:flight_potion",
 })
+
+-- Stairsplus for mosses
+
+for _, name in ipairs({
+    "crystal", "mushroom", "fiery", "gray", "green",
+}) do
+    twi_fx.register_all_stairsplus("ethereal", name .. "_moss")
+end
