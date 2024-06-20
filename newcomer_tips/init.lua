@@ -31,7 +31,7 @@ local time_joined = {}
 
 local msg = table.concat({
     S("Welcome to 1F616EMO Survival Server!"),
-    S("Read the rules at https://gg.gg/19apbh, or TL;DR: respect others."),
+    S("Read the rules at @1, or TL;DR: respect others.", "https://wiki-twi.1f616emo.xyz/wiki/Project:Rules"),
     S("You can ask for help in the chatroom. Type \"/report\" if you want to contact the moderation team."),
     S("Have fun!"),
 }, "\n") 
