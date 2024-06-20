@@ -36,7 +36,8 @@ random_messages_api.from_table({
     S("Type in /sethome at where you want to set up your home coordinates, and then type in /home to go back."),
     S("To request teleporting to another player's location, type in /tpr <their name>."),
 
-    -- communications
+    -- Communications
+    S("To seek help, click the top-right speech bubble icon to open the chatroom. On PC, press T."),
     S("Type in /mail to open the mail dialog, where you can communicate with other players without them being online."),
     S("Type in /report if you want to contact our moderation team to report misbehavior or suggest changes."),
 
