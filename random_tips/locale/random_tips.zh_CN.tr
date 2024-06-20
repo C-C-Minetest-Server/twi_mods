@@ -4,11 +4,12 @@
 Type in /spawn to go back to the spawn point, where you can access numerous useful locations and facilities.=输入 /spawn 以回到出生点。出生点附近有许多有用的地点和设施。
 Type in /sethome at where you want to set up your home coordinates, and then type in /home to go back.=在你想设为家的位置输入 /sethome 来设置你的家的坐标，然后输入 /home 即可传送回家。
 To request teleporting to another player's location, type in /tpr <their name>.=如果想请求传送至其他玩家的位置，输入 /tpr <玩家名字>。
+To seek help, click the top-right speech bubble icon to open the chatroom. On PC, press T.=
 Type in /mail to open the mail dialog, where you can communicate with other players without them being online.=输入 /mail 以打开邮件界面。邮件可以作为玩家之间沟通的渠道，无需对方在线。
 Type in /report if you want to contact our moderation team to report misbehavior or suggest changes.=输入 /report 以对管理团队投诉不当行为或提出修改建议。
 The public farm at Spawn provides an early-game food source. Remember to replant the crops after harvesting them.=出生点的公众农场是获得早期食物的好地方。在采收之后，不要忘记重新种植种子。
 The public tree farm at Spawn can be an easy way to get wood. Don't forget to plant the saplings after chopping down wood.=出生点的公众树木农场是可以轻松获得树木的地方。在砍伐之后，不要忘记重新种植树苗。
-Visit the Plain Houses Area via train or by walk from Spawn for places to settle down.=前往平原住宅区寻找居住地点，你可以乘坐火车或从出生点步行前往。
+Visit Spawn South via train or by walk from Spawn for places to settle down.=
 Do not walk on tracks. The damage from a running train is deadly.=切勿在轨道上行走。行走中的列车造成的伤害是致命的。
 Right-click a train with an opened door to go onto it.=右键点击一辆开门的列车以乘坐之。
 Using machines from the technic mod speeds up your crafting workflows.=使用科技模组的机器可以加快你的物品制作过程。
@@ -29,3 +30,9 @@ Using bonemeal on dirt blocks to obtain flowers and grasses naturally found on t
 Click on the selling items icon of a smart shop interface to buy them.=在智慧商店的界面内点击待售物品的图标以购买之。
 Right-click an ATM to withdraw or deposit money.=右键点击自动柜员机以进行提款或存款。
 Right-click a wire transfer terminal to start a digital transaction. The receiver will be notified via in-game mail.=右键点击电汇终端以进行数码汇款。收款人将会通过游戏内邮件系统获得通知。
+Vacant plots are indicated by a "SALE" sign. Right-click it to buy the plot.=
+
+
+##### not used anymore #####
+
+Visit the Plain Houses Area via train or by walk from Spawn for places to settle down.=前往平原住宅区寻找居住地点，你可以乘坐火车或从出生点步行前往。

@@ -1,0 +1,7 @@
+# textdomain: twi_tips
+
+##[ init.lua ]##
+Type /sethome into the chatroom while staying in your home to allow teleporting back by typing /home.=
+Welcome to the Public Farm! After harvesting, don't forget to plant some seeds back for the sake of other players.=
+Welcome to the Public Tree Farm! Don't forget to place down some saplings after chopping down wood.=
+Right-click on a train to board or leave the train. Do not walk on tracks as running trains are deadly.=

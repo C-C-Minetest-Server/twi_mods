@@ -1,0 +1,5 @@
+# textdomain: cmd_admin
+
+##[ init.lua ]##
+The administrator of this server is 1F616EMO.=
+To contact the moderation team, type /report in the chatroom.=

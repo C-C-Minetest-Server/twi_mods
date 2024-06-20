@@ -1,0 +1,4 @@
+# textdomain: ethereal_mod
+
+##[ init.lua ]##
+The flight potion is disabled.=

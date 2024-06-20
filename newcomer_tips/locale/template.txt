@@ -1,0 +1,8 @@
+# textdomain: newcomer_tips
+
+##[ init.lua ]##
+Welcome to 1F616EMO Survival Server!=
+Read the rules at @1, or TL;DR: respect others.=
+You can ask for help in the chatroom. Type "/report" if you want to contact the moderation team.=
+Have fun!=
+Welcome our new player, @1!=

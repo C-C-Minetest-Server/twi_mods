@@ -1,0 +1,6 @@
+# textdomain: func_areas_limitations
+
+##[ init.lua ]##
+You can only place down apple tree saplings in the Public Tree Farm.=
+You can only place down plant seeds in the Public Farm.=
+You are not allowed to place blocks in the Public Cactus Farm.=
