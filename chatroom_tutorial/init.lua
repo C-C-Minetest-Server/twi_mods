@@ -45,6 +45,8 @@ register_on_chat_message(function(name, message)
     local player = minetest.get_player_by_name(name)
     if not player then return end
 
-    player:get_meta():set_int("chatroom_tutorial_show_msg", 0)
-    hud:remove(player, "chatroom_tutorial_show_msg")
+    if hud:exists(player, "chatroom_tutorial_show_msg") then
+        player:get_meta():set_int("chatroom_tutorial_show_msg", 0)
+        hud:remove(player, "chatroom_tutorial_show_msg")
+    end
 end)
