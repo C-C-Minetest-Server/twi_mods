@@ -1,5 +1,5 @@
--- twi_mods/twi_fx/init.lua
--- Common functions
+-- twi_mods/prejoin_msg/init.lua
+-- Send message to moderators on prejoin player
 --[[
     Copyright © 2024 1F616EMO
 
@@ -22,18 +22,12 @@
     THE SOFTWARE.
 ]]
 
-twi_fx = {}
-
-function twi_fx.register_all_stairsplus(modname, name)
-    local nodename = modname .. ":" .. name
-    local def = table.copy(minetest.registered_nodes[nodename])
-
-    def.is_ground_content = false
-    def.sunlight_propagates = true
-
-    stairsplus:register_all(modname, name, nodename, def)
-end
-
-function twi_fx.chat_send_moderators(msg)
-    beerchat.on_channel_message("Moderators", "SYSTEM", msg)
-end
+local auth
+minetest.register_on_prejoinplayer(function(name)
+    auth = auth or minetest.get_auth_handler()
+    if not auth.get_auth(name) then
+        twi_fx.chat_send_moderators("New player " .. name .. " is trying to join")
+    else
+        twi_fx.chat_send_moderators("Player " .. name .. " is trying to join")
+    end
+end)
