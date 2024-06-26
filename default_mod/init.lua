@@ -33,3 +33,25 @@ for _, name in ipairs({
         groups = groups
     })
 end
+
+-- Spread default:dry_dirt_with_dry_grass to default:dry_dirt
+minetest.register_abm({
+    label = "Dry Grass Dirt spread",
+    nodenames = { "default:dry_dirt" },
+    neighbors = {
+        "default:dry_dirt_with_dry_grass",
+    },
+    interval = 6,
+    chance = 50,
+    catch_up = false,
+    action = function(pos, node)
+        -- Check for darkness: night, shadow or under a light-blocking node
+        -- Returns if ignore above
+        local above = { x = pos.x, y = pos.y + 1, z = pos.z }
+        if (minetest.get_node_light(above) or 0) < 13 then
+            return
+        end
+
+        minetest.set_node(pos, { name = "default:dry_dirt_with_dry_grass" })
+    end
+})
