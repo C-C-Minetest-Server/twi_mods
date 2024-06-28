@@ -28,6 +28,7 @@ local cmd_alias = {
     doc = "helpform",
     snp = "snippets",
     tp  = "teleport",
+    lua = "/lua",
 }
 
 local function do_alias(from, to)
