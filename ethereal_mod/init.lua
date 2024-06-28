@@ -22,6 +22,8 @@
     THE SOFTWARE.
 ]]
 
+local S = minetest.get_translator("ethereal_mod")
+
 -- place_param2 = 0
 local node_list = {
     "ethereal:basandra_wood",
@@ -78,3 +80,9 @@ for _, name in ipairs({
 }) do
     twi_fx.register_all_stairsplus("ethereal", name .. "_moss")
 end
+
+-- alloying recipe of crystal ingots
+technic.register_alloy_recipe({
+    input = {"ethereal:crystal_spike", "default:mese_crystal"},
+    output = "ethereal:crystal_ingot",
+})
