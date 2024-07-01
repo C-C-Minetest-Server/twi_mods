@@ -44,7 +44,6 @@ end)
 minetest.register_on_joinplayer(function(player)
     local name = player:get_player_name()
     local meta = player:get_meta()
-    print(name, meta:get_int("newcomer_tips_send"))
     if meta:get_int("newcomer_tips_send") == 1 then
         time_joined[name] = os.time()
         minetest.after(0.5, function()
