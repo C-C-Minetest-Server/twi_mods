@@ -8,3 +8,4 @@ Teleported to Spawn!=
 Override the static spawnpoint=
 Invalid position given.=
 Static spawnpoint set to @1.=
+Tips! Put a slash (/) before "spawn" (i.e. /spawn) to teleport back Spawn instantly.=
