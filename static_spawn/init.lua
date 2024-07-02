@@ -37,6 +37,8 @@ minetest.register_chatcommand("spawn", {
             return false, S("Spawn point not set. Consult moderators to set a proper static spawnpoint.")
         end
         player:set_pos(spawn_pos)
+        background_music.set_start_play_gap(name, 2)
+        background_music.decide_and_play(player, true)
         return true, S("Teleported to Spawn!")
     end
 })
@@ -82,6 +84,8 @@ beerchat.register_on_chat_message(function(name, message)
         if last_shouted_spawn[name]
             and now - last_shouted_spawn[name] < 30 then
             player:set_pos(spawn_pos)
+            background_music.set_start_play_gap(name, 2)
+            background_music.decide_and_play(player, true)
             last_shouted_spawn[name] = nil
         else
             last_shouted_spawn[name] = now
