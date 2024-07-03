@@ -32,7 +32,17 @@ background_music.register_music("twi_bgm:spawn_day", {
         name = "tom_fluffy_style",
         gain = 0.4,
         resend_time = 161.9,
-    }
+    },
+
+    -- Town Themne
+    -- Pixelsphere OST? (cynicmusic)
+    -- https://opengameart.org/content/town-theme-rpg
+    -- License: CC0
+    {
+        name = "cynicmusic_town_theme",
+        gain = 0.4,
+        resend_time = 97.5,
+    },
 })
 
 -- Songs played around Spawnpoint at night
@@ -55,12 +65,22 @@ background_music.register_music("twi_bgm:spawn_night", {
         gain = 0.4,
         resend_time = 71.4,
     },
+
+    -- A New Town (RPG Theme)
+    -- Pixelsphere OST (cynicmusic)
+    -- https://pixelsphere.org/
+    -- License: CC0
+    {
+        name = "pixelsphere_25_new_town",
+        gain = 0.4,
+        resend_time = 62.3,
+    },
 })
 
 -- Songs played in SmushyVille in daytime
 background_music.register_music("twi_bgm:smushyville_day", {
     -- Little Town [TODO]
-    -- bart (remixz: 1F616EMO)
+    -- bart (remix: 1F616EMO)
     -- https://opengameart.org/content/little-town
     -- License: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
     -- {
@@ -110,7 +130,7 @@ background_music.register_music("twi_bgm:smushyville_night", {
 
     -- A New Town (RPG Theme)
     -- Pixelsphere OST (cynicmusic)
-    -- https://opengameart.org/content/a-new-town-rpg-theme
+    -- https://pixelsphere.org/
     -- License: CC0
     {
         name = "pixelsphere_25_new_town",
@@ -128,8 +148,8 @@ background_music.register_on_decide_music(function(player)
     if func_areas.is_in_func_area(ppos, 497) then
         -- Spawn Island
         return now_day and "twi_bgm:spawn_day" or "twi_bgm:spawn_night"
-    elseif func_areas.is_in_func_area(ppos, 498) then
-        -- Spawn Island
-        return now_day and "twi_bgm:smushyville_day" or "twi_bgm:smushyville_night"
+    -- elseif func_areas.is_in_func_area(ppos, 498) then
+    --     -- SmushyVille
+    --     return now_day and "twi_bgm:smushyville_day" or "twi_bgm:smushyville_night"
     end
 end)
