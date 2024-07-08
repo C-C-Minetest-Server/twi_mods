@@ -55,3 +55,10 @@ minetest.register_abm({
         minetest.set_node(pos, { name = "default:dry_dirt_with_dry_grass" })
     end
 })
+
+-- Craft two wood into one apple wood
+minetest.register_craft({
+    type = "shapeless",
+    output = "default:wood 2",
+    recipe = { "group:wood", "group:wood" }
+})
