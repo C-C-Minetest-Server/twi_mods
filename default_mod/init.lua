@@ -58,7 +58,9 @@ minetest.register_abm({
 
 -- Craft two wood into one apple wood
 minetest.register_craft({
-    type = "shapeless",
     output = "default:wood 2",
-    recipe = { "group:wood", "group:wood" }
+    recipe = {
+        { "group:wood" },
+        { "group:wood" },
+    }
 })
