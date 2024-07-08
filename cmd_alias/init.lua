@@ -29,17 +29,16 @@ local cmd_alias = {
     snp = "snippets",
     tp  = "teleport",
     lua = "/lua",
+    t   = "tutorial",
+    p1  = "area_pos1",
+    p2  = "area_pos2",
 }
 
-local function do_alias(from, to)
+for from, to in pairs(cmd_alias) do
     if minetest.registered_chatcommands[to] then
         local def = table.copy(minetest.registered_chatcommands[to])
         def.description = S("Alias of /@1: @2", to, def.description or "")
 
         minetest.register_chatcommand(from, def)
     end
-end
-
-for from, to in pairs(cmd_alias) do
-    do_alias(from, to)
 end
