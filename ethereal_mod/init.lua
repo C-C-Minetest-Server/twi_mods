@@ -91,6 +91,6 @@ technic.register_alloy_recipe({
 minetest.override_item("ethereal:fern", {
     selection_box = {
 		type = "fixed",
-		fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 15 / 16, 5 / 16}
+		fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 7 / 16, 5 / 16}
 	}
 })
