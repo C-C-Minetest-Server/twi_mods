@@ -31,6 +31,10 @@ local S = minetest.get_translator("random_tips")
 ]]
 
 random_messages_api.from_table({
+    -- Community
+    S("Do you know we have a Discord server? Join it at @1!", "https://discord.gg/bFhZuwQxDX"),
+    S("Get and contribute information aboout the server on our Wiki: @1", "https://wiki-twi.1f616emo.xyz/"),
+
     -- teleport commands
     S("Type in /spawn to go back to the spawn point, where you can access numerous useful locations and facilities."),
     S("Type in /sethome at where you want to set up your home coordinates, and then type in /home to go back."),
