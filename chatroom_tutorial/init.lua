@@ -17,9 +17,16 @@ teacher.register_turorial("chatroom_tutorial:chatroom", {
     },
 })
 
+local function show_to(name)
+    local player = minetest.get_player_by_name(name)
+    if player then
+        teacher.unlock_and_show(player, "chatroom_tutorial:chatroom", nil)
+    end
+end
+
 minetest.register_on_newplayer(function(player)
     player:get_meta():set_int("chatroom_tutorial_show_msg", 1)
-    minetest.after(-1, teacher.unlock_and_show, player, "chatroom_tutorial:chatroom", nil)
+    minetest.after(-1, show_to, player:get_player_name())
 end)
 
 minetest.register_on_joinplayer(function(player)
