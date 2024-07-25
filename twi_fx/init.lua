@@ -37,3 +37,13 @@ end
 function twi_fx.chat_send_moderators(msg)
     beerchat.on_channel_message("Moderators", "SYSTEM", msg)
 end
+
+function twi_fx.override_group(name, new_groups)
+    local groups = table.copy(minetest.registered_items[name].groups or {})
+    for k, v in pairs(new_groups) do
+        groups[k] = v == 0 and nil or v
+    end
+    minetest.override_item(name, {
+        groups = groups,
+    })
+end
