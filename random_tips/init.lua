@@ -52,6 +52,12 @@ random_messages_api.from_table({
         "Don't forget to plant the saplings after chopping down wood."),
     S("Visit Spawn South via train or by walk from Spawn for places to settle down."),
 
+    -- Chests and storage
+    S("Use locked or protected chests instead of normal chests to keep your items from griefers' touch."),
+    S("Running out of storage space? Use gold chests!"),
+    S("Tired of managing your storage room? Set up a drawers network! " ..
+        "See @1 for an in-depth tutorial.", "https://wiki-twi.1f616emo.xyz/s/5"),
+
     -- Advtrains
     S("Do not walk on tracks. The damage from a running train is deadly."),
     S("Right-click a train with an opened door to go onto it."),
