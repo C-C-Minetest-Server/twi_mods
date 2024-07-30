@@ -34,3 +34,33 @@ minetest.register_craft({
     output = farming.recipe_items.dye_red,
     recipe = { { "group:food_tomato" } }
 })
+
+-- Allow planting pineapple
+minetest.override_item("farming:pineapple", {
+    on_place = function(itemstack, placer, pointed_thing)
+        local under_pos = minetest.get_pointed_thing_position(pointed_thing)
+        if not under_pos then
+            return minetest.item_place(itemstack, placer, pointed_thing)
+        end
+        local under_name = minetest.get_node(under_pos).name
+        if minetest.get_item_group(under_name, "soil") < 2 then
+            return minetest.item_place(itemstack, placer, pointed_thing)
+        end
+
+        local old_count = itemstack:get_count()
+        itemstack = farming.place_seed(itemstack, placer, pointed_thing, "farming:pineapple_1")
+        local consumed = old_count - itemstack:get_count()
+
+        if consumed > 0 then
+            local ring_stack = ItemStack({ name = "farming:pineapple_ring", count = consumed * 5})
+            if placer:is_player() then
+                local inv = placer:get_inventory()
+                ring_stack = inv:add_item("main", ring_stack)
+            end
+            local pos = minetest.get_pointed_thing_position(pointed_thing, true) or placer:get_pos()
+            minetest.add_item(pos, ring_stack)
+        end
+
+        return itemstack
+    end,
+})
