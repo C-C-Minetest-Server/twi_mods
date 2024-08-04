@@ -32,6 +32,7 @@ local cmd_alias = {
     t     = "tutorial",
     p1    = "area_pos1",
     p2    = "area_pos2",
+    pt    = "protect",
     h     = "help",
     ["?"] = "tutorial",
 }
