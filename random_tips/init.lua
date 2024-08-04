@@ -36,6 +36,7 @@ random_messages_api.from_table({
     S("Get and contribute information aboout the server on our Wiki: @1", "https://wiki-twi.1f616emo.xyz/"),
 
     -- teleport commands
+    S("Stuck in a hollow? Type /spawn in the chatroom to get teleported out."),
     S("Type in /spawn to go back to the spawn point, where you can access numerous useful locations and facilities."),
     S("Type in /sethome at where you want to set up your home coordinates, and then type in /home to go back."),
     S("To request teleporting to another player's location, type in /tpr <their name>."),
@@ -54,6 +55,7 @@ random_messages_api.from_table({
 
     -- Chests and storage
     S("Use locked or protected chests instead of normal chests to keep your items from griefers' touch."),
+    S("Pack your numerous items into one inventory slot with baskets."),
     S("Running out of storage space? Use gold chests!"),
     S("Tired of managing your storage room? Set up a drawers network! " ..
         "See @1 for an in-depth tutorial.", "https://wiki-twi.1f616emo.xyz/s/5"),
