@@ -18,6 +18,8 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
 
+signs_lib.glow_item = "default:torch"
+
 -- If locked, signs can be modified by both area owner (if protected) and the sign owner
 local old_can_modify = signs_lib.can_modify
 function signs_lib.can_modify(pos, player)
