@@ -24,20 +24,20 @@ teacher.register_turorial("teacher_tutorial_post_buying_plot:post_buy", {
     show_on_unlock = true,
 
     {
-        texture = "teacher_tutorial_post_buying_plot_1.png",
+        texture = "teacher_tutorial_post_buying_plot_1.jpg",
         text =
             S("Congratulations! You bought your first plot on the 1F616EMO Survival Server! " ..
                 "You can build your dream house here.") .. "\n\n" ..
             S("You should start your construction in 4 days, and make it feel like a building in 30 days.")
     },
     {
-        texture = "teacher_tutorial_post_buying_plot_2.png",
+        texture = "teacher_tutorial_post_buying_plot_2.jpg",
         text =
             S("To start building, chop down the tree on your plot's land. " ..
                 "Craft the tree trunks into wood planks in your inventory.")
     },
     {
-        texture = "teacher_tutorial_post_buying_plot_3.png",
+        texture = "teacher_tutorial_post_buying_plot_3.jpg",
         text =
             S("If you want more wood, visit the public tree farm next to the Spawnpoint. " ..
                 "Don't forget to replant the saplings!") .. "\n\n" ..

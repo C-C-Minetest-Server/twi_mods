@@ -9,7 +9,7 @@ local hud = mhud.init()
 teacher.register_turorial("chatroom_tutorial:chatroom", {
     title = S("How to find help?"),
     {
-        texture = "chat_grant_interact_teacher_1.png",
+        texture = "chat_grant_interact_teacher_1.jpg",
         text = S("To seek help, use the chatroom. To start chatting:") .. "\n\n" ..
             S("On Mobile Phones or iPads: Look at the top right corner of your screen. " ..
                 "Tap the chat box icon.") .. "\n\n" ..
