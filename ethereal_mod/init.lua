@@ -94,3 +94,17 @@ minetest.override_item("ethereal:fern", {
 		fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 7 / 16, 5 / 16}
 	}
 })
+
+-- Allow crafting oil extract from bush and mushroom top
+for _, name in ipairs({
+    "ethereal:bush",
+    "ethereal:bush2",
+    "ethereal:bush3",
+    "ethereal:mushroom_pore",
+    "ethereal:mushroom",
+    "ethereal:mushroom_brown",
+}) do
+    twi_fx.override_group(name, {
+        leaves = 1,
+    })
+end
