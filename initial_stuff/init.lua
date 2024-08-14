@@ -32,13 +32,11 @@ local stuffs_list = {
 }
 
 minetest.register_on_newplayer(function(player)
-    minetest.after(0, function()
-        local name = player:get_player_name()
-        local inv = player:get_inventory()
-        for _, item in ipairs(stuffs_list) do
-            inv:add_item("main", ItemStack(item))
-        end
+    local name = player:get_player_name()
+    local inv = player:get_inventory()
+    for _, item in ipairs(stuffs_list) do
+        inv:add_item("main", ItemStack(item))
+    end
 
-        unified_money.add_balance_safe(name, 30)
-    end)
+    unified_money.add_balance_safe(name, 30)
 end)
