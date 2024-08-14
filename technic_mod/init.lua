@@ -22,11 +22,8 @@
 minetest.clear_craft({
     output = "technic:music_player",
 })
-do
-    local groups = minetest.registered_nodes["technic:music_player"].groups
-    groups.not_in_creative_inventory = 1
-    groups.not_in_craft_guide = 1
-    minetest.override_item("technic:music_player",{
-        groups = groups,
-    })
-end
+twi_fx.override_group("technic:music_player", {
+    not_in_creative_inventory = 1,
+    not_in_craft_guide = 1,
+})
+
