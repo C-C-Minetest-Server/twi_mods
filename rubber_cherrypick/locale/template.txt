@@ -1,0 +1,12 @@
+# textdomain: rubber_cherrypick
+
+##[ init.lua ]##
+Rubber Tree Trunk=
+Rubber Tree Trunk (Empty)=
+Rubber Tree Leaves=
+Rubber Tree Sapling=
+Rubber Tree Planks=
+Rubber Tree Fence=
+Rubber Tree Fence Rail=
+Rubber Tree Fence Gate=
+All-faces Rubber Tree Trunk=

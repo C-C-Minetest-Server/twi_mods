@@ -1,0 +1,21 @@
+# textdomain: rubber_cherrypick
+
+##[ init.lua ]##
+Rubber Tree Trunk=Tronc d'arbre a caoutchouc
+Rubber Tree Trunk (Empty)=Tronc d'arbre à caoutchouc (vide)
+Rubber Tree Leaves=Feuilles d'arbre à caoutchouc
+Rubber Tree Sapling=Pousse d'arbre à caoutchouc
+Rubber Tree Planks=Planches d'arbre à caoutchouc
+Rubber Tree Fence=Barrière en bois d'arbre à caoutchouc
+Rubber Tree Fence Rail=Clôture en bois d'arbre à caoutchouc
+Rubber Tree Fence Gate=Porte de clôture en bois d'arbre à caoutchouc
+All-faces Rubber Tree Trunk=
+
+
+##### not used anymore #####
+
+Rubber Tree=Arbre à caoutchouc
+Rubber Tree Planks Slab=Dalle en bois d'arbre à caoutchouc
+Rubber Tree Planks Stair=Escalier en bois d'arbre à caoutchouc
+Rubber Tree Trunk Slab=Dalle en tronc d'arbre à caoutchouc
+Rubber Tree Trunk Stair=Escalier en tronc d'arbre à caoutchouc

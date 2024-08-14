@@ -1,0 +1,21 @@
+# textdomain: rubber_cherrypick
+
+##[ init.lua ]##
+Rubber Tree Trunk=Tronco de Árbol de Árbol del Caucho
+Rubber Tree Trunk (Empty)=Tronco de Árbol del Caucho (Vacío)
+Rubber Tree Leaves=Hojas de Árbol de Árbol del Caucho
+Rubber Tree Sapling=Retoño de Árbol de Árbol del Caucho
+Rubber Tree Planks=Madera de Árbol de Árbol del Caucho
+Rubber Tree Fence=Valla de Árbol del Caucho
+Rubber Tree Fence Rail=Riel de Valla de Árbol del Caucho
+Rubber Tree Fence Gate=Puerta de Valla de Árbol del Caucho
+All-faces Rubber Tree Trunk=
+
+
+##### not used anymore #####
+
+Rubber Tree=Árbol del Caucho
+Rubber Tree Planks Slab=Losa de Tablones de Árbol del Caucho
+Rubber Tree Planks Stair=Escalera de Tablones de Árbol del Caucho
+Rubber Tree Trunk Slab=Losa de Tronco de Árbol del Caucho
+Rubber Tree Trunk Stair=Escalera de Tronco de Árbol del Caucho

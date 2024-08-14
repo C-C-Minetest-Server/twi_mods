@@ -1,0 +1,21 @@
+# textdomain: rubber_cherrypick
+
+##[ init.lua ]##
+Rubber Tree Trunk=Gummibaumstamm
+Rubber Tree Trunk (Empty)=Gummibaumstamm (leer)
+Rubber Tree Leaves=Gummibaumlaub
+Rubber Tree Sapling=Gummibaumsetzling
+Rubber Tree Planks=Gummibaumbretter
+Rubber Tree Fence=Gummibaum-Zaun
+Rubber Tree Fence Rail=Gummibaum-Schiene
+Rubber Tree Fence Gate=Gummibaum-Tor
+All-faces Rubber Tree Trunk=
+
+
+##### not used anymore #####
+
+Rubber Tree=Gummibaum
+Rubber Tree Planks Slab=Gummibaumplatte
+Rubber Tree Planks Stair=Gummibaumstufe
+Rubber Tree Trunk Slab=Gummibaumstammplatte
+Rubber Tree Trunk Stair=Gummibaumstammstufe
