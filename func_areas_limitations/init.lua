@@ -24,6 +24,15 @@
 
 local S = minetest.get_translator("func_areas_limitations")
 
+local function is_seed(item_name)
+    if item_name == "farming:beanpole"
+        or item_name == "farming:trellis"
+        or minetest.get_item_group(item_name, "seed") ~= 0 then
+        return true
+    end
+    return false
+end
+
 local old_item_place_node_is_protected = extended_protection.item_place_node_is_protected
 function extended_protection.item_place_node_is_protected(itemstack, placer, pointed_thing)
     if not placer:is_player() then return end
@@ -39,7 +48,7 @@ function extended_protection.item_place_node_is_protected(itemstack, placer, poi
     elseif (func_areas.is_in_func_area(pos, 13)     -- Spawn Public Farm
             or func_areas.is_in_func_area(pos, 496) -- Eastern SmushyVille Public Farm
             or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
-        ) and minetest.get_item_group(item_name, "seed") == 0 then
+        ) and not is_seed(item_name) then
         return true
     elseif func_areas.is_in_func_area(pos, 136) then
         return true
@@ -62,7 +71,7 @@ extended_protection.register_on_item_place_node_protection_violation(function(it
     elseif (func_areas.is_in_func_area(pos, 13)     -- Spawn Public Farm
             or func_areas.is_in_func_area(pos, 496) -- Eastern SmushyVille Public Farm
             or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
-        ) and minetest.get_item_group(item_name, "seed") == 0 then
+        ) and not is_seed(item_name) then
         minetest.chat_send_player(name, S("You can only place down plant seeds in the Public Farm."))
     elseif func_areas.is_in_func_area(pos, 136) then
         minetest.chat_send_player(name, S("You are not allowed to place blocks in the Public Cactus Farm."))
