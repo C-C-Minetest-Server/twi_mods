@@ -65,6 +65,10 @@ minetest.override_item("moretrees:rubber_tree_sapling", {
             -- maximum interval of interior volume check
             4)
     end,
+    selection_box = {
+		type = "fixed",
+		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
+	},
 })
 
 minetest.register_node(":moretrees:rubber_tree_planks", {
