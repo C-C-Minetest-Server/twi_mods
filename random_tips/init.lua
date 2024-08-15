@@ -32,7 +32,7 @@ local S = minetest.get_translator("random_tips")
 
 random_messages_api.from_table({
     -- Community
-    S("Do you know we have a Discord server? Join it at @1!", "https://discord.gg/bFhZuwQxDX"),
+    S("Do you know we have a Discord server? Join it at @1", "https://discord.gg/bFhZuwQxDX"),
     S("Get and contribute information aboout the server on our Wiki: @1", "https://wiki-twi.1f616emo.xyz/"),
 
     -- teleport commands
