@@ -64,3 +64,11 @@ minetest.override_item("farming:pineapple", {
         return itemstack
     end,
 })
+
+-- Temporary remove max light limit on rhubarb
+farming.registered_plants["farming:rhubarb"].maxlight = nil
+for _, stage in ipairs({ 1, 2, 3 }) do
+    minetest.override_item("farming:rhubarb_" .. stage, {
+        maxlight = minetest.LIGHT_MAX,
+    })
+end
