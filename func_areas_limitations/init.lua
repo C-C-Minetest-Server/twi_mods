@@ -46,8 +46,9 @@ function extended_protection.item_place_node_is_protected(itemstack, placer, poi
     elseif func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
         return true
     elseif (func_areas.is_in_func_area(pos, 13)     -- Spawn Public Farm
+            or func_areas.is_in_func_area(pos, 92)  -- SCL Jail Farm
             or func_areas.is_in_func_area(pos, 496) -- Eastern SmushyVille Public Farm
-            -- or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
+        -- or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
         ) and not is_seed(item_name) then
         return true
     elseif func_areas.is_in_func_area(pos, 136) then
@@ -69,8 +70,9 @@ extended_protection.register_on_item_place_node_protection_violation(function(it
     elseif func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
         minetest.chat_send_player(name, S("You can only place down apple tree saplings in the Public Tree Farm."))
     elseif (func_areas.is_in_func_area(pos, 13)     -- Spawn Public Farm
+            or func_areas.is_in_func_area(pos, 92)  -- SCL Jail Farm
             or func_areas.is_in_func_area(pos, 496) -- Eastern SmushyVille Public Farm
-            -- or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
+        -- or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
         ) and not is_seed(item_name) then
         minetest.chat_send_player(name, S("You can only place down plant seeds in the Public Farm."))
     elseif func_areas.is_in_func_area(pos, 136) then
