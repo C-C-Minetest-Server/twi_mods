@@ -43,7 +43,16 @@ minetest.override_item("farming:pineapple", {
             return minetest.item_place(itemstack, placer, pointed_thing)
         end
         local under_name = minetest.get_node(under_pos).name
-        if minetest.get_item_group(under_name, "soil") < 2 then
+        if under_name == "farming:pineapple_1"
+            or under_name == "farming:pineapple_2"
+            or under_name == "farming:pineapple_3"
+            or under_name == "farming:pineapple_4"
+            or under_name == "farming:pineapple_5"
+            or under_name == "farming:pineapple_6"
+            or under_name == "farming:pineapple_7"
+            or under_name == "farming:pineapple_8" then
+            return itemstack
+        elseif minetest.get_item_group(under_name, "soil") < 2 then
             return minetest.item_place(itemstack, placer, pointed_thing)
         end
 
@@ -52,7 +61,7 @@ minetest.override_item("farming:pineapple", {
         local consumed = old_count - itemstack:get_count()
 
         if consumed > 0 then
-            local ring_stack = ItemStack({ name = "farming:pineapple_ring", count = consumed * 5})
+            local ring_stack = ItemStack({ name = "farming:pineapple_ring", count = consumed * 5 })
             if placer:is_player() then
                 local inv = placer:get_inventory()
                 ring_stack = inv:add_item("main", ring_stack)
