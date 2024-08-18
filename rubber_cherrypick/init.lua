@@ -31,7 +31,7 @@ minetest.override_item("moretrees:rubber_tree_trunk_empty", {
     tiles = {
         "moretrees_rubber_tree_trunk_top.png",
         "moretrees_rubber_tree_trunk_top.png",
-        "technic_rubber_tree_full.png"
+        "technic_rubber_tree_empty.png"
     },
     paramtype2 = "facedir",
     is_ground_content = false,
