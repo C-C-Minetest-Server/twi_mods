@@ -35,6 +35,8 @@ end
 
 local color = minetest.get_color_escape_sequence("DarkOrange")
 
+local busy_mods = {}
+
 local function get_chat_string(name)
     local list_moderators = {}
     for _, player in pairs(core.get_connected_players()) do
@@ -54,6 +56,10 @@ local function get_chat_string(name)
 
             if is_afk(player_name) then
                 flags[#flags + 1] = S("AFK")
+            end
+
+            if busy_mods[name] then
+                flags[#flags + 1] = S("Busy")
             end
 
             if #flags > 0 then
@@ -81,6 +87,27 @@ minetest.register_on_joinplayer(function(player)
         end
     end)
 end)
+
+minetest.register_on_leaveplayer(function(player)
+    local name = player:get_player_name()
+    busy_mods[name] = nil
+end)
+
+minetest.register_on_priv_revoke(function(name, _, priv)
+    if priv == "ban" then
+        busy_mods[name] = nil
+    end
+end)
+
+minetest.register_chatcommand("mods_busy", {
+    description = S("Set yourself as busy on the moderator list"),
+    privs = { ban = true },
+    func = function(name)
+        local prev_status = busy_mods[name]
+        busy_mods[name] = prev_status == nil and true or nil
+        return true, prev_status and S("Set to normal.") or S("Set to busy.")
+    end,
+})
 
 minetest.register_chatcommand("list_mods", {
     description = S("List all moderators"),
