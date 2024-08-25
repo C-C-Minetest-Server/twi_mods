@@ -10,10 +10,14 @@ teacher.register_turorial("chatroom_tutorial:chatroom", {
     title = S("How to find help?"),
     {
         texture = "chat_grant_interact_teacher_1.jpg",
-        text = S("To seek help, use the chatroom. To start chatting:") .. "\n\n" ..
+        text = {
+            S("If you need help in non-English languages, type in the chatroom with your mother language, " ..
+                "or use a translator (e.g. Google Translate) to communicate."),
+            S("To seek help, use the chatroom. To start chatting:"),
             S("On Mobile Phones or iPads: Look at the top right corner of your screen. " ..
-                "Tap the chat box icon.") .. "\n\n" ..
+                "Tap the chat box icon."),
             S("On PC or Mac: Press the \"T\" key on your keyboard to open the chat box."),
+        }
     },
 })
 
@@ -33,11 +37,11 @@ minetest.register_on_joinplayer(function(player)
     if player:get_meta():get_int("chatroom_tutorial_show_msg") ~= 0 then
         hud:add(player, "chatroom_tutorial_show_msg", {
             hud_elem_type = "text",
-			position = {x = 0.5, y = 0.5},
-			offset = {x = 0, y = 42},
-			text = S("Click on the top-right speech bubble icon to get help. (T on PC)"),
-			text_scale = 1,
-			color = 0xFFD700,
+            position = { x = 0.5, y = 0.5 },
+            offset = { x = 0, y = 42 },
+            text = S("Click on the top-right speech bubble icon to get help. (T on PC)"),
+            text_scale = 1,
+            color = 0xFFD700,
         })
     end
 end)
