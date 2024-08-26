@@ -109,12 +109,14 @@ default.register_fence_rail(":moretrees:rubber_tree_fence_rail", {
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 },
     sounds = xcompat.sounds.node_sound_wood_defaults()
 })
-doors.register_fencegate(":moretrees:rubber_tree_gate", {
+doors.register_fencegate("moretrees:rubber_tree_gate", {
     description = S("Rubber Tree Fence Gate"),
     texture = planks_tile,
     material = planks_name,
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 }
 })
+minetest.register_alias(":moretrees:rubber_tree_gate_closed", "moretrees:rubber_tree_gate_closed")
+minetest.register_alias(":moretrees:rubber_tree_gate_open", "moretrees:rubber_tree_gate_open")
 
 stairsplus:register_all(
     "moretrees",
