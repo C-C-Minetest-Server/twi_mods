@@ -24,6 +24,26 @@
 
 local S = minetest.get_translator("func_areas_limitations")
 
+minetest.registered_privileges("public_farm", {
+    description = S("Can use public farms"),
+    give_to_singleplayer = true,
+})
+
+minetest.register_on_joinplayer(function(player)
+    local meta = player:get_meta()
+    if meta:get_int("func_areas_limitations_public_farm") == 1 then
+        return
+    end
+
+    local name = player:get_player_name()
+    local privs = minetest.get_player_privs(name)
+    if not privs.public_farm then
+        privs.public_farm = true
+        minetest.set_player_privs(name, privs)
+    end
+    meta:set_int("func_areas_limitations_public_farm", 1)
+end)
+
 local function is_seed(item_name)
     if item_name == "farming:beanpole"
         or item_name == "farming:trellis"
@@ -31,6 +51,14 @@ local function is_seed(item_name)
         return true
     end
     return false
+end
+
+local function is_in_public_farm(pos)
+    return func_areas.is_in_func_area(pos, 13)  -- Spawn Public Farm
+        or func_areas.is_in_func_area(pos, 92)  -- SCL Jail Farm
+        or func_areas.is_in_func_area(pos, 496) -- Eastern SmushyVille Public Farm
+        or func_areas.is_in_func_area(pos, 548) -- Great SmushyVille Public Farm
+    --  or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
 end
 
 local old_item_place_node_is_protected = extended_protection.item_place_node_is_protected
@@ -45,13 +73,10 @@ function extended_protection.item_place_node_is_protected(itemstack, placer, poi
         return true
     elseif func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
         return true
-    elseif (func_areas.is_in_func_area(pos, 13)     -- Spawn Public Farm
-            or func_areas.is_in_func_area(pos, 92)  -- SCL Jail Farm
-            or func_areas.is_in_func_area(pos, 496) -- Eastern SmushyVille Public Farm
-            or func_areas.is_in_func_area(pos, 548) -- Great SmushyVille Public Farm
-        -- or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
-        ) and not is_seed(item_name) then
-        return true
+    elseif is_in_public_farm(pos) then
+        if not is_seed(item_name) or not minetest.check_player_privs(name, { public_farm = true }) then
+            return true
+        end
     elseif func_areas.is_in_func_area(pos, 136) then
         return true
     end
@@ -70,13 +95,13 @@ extended_protection.register_on_item_place_node_protection_violation(function(it
         minetest.chat_send_player(name, S("You can only place down apple tree saplings in the Public Tree Farm."))
     elseif func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
         minetest.chat_send_player(name, S("You can only place down apple tree saplings in the Public Tree Farm."))
-    elseif (func_areas.is_in_func_area(pos, 13)     -- Spawn Public Farm
-            or func_areas.is_in_func_area(pos, 92)  -- SCL Jail Farm
-            or func_areas.is_in_func_area(pos, 496) -- Eastern SmushyVille Public Farm
-            or func_areas.is_in_func_area(pos, 548) -- Great SmushyVille Public Farm
-        -- or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
-        ) and not is_seed(item_name) then
-        minetest.chat_send_player(name, S("You can only place down plant seeds in the Public Farm."))
+    elseif is_in_public_farm(pos) then
+        if not minetest.check_player_privs(name, { public_farm = true }) then
+            minetest.chat_send_player(name, S("You are banned from using Public Farms. " ..
+                "Contact moderators for more information."))
+        elseif not is_seed(item_name) then
+            minetest.chat_send_player(name, S("You can only place down plant seeds in the Public Farm."))
+        end
     elseif func_areas.is_in_func_area(pos, 136) then
         minetest.chat_send_player(name, S("You are not allowed to place blocks in the Public Cactus Farm."))
     end
