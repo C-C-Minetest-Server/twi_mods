@@ -61,6 +61,23 @@ local function is_in_public_farm(pos)
     --  or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
 end
 
+local old_is_protected = minetest.is_protected
+function minetest.is_protected(pos, name)
+    if is_in_public_farm(pos) and not minetest.check_player_privs(name, { public_farm = true }) then
+        return true
+    end
+    return old_is_protected(pos, name)
+end
+
+minetest.register_on_protection_violation(function(pos, name)
+    if is_in_public_farm(pos) and not minetest.check_player_privs(name, { public_farm = true }) then
+        if minetest.get_player_by_name(name) then
+            minetest.chat_send_player(name, S("You are banned from using Public Farms. " ..
+                "Contact moderators for more information."))
+        end
+    end
+end)
+
 local old_item_place_node_is_protected = extended_protection.item_place_node_is_protected
 function extended_protection.item_place_node_is_protected(itemstack, placer, pointed_thing)
     if not placer:is_player() then return end
@@ -73,10 +90,8 @@ function extended_protection.item_place_node_is_protected(itemstack, placer, poi
         return true
     elseif func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
         return true
-    elseif is_in_public_farm(pos) then
-        if not is_seed(item_name) or not minetest.check_player_privs(name, { public_farm = true }) then
-            return true
-        end
+    elseif is_in_public_farm(pos) and not is_seed(item_name) then
+        return true
     elseif func_areas.is_in_func_area(pos, 136) then
         return true
     end
@@ -95,13 +110,8 @@ extended_protection.register_on_item_place_node_protection_violation(function(it
         minetest.chat_send_player(name, S("You can only place down apple tree saplings in the Public Tree Farm."))
     elseif func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
         minetest.chat_send_player(name, S("You can only place down apple tree saplings in the Public Tree Farm."))
-    elseif is_in_public_farm(pos) then
-        if not minetest.check_player_privs(name, { public_farm = true }) then
-            minetest.chat_send_player(name, S("You are banned from using Public Farms. " ..
-                "Contact moderators for more information."))
-        elseif not is_seed(item_name) then
-            minetest.chat_send_player(name, S("You can only place down plant seeds in the Public Farm."))
-        end
+    elseif is_in_public_farm(pos) and not is_seed(item_name) then
+        minetest.chat_send_player(name, S("You can only place down plant seeds in the Public Farm."))
     elseif func_areas.is_in_func_area(pos, 136) then
         minetest.chat_send_player(name, S("You are not allowed to place blocks in the Public Cactus Farm."))
     end
