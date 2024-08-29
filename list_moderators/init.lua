@@ -58,7 +58,7 @@ local function get_chat_string(name)
                 flags[#flags + 1] = S("AFK")
             end
 
-            if busy_mods[name] then
+            if busy_mods[player_name] then
                 flags[#flags + 1] = S("Busy")
             end
 
