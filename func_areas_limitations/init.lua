@@ -24,7 +24,7 @@
 
 local S = minetest.get_translator("func_areas_limitations")
 
-minetest.registered_privileges("public_farm", {
+minetest.register_privilege("public_farm", {
     description = S("Can use public farms"),
     give_to_singleplayer = true,
 })
