@@ -29,3 +29,11 @@ minetest.override_item("animalia:nest_song_bird", {
     buildable_to = true,
     floodable = true,
 })
+
+twi_fx.override_group("animalia:poultry_raw", {
+    food_chicken_raw = 1
+})
+
+twi_fx.override_group("animalia:poultry_cooked", {
+    food_chicken = 1
+})
