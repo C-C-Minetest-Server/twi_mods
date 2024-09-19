@@ -79,8 +79,8 @@ random_messages_api.from_table({
         "to avoid breaking them."),
 
     -- Digtron
-    S("The digtron mod helps construct automated tunnel-boring machines. " ..
-        "It is very useful in mining or building repeating patterns."),
+    S("The digtron mod is for constructing automated tunnel-boring machines. " ..
+        "They are very useful in mining or building repeating patterns."),
 
     -- Farming
     S("Punch a grown crop with a mithril scythe to re-plant it while obtaining its drops."),
