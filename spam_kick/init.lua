@@ -12,7 +12,6 @@ register_on_chat_message(function(name, message)
 
     if string.find(message, "ronwyatt%.com") and minetest.get_player_by_name(name) then
         minetest.chat_send_player(name, "Spam keyword matched. (#14)")
+        return true
     end
-
-    return true
 end)
