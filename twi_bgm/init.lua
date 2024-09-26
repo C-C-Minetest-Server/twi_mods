@@ -3,13 +3,15 @@
 -- Copyright (C) 2024  1F616EMO
 -- SPDX-License-Identifier: LGPL-3.0-or-later
 
+local MP = minetest.get_modpath("twi_bgm")
+
 -- Songs played around Spawnpoint in daytime
 background_music.register_music("twi_bgm:spawn_day", {
     -- Sun Cave Village
     -- Soundworlds Histories: Chasing the Leviathan (John Oestmann)
     -- License: CC0
     {
-        name = "john_leviathan_03",
+        file = MP .. "/bgms/john_leviathan_03.ogg",
         gain = 0.4,
         resend_time = 198.4,
     },
@@ -19,7 +21,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- https://opengameart.org/content/inca-pan-flute-hip-hop
     -- License: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
     {
-        name = "tom_inca_pan_flute",
+        file = MP .. "/bgms/tom_inca_pan_flute.ogg",
         gain = 0.4,
         resend_time = 146.4,
     },
@@ -29,7 +31,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- https://opengameart.org/content/fluffy-style
     -- License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
     {
-        name = "tom_fluffy_style",
+        file = MP .. "/bgms/tom_fluffy_style.ogg",
         gain = 0.4,
         resend_time = 161.9,
     },
@@ -39,7 +41,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- https://opengameart.org/content/town-theme-rpg
     -- License: CC0
     {
-        name = "cynicmusic_town_theme",
+        file = MP .. "/bgms/cynicmusic_town_theme.ogg",
         gain = 0.4,
         resend_time = 97.5,
     },
@@ -48,7 +50,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- Soundworlds Histories: Duskfire (John Oestmann)
     -- License: CC0
     {
-        name = "john_duskfire_07",
+        file = MP .. "/bgms/john_duskfire_07.ogg",
         gain = 0.4,
         resend_time = 100.2,
     },
@@ -58,7 +60,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- https://opengameart.org/content/little-town
     -- License: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
     -- {
-    --     name = "1f616emo_little_town",
+    --     file = MP .. "/bgms/1f616emo_little_town",
     -- },
 })
 
@@ -69,7 +71,7 @@ background_music.register_music("twi_bgm:spawn_night", {
     -- https://opengameart.org/content/radakan-del-erad
     -- License: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
     {
-        name = "radakan_del_erad",
+        file = MP .. "/bgms/radakan_del_erad.ogg",
         gain = 0.4,
         resend_time = 300.8,
     },
@@ -78,7 +80,7 @@ background_music.register_music("twi_bgm:spawn_night", {
     -- Diminixed
     -- License:CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
     {
-        name = "diminixed_nevergrowup",
+        file = MP .. "/bgms/diminixed_nevergrowup.ogg",
         gain = 0.4,
         resend_time = 71.4,
     },
@@ -88,7 +90,7 @@ background_music.register_music("twi_bgm:spawn_night", {
     -- https://pixelsphere.org/
     -- License: CC0
     {
-        name = "pixelsphere_25_new_town",
+        file = MP .. "/bgms/pixelsphere_25_new_town.ogg",
         gain = 0.4,
         resend_time = 62.3,
     },
@@ -97,7 +99,7 @@ background_music.register_music("twi_bgm:spawn_night", {
     -- Soundworlds Datapedia: Ardune Ambient (John Oestmann)
     -- License: CC0
     {
-        name = "john_ardune_07",
+        file = MP .. "/bgms/john_ardune_07.ogg",
         gain = 0.4,
         resend_time = 193.5,
     },
