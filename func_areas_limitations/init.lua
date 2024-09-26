@@ -29,6 +29,12 @@ minetest.register_privilege("public_farm", {
     give_to_singleplayer = true,
 })
 
+minetest.register_on_newplayer(function(player)
+    -- Assume new players have privs properly set
+    local meta = player:get_meta()
+    meta:set_int("func_areas_limitations_public_farm", 1)
+end)
+
 minetest.register_on_joinplayer(function(player)
     local meta = player:get_meta()
     if meta:get_int("func_areas_limitations_public_farm") == 1 then
