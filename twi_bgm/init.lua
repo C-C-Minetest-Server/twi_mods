@@ -113,6 +113,15 @@ background_music.register_music("twi_bgm:spawn_night", {
         gain = 0.4,
         resend_time = 193.5,
     },
+
+    -- Path to Lake Land
+    -- Alexandr Zhelanov
+    -- License: CC-BY 3.0 https://creativecommons.org/licenses/by/3.0/
+    {
+        file = MP .. "/bgms/zhelanov_path_lake_land.ogg",
+        gain = 0.4,
+        resend_time = 254.8,
+    },
 })
 
 background_music.register_on_decide_music(function(player)
