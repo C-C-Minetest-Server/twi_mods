@@ -55,6 +55,16 @@ background_music.register_music("twi_bgm:spawn_day", {
         resend_time = 100.2,
     },
 
+    -- Stepping Pebbles (No Drums)
+    -- Matthew Pablo
+    -- https://opengameart.org/content/stepping-stones
+    -- License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
+    {
+        file = MP .. "/bgms/pablo_stepping_pebbles_nodrums.ogg",
+        gain = 0.4,
+        resend_time = 64.4,
+    },
+
     -- Little Town [TODO]
     -- bart (remix: 1F616EMO)
     -- https://opengameart.org/content/little-town
