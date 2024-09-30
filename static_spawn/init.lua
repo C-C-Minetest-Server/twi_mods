@@ -72,7 +72,7 @@ minetest.register_chatcommand("setspawn", {
 
 local last_shouted_spawn = {}
 
-beerchat.register_on_chat_message(function(name, message)
+twi_fx.register_on_chat_message(function(name, message)
     local player = minetest.get_player_by_name(name)
     local spawn_pos = minetest.setting_get_pos("static_spawnpoint")
     if not (player and spawn_pos) then return end

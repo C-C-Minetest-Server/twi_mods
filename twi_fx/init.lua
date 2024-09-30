@@ -34,10 +34,6 @@ function twi_fx.register_all_stairsplus(modname, name)
     stairsplus:register_all(modname, name, nodename, def)
 end
 
-function twi_fx.chat_send_moderators(msg)
-    beerchat.on_channel_message("Moderators", "SYSTEM", msg)
-end
-
 function twi_fx.override_group(name, new_groups)
     local groups = table.copy(minetest.registered_items[name].groups or {})
     for k, v in pairs(new_groups) do
@@ -47,3 +43,8 @@ function twi_fx.override_group(name, new_groups)
         groups = groups,
     })
 end
+
+twi_fx.register_on_chat_message =
+    minetest.global_exists("beerchat")
+    and beerchat.register_on_chat_message
+    or minetest.register_on_chat_message
