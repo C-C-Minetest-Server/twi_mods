@@ -81,3 +81,28 @@ local function loop()
 end
 
 minetest.after(5, loop)
+
+twi_fx.register_on_chat_message(function(name, message)
+    local player = minetest.get_player_by_name(name)
+    local spawn_pos = minetest.setting_get_pos("static_spawnpoint")
+    if not (player and spawn_pos) then return end
+    local meta = player:get_meta()
+    if meta:get_int("newcomer_tips_send") ~= 1 then return end
+    message = string.lower(message)
+
+    if string.find(message, "spawn") then
+        minetest.after(0, function()
+            if minetest.get_player_by_name(name) then
+                minetest.chat_send_player(name, minetest.colorize("orange",
+                    S("Tip! Type \"/spawn\" (without the quotes but with the slash) to get back tp the spawnpoint.")))
+            end
+        end)
+    elseif string.find(message, "escape") or string.find(message, "stuck") then
+        minetest.after(0, function()
+            if minetest.get_player_by_name(name) then
+                minetest.chat_send_player(name, minetest.colorize("orange",
+                    S("Tip! Type \"/spawn\" (without the quotes but with the slash) to escape.")))
+            end
+        end)
+    end
+end)

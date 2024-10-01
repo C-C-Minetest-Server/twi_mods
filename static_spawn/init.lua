@@ -69,38 +69,3 @@ minetest.register_chatcommand("setspawn", {
         return true, S("Static spawnpoint set to @1.", param)
     end
 })
-
-local last_shouted_spawn = {}
-
-twi_fx.register_on_chat_message(function(name, message)
-    local player = minetest.get_player_by_name(name)
-    local spawn_pos = minetest.setting_get_pos("static_spawnpoint")
-    if not (player and spawn_pos) then return end
-    message = string.trim(message)
-    message = string.lower(message)
-
-    if message == "spawn" then
-        local now = os.time()
-        if last_shouted_spawn[name]
-            and now - last_shouted_spawn[name] < 30 then
-            player:set_pos(spawn_pos)
-            background_music.decide_and_play(player, true)
-            last_shouted_spawn[name] = nil
-        else
-            last_shouted_spawn[name] = now
-        end
-        minetest.after(0, function()
-            if minetest.get_player_by_name(name) then
-                minetest.chat_send_player(name, minetest.colorize("orange",
-                    S("Tips! Put a slash (/) before \"spawn\" (i.e. /spawn) to teleport back Spawn instantly.")))
-            end
-        end)
-    else
-        last_shouted_spawn[name] = nil
-    end
-end)
-
-minetest.register_on_leaveplayer(function(player)
-    local name = player:get_player_name()
-    last_shouted_spawn[name] = nil
-end)
