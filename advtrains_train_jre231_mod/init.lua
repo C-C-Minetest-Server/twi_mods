@@ -9,5 +9,6 @@ for _, name in ipairs({
     "SaHa_E231",
     "MoHa_E230",
 }) do
+    minetest.registered_entities["advtrains:" .. name].max_speed = 30
     advtrains.wagon_prototypes["advtrains:" .. name].max_speed = 30
 end
