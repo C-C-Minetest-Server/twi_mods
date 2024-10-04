@@ -9,5 +9,5 @@ for _, name in ipairs({
     "SaHa_E231",
     "MoHa_E230",
 }) do
-    advtrains.wagon_prototypes["advtrains:" .. name].max_speed = 35
+    advtrains.wagon_prototypes["advtrains:" .. name].max_speed = 30
 end
