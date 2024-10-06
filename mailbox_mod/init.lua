@@ -65,14 +65,14 @@ function mailbox.rent_mailbox(pos, player)
                 for x = area.pos1.x, area.pos2.x do
                     for y = area.pos1.y, area.pos2.y do
                         for z = area.pos1.z, area.pos2.z do
-                            local npos = { x = x, y = y, z = z}
-                            local node = minetest.get_node(pos)
-                            if node.name == "mailbox:mailbox" or node.name == "mailbox:letterbox" then
+                            local npos = { x = x, y = y, z = z }
+                            local nnode = minetest.get_node(npos)
+                            if nnode.name == "mailbox:mailbox" or nnode.name == "mailbox:letterbox" then
                                 local nmeta = minetest.get_meta(npos)
                                 if nmeta:get_string("owner") == pname then
                                     minetest.chat_send_player(pname,
                                         S("You can't rent more than one mailboxes! Another one found at @1"),
-                                        minetest.pos_to_string(pos))
+                                        minetest.pos_to_string(npos))
                                     return
                                 end
                             end
