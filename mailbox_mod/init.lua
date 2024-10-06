@@ -60,7 +60,7 @@ function mailbox.rent_mailbox(pos, player)
 
         if func_areas.is_in_func_area(pos, allowed_areas[1])
             or func_areas.is_in_func_area(pos, allowed_areas[2]) then
-            for id in ipairs(allowed_areas) do
+            for _, id in ipairs(allowed_areas) do
                 local area = areas.areas[id]
                 for x = area.pos1.x, area.pos2.x do
                     for y = area.pos1.y, area.pos2.y do
