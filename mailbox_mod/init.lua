@@ -71,8 +71,8 @@ function mailbox.rent_mailbox(pos, player)
                                 local nmeta = minetest.get_meta(npos)
                                 if nmeta:get_string("owner") == pname then
                                     minetest.chat_send_player(pname,
-                                        S("You can't rent more than one mailboxes! Another one found at @1"),
-                                        minetest.pos_to_string(npos))
+                                        S("You can't rent more than one mailboxes! Another one found at @1",
+                                        minetest.pos_to_string(npos)))
                                     return
                                 end
                             end
