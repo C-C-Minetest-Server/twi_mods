@@ -34,20 +34,28 @@ if minetest.global_exists("afk_indicator") then
 end
 
 local color = minetest.get_color_escape_sequence("DarkOrange")
+local alt_color = minetest.get_color_escape_sequence("DarkCyan")
 
 local busy_mods = {}
 
 local function get_chat_string(name)
     local list_moderators = {}
+    local list_helpers = {}
     for _, player in pairs(core.get_connected_players()) do
         local player_name = player:get_player_name()
         local privs = minetest.get_player_privs(player_name)
+        local list
         if privs.ban == true then
+            list = list_moderators
+        elseif privs.role_helper == true then
+            list = list_helpers
+        end
+        if list then
             local display = player_name
             local flags = {}
 
             if name == player_name then
-                flags[#flags+1] = S("You")
+                flags[#flags + 1] = S("You")
             end
 
             if privs.server then
@@ -64,19 +72,24 @@ local function get_chat_string(name)
 
             if #flags > 0 then
                 display = display .. " " ..
-                    minetest.get_color_escape_sequence("DarkCyan") .. "(" .. table.concat(flags, ", ") .. ")" .. color
+                    alt_color .. "(" .. table.concat(flags, ", ") .. ")" .. color
             end
 
-            list_moderators[#list_moderators + 1] = display
+            list[#list + 1] = display
         end
     end
+    local rtn
     if #list_moderators > 0 then
-        return color ..
+        rtn = color ..
             S("List of moderators online: @1", table.concat(list_moderators, ", "))
     else
-        return color ..
+        rtn = color ..
             S("No moderators online. Seek help by typing /report in the chatroom.")
     end
+    if #list_helpers > 0 then
+        rtn = rtn .. "\n" .. color .. S("List of helpers online: @1", table.concat(list_helpers, ", "))
+    end
+    return rtn
 end
 
 minetest.register_on_joinplayer(function(player)
@@ -94,15 +107,20 @@ minetest.register_on_leaveplayer(function(player)
 end)
 
 minetest.register_on_priv_revoke(function(name, _, priv)
-    if priv == "ban" then
+    local privs = minetest.get_player_privs(name)
+    if priv == "ban" and not privs.role_helper
+        or privs == "role_helper" and not privs.ban then
         busy_mods[name] = nil
     end
 end)
 
 minetest.register_chatcommand("mods_busy", {
     description = S("Set yourself as busy on the moderator list"),
-    privs = { ban = true },
     func = function(name)
+        local privs = minetest.get_player_privs(name)
+        if not (privs.ban or privs.role_helper) then
+            return false, S("Insufficant privileges!")
+        end
         local prev_status = busy_mods[name]
         busy_mods[name] = prev_status == nil and true or nil
         return true, prev_status and S("Set to normal.") or S("Set to busy.")
@@ -110,7 +128,7 @@ minetest.register_chatcommand("mods_busy", {
 })
 
 minetest.register_chatcommand("list_mods", {
-    description = S("List all moderators"),
+    description = S("List all moderators and helpers"),
     func = function(name)
         return true, get_chat_string(name)
     end,
