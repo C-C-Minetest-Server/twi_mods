@@ -29,7 +29,7 @@ minetest.override_item("default:stone", {
     on_dig = function(pos, node, player)
         if old_on_dig(pos, node, player) == false then
             return false
-        elseif not player:is_player() or player.is_fake_player then
+        elseif not player or not player:is_player() or player.is_fake_player then
             return true
         end
         local name = player:get_player_name()
