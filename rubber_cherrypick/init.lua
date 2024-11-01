@@ -66,9 +66,9 @@ minetest.override_item("moretrees:rubber_tree_sapling", {
             4)
     end,
     selection_box = {
-		type = "fixed",
-		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
-	},
+        type = "fixed",
+        fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16 }
+    },
 })
 
 minetest.register_node(":moretrees:rubber_tree_planks", {
@@ -181,3 +181,7 @@ choppy.api.register_tree("moretrees:rubber", {
         ["moretrees:rubber_tree_leaves"] = "leaves",
     },
 })
+
+if minetest.get_modpath("logspikes") then
+    logspikes.register_log_spike("logspikes:moretrees_rubber_spike", "moretrees:rubber_tree_trunk")
+end
