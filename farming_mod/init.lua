@@ -57,8 +57,9 @@ minetest.override_item("farming:pineapple", {
         end
 
         local old_count = itemstack:get_count()
-        itemstack = farming.place_seed(itemstack, placer, pointed_thing, "farming:pineapple_1")
-        local consumed = old_count - itemstack:get_count()
+        local itemstack2 = farming.place_seed(itemstack, placer, pointed_thing, "farming:pineapple_1")
+        if not itemstack2 then return itemstack end
+        local consumed = old_count - itemstack2:get_count()
 
         if consumed > 0 then
             local ring_stack = ItemStack({ name = "farming:pineapple_ring", count = consumed * 5 })
@@ -70,7 +71,7 @@ minetest.override_item("farming:pineapple", {
             minetest.add_item(pos, ring_stack)
         end
 
-        return itemstack
+        return itemstack2
     end,
 })
 
@@ -81,3 +82,11 @@ for _, stage in ipairs({ 1, 2, 3 }) do
         maxlight = minetest.LIGHT_MAX,
     })
 end
+
+-- Slice melons and pumkins on harvest
+minetest.override_item("farming:pumpkin_8", {
+    drop = "farming:pumpkin_slice 4",
+})
+minetest.override_item("farming:melon_8", {
+    drop = "farming:melon_slice 4",
+})
