@@ -5,7 +5,12 @@
 
 local banned_parts = {}
 
-for _, part in ipairs({"admin", "moderator"}) do
+for _, part in ipairs({
+    "admin",
+    "moderator",
+    "nigger",
+    "fuck",
+}) do
     banned_parts[part] = antispoof.normalize(part)
 end
 
