@@ -5,7 +5,7 @@
 
 for _, name in ipairs({
     "moretrains_nightline_couchette",
-    "moretrains_nightline_couchette",
+    "moretrains_nightline_seat_car",
     "moretrains_wagon_gondola",
     "moretrains_wagon_gondola_mese",
     "moretrains_wagon_gondola_cobble",
