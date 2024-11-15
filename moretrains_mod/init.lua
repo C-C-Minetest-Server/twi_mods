@@ -22,6 +22,6 @@ for _, name in ipairs({
     "moretrains_wagon_box",
     "moretrains_railroad_car",
 }) do
-    minetest.registered_entities["advtrains:" .. name].max_speed = 30
-    advtrains.wagon_prototypes["advtrains:" .. name].max_speed = 30
+    minetest.registered_entities["advtrains:" .. name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
+    advtrains.wagon_prototypes["advtrains:" .. name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
 end

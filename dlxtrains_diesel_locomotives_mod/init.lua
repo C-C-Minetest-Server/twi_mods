@@ -8,6 +8,6 @@ for _, name in ipairs({
     "dlxtrains_diesel_locomotives:locomotive_type2",
     "dlxtrains_diesel_locomotives:locomotive_type3",
 }) do
-    minetest.registered_entities[name].max_speed = 30
-    advtrains.wagon_prototypes[name].max_speed = 30
+    minetest.registered_entities[name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
+    advtrains.wagon_prototypes[name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
 end

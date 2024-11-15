@@ -48,3 +48,6 @@ twi_fx.register_on_chat_message =
     minetest.global_exists("beerchat")
     and beerchat.register_on_chat_message
     or minetest.register_on_chat_message
+
+-- Limit that out hardware can bear
+twi_fx.ADVTRAINS_MAX_TRAIN_SPEED = 30
