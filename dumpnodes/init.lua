@@ -44,12 +44,12 @@ local function pairs_s(dict)
 	return ipairs(keys)
 end
 
-minetest.register_chatcommand("dumpnodes", {
+core.register_chatcommand("dumpnodes", {
 	description = "Dump node and texture list for use with minetestmapper",
 	privs = { server = true },
 	func = function()
 		local ntbl = {}
-		for _, nn in pairs_s(minetest.registered_nodes) do
+		for _, nn in pairs_s(core.registered_nodes) do
 			local prefix, name = nn:match('(.*):(.*)')
 			if prefix == nil or name == nil then
 				print("ignored(1): " .. nn)
@@ -60,7 +60,7 @@ minetest.register_chatcommand("dumpnodes", {
 				ntbl[prefix][name] = true
 			end
 		end
-		local out, err = io.open(minetest.get_worldpath() .. "/nodes.txt", 'wb')
+		local out, err = io.open(core.get_worldpath() .. "/nodes.txt", 'wb')
 		if not out then
 			return true, err
 		end
@@ -69,18 +69,20 @@ minetest.register_chatcommand("dumpnodes", {
 			out:write('# ' .. prefix .. '\n')
 			for _, name in pairs_s(ntbl[prefix]) do
 				local nn = prefix .. ":" .. name
-				local nd = minetest.registered_nodes[nn]
+				local nd = core.registered_nodes[nn]
 				local tiles = nd.tiles or nd.tile_images
 				if tiles == nil or nd.drawtype == 'airlike' then
 					print("ignored(2): " .. nn)
 				else
 					local tex = get_tile(tiles, 1)
-					tex = (tex .. '^'):match('%(*(.-)%)*^') -- strip modifiers
-					if tex:find("[combine", 1, true) then
-						tex = tex:match('.-=([^:]-)') -- extract first texture
+					if tex then
+						tex = (tex .. '^'):match('%(*(.-)%)*^') -- strip modifiers
+						if tex:find("[combine", 1, true) then
+							tex = tex:match('.-=([^:]-)') -- extract first texture
+						end
+						out:write(nn .. ' ' .. tex .. '\n')
+						n = n + 1
 					end
-					out:write(nn .. ' ' .. tex .. '\n')
-					n = n + 1
 				end
 			end
 			out:write('\n')
