@@ -185,3 +185,7 @@ choppy.api.register_tree("moretrees:rubber", {
 if minetest.get_modpath("logspikes") then
     logspikes.register_log_spike("logspikes:moretrees_rubber_spike", "moretrees:rubber_tree_trunk")
 end
+
+if minetest.get_modpath("banisters") then
+    banisters.register("banisters", "rubber_tree", "moretrees:rubber_tree_planks")
+end
