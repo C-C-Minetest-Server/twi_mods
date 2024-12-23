@@ -40,5 +40,11 @@ shop_dialog.register_dialog("twi_shops:advtrains", {
             cost = 10,
             max_amount = check_atlatc,
         },
+        {
+            item = ItemStack("linetrack:watertrack_lua_placer"),
+            description = S("For LuaATC operators only. Advtrains boat track that runs LuaATC code."),
+            cost = 5,
+            max_amount = check_atlatc,
+        },
     }
 })
