@@ -34,3 +34,11 @@ for _, name in ipairs({
 }) do
     digtron.builder_read_item_substitutions[name] = nil
 end
+
+for name, def in pairs(core.registered_nodes) do
+    if def.groups and def.groups.digtron and def.groups.digtron ~= 0 then
+        local groups = table.copy(def.groups)
+        groups.destroy_falling_node = 1
+        core.override_item(name, { groups = groups })
+    end
+end
