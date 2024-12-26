@@ -26,7 +26,7 @@ twi_fx = {}
 
 function twi_fx.register_all_stairsplus(modname, name)
     local nodename = modname .. ":" .. name
-    local def = table.copy(minetest.registered_nodes[nodename])
+    local def = table.copy(core.registered_nodes[nodename])
 
     def.is_ground_content = false
     def.sunlight_propagates = true
@@ -35,19 +35,19 @@ function twi_fx.register_all_stairsplus(modname, name)
 end
 
 function twi_fx.override_group(name, new_groups)
-    local groups = table.copy(minetest.registered_items[name].groups or {})
+    local groups = table.copy(core.registered_items[name].groups or {})
     for k, v in pairs(new_groups) do
         groups[k] = v == 0 and nil or v
     end
-    minetest.override_item(name, {
+    core.override_item(name, {
         groups = groups,
     })
 end
 
 twi_fx.register_on_chat_message =
-    minetest.global_exists("beerchat")
+    core.global_exists("beerchat")
     and beerchat.register_on_chat_message
-    or minetest.register_on_chat_message
+    or core.register_on_chat_message
 
 -- Limit that out hardware can bear
 twi_fx.ADVTRAINS_MAX_TRAIN_SPEED = 30

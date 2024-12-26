@@ -6,7 +6,7 @@
 ]]
 
 -- Adopt the linuxforks way of crafting stone tiles
-minetest.clear_craft({
+core.clear_craft({
 	recipe = {
 		{ "default:cobble", "default:cobble", "default:cobble" },
 		{ "default:cobble", "default:stone",  "default:cobble" },
@@ -14,7 +14,7 @@ minetest.clear_craft({
 	}
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = "moreblocks:stone_tile 4",
 	recipe = {
 		{ "default:cobble", "default:cobble" },
@@ -22,7 +22,7 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = "moreblocks:stone_tile 36",
 	recipe = {
 		{ "moreblocks:cobble_compressed", "moreblocks:cobble_compressed" },
@@ -32,7 +32,7 @@ minetest.register_craft({
 
 -- Allow compressed cobbles to be smelt into stone/grind into gravel
 
-minetest.register_craft({
+core.register_craft({
 	type = "cooking",
 	output = "default:stone 9",
 	recipe = "moreblocks:cobble_compressed",
@@ -53,10 +53,10 @@ local nodes = {
 	"moreblocks:wood_tile_right",
 }
 for _, name in ipairs(nodes) do
-	local groups = table.copy(minetest.registered_nodes[name].groups or {})
+	local groups = table.copy(core.registered_nodes[name].groups or {})
 	groups.not_in_creative_inventory = 1
 	groups.not_in_craft_guide = 1
-	minetest.override_item(name, {
+	core.override_item(name, {
 		groups = groups
 	})
 end

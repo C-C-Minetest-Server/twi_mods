@@ -25,7 +25,7 @@
     SOFTWARE.
 ]]
 
-minetest.override_item("animalia:nest_song_bird", {
+core.override_item("animalia:nest_song_bird", {
     buildable_to = true,
     floodable = true,
 })

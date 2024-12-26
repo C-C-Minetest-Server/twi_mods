@@ -31,7 +31,7 @@ local stuffs_list = {
     "animalia:beef_cooked 50"
 }
 
-minetest.register_on_newplayer(function(player)
+core.register_on_newplayer(function(player)
     local name = player:get_player_name()
     local inv = player:get_inventory()
     for _, item in ipairs(stuffs_list) do

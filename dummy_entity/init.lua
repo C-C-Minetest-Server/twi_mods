@@ -22,4 +22,4 @@
     THE SOFTWARE.
 ]]
 
-minetest.register_entity("dummy_entity:dummy_entity", {})
+core.register_entity("dummy_entity:dummy_entity", {})

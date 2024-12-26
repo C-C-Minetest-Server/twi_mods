@@ -28,14 +28,14 @@
 -- 1. Remove shaped recipies and replace them with shapeless one
 
 --- 1a. Mulch from one tree and 8 leaves
-minetest.clear_craft({
+core.clear_craft({
     recipe = {
         { "group:tree",   "group:leaves", "group:leaves" },
         { "group:leaves", "group:leaves", "group:leaves" },
         { "group:leaves", "group:leaves", "group:leaves" }
     }
 })
-minetest.register_craft({
+core.register_craft({
     type = "shapeless",
     output = "bonemeal:mulch 4",
     recipe = {
@@ -46,17 +46,17 @@ minetest.register_craft({
 })
 
 --- 1b. Fertiliser from both type of bonemeal
-minetest.clear_craft({
+core.clear_craft({
     recipe = { { "bonemeal:bonemeal", "bonemeal:mulch" } }
 })
-minetest.register_craft({
+core.register_craft({
     type = "shapeless",
     output = "bonemeal:fertiliser 2",
     recipe = { "bonemeal:bonemeal", "bonemeal:mulch" },
 })
 
 -- 2. Add craft recipe for bonemeal
-minetest.register_craft({
+core.register_craft({
     type = "shapeless",
     output = "bonemeal:bonemeal 2",
     recipe = { "group:bone" }

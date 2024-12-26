@@ -3,7 +3,7 @@
 -- Copyright (C) 2024  1F616EMO
 -- SPDX-License-Identifier: LGPL-3.0-or-later
 
-local S = minetest.get_translator("teacher_tutorial_protection_violation")
+local S = core.get_translator("teacher_tutorial_protection_violation")
 
 teacher.register_turorial("teacher_tutorial_protection_violation:on_violation", {
     title = S("Position is protected..."),
@@ -29,12 +29,12 @@ teacher.register_turorial("teacher_tutorial_protection_violation:on_violation", 
                 "where you are is protected.") .. "\n\n" ..
             S("However, if you see \"@1\" after the player's name, you can build or place blocks here, " ..
                 "but you can't claim the area as yours. This usually happens in public farms and public tree farms.",
-                minetest.translate("areas", ":open"))
+                core.translate("areas", ":open"))
     },
 })
 
-minetest.register_on_protection_violation(function(_, name)
-    local player = minetest.get_player_by_name(name)
+core.register_on_protection_violation(function(_, name)
+    local player = core.get_player_by_name(name)
     if player then
         teacher.unlock_entry_for_player(player, "teacher_tutorial_protection_violation:on_violation")
     end

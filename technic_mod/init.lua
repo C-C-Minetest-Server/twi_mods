@@ -19,7 +19,7 @@
 ]]
 
 -- Disable technic:music_player
-minetest.clear_craft({
+core.clear_craft({
     output = "technic:music_player",
 })
 twi_fx.override_group("technic:music_player", {

@@ -30,8 +30,8 @@ for _, name in ipairs({
     alternode.modname .. ":pencil",
     alternode.modname .. ":key"
 }) do
-    minetest.clear_craft({
+    core.clear_craft({
         output = name,
     })
-    minetest.unregister_item(name)
+    core.unregister_item(name)
 end

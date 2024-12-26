@@ -24,8 +24,8 @@
     SOFTWARE.
 ]]
 
-local S = minetest.get_translator("newcomer_tips")
-local C = minetest.colorize
+local S = core.get_translator("newcomer_tips")
+local C = core.colorize
 
 local time_joined = {}
 
@@ -36,20 +36,20 @@ local msg = table.concat({
     S("Have fun!"),
 }, "\n") 
 
-minetest.register_on_newplayer(function(player)
+core.register_on_newplayer(function(player)
     local meta = player:get_meta()
     meta:set_int("newcomer_tips_send", 1)
 end)
 
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
     local name = player:get_player_name()
     local meta = player:get_meta()
     if meta:get_int("newcomer_tips_send") == 1 then
         time_joined[name] = os.time()
-        minetest.after(0.5, function()
-            if minetest.get_player_by_name(name) then
-                minetest.chat_send_all(C("yellow", S("Welcome our new player, @1!", name)))
-                minetest.chat_send_player(name, msg)
+        core.after(0.5, function()
+            if core.get_player_by_name(name) then
+                core.chat_send_all(C("yellow", S("Welcome our new player, @1!", name)))
+                core.chat_send_player(name, msg)
             end
         end)
     end
@@ -57,7 +57,7 @@ end)
 
 local TIME_NEEDED = 2 * 60
 
-minetest.register_on_leaveplayer(function(player)
+core.register_on_leaveplayer(function(player)
     local name = player:get_player_name()
     if time_joined[name] and os.time() - time_joined[name] > TIME_NEEDED then
         local meta = player:get_meta()
@@ -70,37 +70,37 @@ local function loop()
     local now = os.time()
     for name, time in pairs(time_joined) do
         if now - time > TIME_NEEDED then
-            local player = minetest.get_player_by_name(name)
+            local player = core.get_player_by_name(name)
             local meta = player:get_meta()
             meta:set_int("newcomer_tips_send", 0)
             time_joined[name] = nil
         end
     end
 
-    minetest.after(30, loop)
+    core.after(30, loop)
 end
 
-minetest.after(5, loop)
+core.after(5, loop)
 
 twi_fx.register_on_chat_message(function(name, message)
-    local player = minetest.get_player_by_name(name)
-    local spawn_pos = minetest.setting_get_pos("static_spawnpoint")
+    local player = core.get_player_by_name(name)
+    local spawn_pos = core.setting_get_pos("static_spawnpoint")
     if not (player and spawn_pos) then return end
     local meta = player:get_meta()
     if meta:get_int("newcomer_tips_send") ~= 1 then return end
     message = string.lower(message)
 
     if string.find(message, "spawn") then
-        minetest.after(0, function()
-            if minetest.get_player_by_name(name) then
-                minetest.chat_send_player(name, minetest.colorize("orange",
+        core.after(0, function()
+            if core.get_player_by_name(name) then
+                core.chat_send_player(name, core.colorize("orange",
                     S("Tip! Type \"/spawn\" (without the quotes but with the slash) to get back tp the spawnpoint.")))
             end
         end)
     elseif string.find(message, "escape") or string.find(message, "stuck") then
-        minetest.after(0, function()
-            if minetest.get_player_by_name(name) then
-                minetest.chat_send_player(name, minetest.colorize("orange",
+        core.after(0, function()
+            if core.get_player_by_name(name) then
+                core.chat_send_player(name, core.colorize("orange",
                     S("Tip! Type \"/spawn\" (without the quotes but with the slash) to escape.")))
             end
         end)

@@ -5,10 +5,10 @@
 -- SPDX-License-Identifier: LGPL-3.0-or-later
 
 -- Remove bundle recipe and refund
-minetest.clear_craft({
+core.clear_craft({
     output = "currency:minegeld_bundle",
 })
-minetest.register_craft({
+core.register_craft({
     output = "currency:minegeld 9",
     recipe = { { "currency:minegeld_bundle" } },
 })

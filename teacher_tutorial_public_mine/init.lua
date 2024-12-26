@@ -3,7 +3,7 @@
 -- Copyright (C) 2024  1F616EMO
 -- SPDX-License-Identifier: LGPL-3.0-or-later
 
-local S = minetest.get_translator("teacher_tutorial_public_mine")
+local S = core.get_translator("teacher_tutorial_public_mine")
 
 teacher.register_turorial("teacher_tutorial_public_mine:public_mine", {
     title = S("The Public Mine"),
@@ -23,9 +23,9 @@ teacher.register_turorial("teacher_tutorial_public_mine:public_mine", {
 })
 
 local stone_counter = {}
-local old_on_dig = minetest.registered_nodes["default:stone"].on_dig or minetest.node_dig
+local old_on_dig = core.registered_nodes["default:stone"].on_dig or core.node_dig
 
-minetest.override_item("default:stone", {
+core.override_item("default:stone", {
     on_dig = function(pos, node, player)
         if old_on_dig(pos, node, player) == false then
             return false
@@ -53,14 +53,14 @@ minetest.override_item("default:stone", {
     end,
 })
 
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
     local data = teacher.get_player_data(player)
     if data["teacher_tutorial_public_mine:public_mine"] then
         stone_counter[player:get_player_name()] = false
     end
 end)
 
-minetest.register_on_leaveplayer(function(player)
+core.register_on_leaveplayer(function(player)
     stone_counter[player:get_player_name()] = nil
 end)
 

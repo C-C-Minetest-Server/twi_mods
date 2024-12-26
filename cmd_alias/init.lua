@@ -22,7 +22,7 @@
     THE SOFTWARE.
 ]]
 
-local S = minetest.get_translator("cmd_alias")
+local S = core.get_translator("cmd_alias")
 
 local cmd_alias = {
     doc   = "helpform",
@@ -38,10 +38,10 @@ local cmd_alias = {
 }
 
 for from, to in pairs(cmd_alias) do
-    if minetest.registered_chatcommands[to] then
-        local def = table.copy(minetest.registered_chatcommands[to])
+    if core.registered_chatcommands[to] then
+        local def = table.copy(core.registered_chatcommands[to])
         def.description = S("Alias of /@1: @2", to, def.description or "")
 
-        minetest.register_chatcommand(from, def)
+        core.register_chatcommand(from, def)
     end
 end

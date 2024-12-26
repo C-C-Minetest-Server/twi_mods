@@ -3,10 +3,10 @@
 -- Copyright (C) 2024  1F616EMO
 -- SPDX-License-Identifier: LGPL-2.1-or-later
 
-local S = minetest.get_translator("twi_shops")
+local S = core.get_translator("twi_shops")
 
 local function check_atlatc(name)
-    if minetest.check_player_privs(name, { atlatc = true }) then
+    if core.check_player_privs(name, { atlatc = true }) then
         return 99
     end
     return 0

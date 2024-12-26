@@ -30,19 +30,19 @@ if farming.mod ~= "redo" then
 end
 
 -- Tomato red dye
-minetest.register_craft({
+core.register_craft({
     output = farming.recipe_items.dye_red,
     recipe = { { "group:food_tomato" } }
 })
 
 -- Allow planting pineapple
-minetest.override_item("farming:pineapple", {
+core.override_item("farming:pineapple", {
     on_place = function(itemstack, placer, pointed_thing)
-        local under_pos = minetest.get_pointed_thing_position(pointed_thing)
+        local under_pos = core.get_pointed_thing_position(pointed_thing)
         if not under_pos then
-            return minetest.item_place(itemstack, placer, pointed_thing)
+            return core.item_place(itemstack, placer, pointed_thing)
         end
-        local under_name = minetest.get_node(under_pos).name
+        local under_name = core.get_node(under_pos).name
         if under_name == "farming:pineapple_1"
             or under_name == "farming:pineapple_2"
             or under_name == "farming:pineapple_3"
@@ -52,8 +52,8 @@ minetest.override_item("farming:pineapple", {
             or under_name == "farming:pineapple_7"
             or under_name == "farming:pineapple_8" then
             return itemstack
-        elseif minetest.get_item_group(under_name, "soil") < 2 then
-            return minetest.item_place(itemstack, placer, pointed_thing)
+        elseif core.get_item_group(under_name, "soil") < 2 then
+            return core.item_place(itemstack, placer, pointed_thing)
         end
 
         local old_count = itemstack:get_count()
@@ -67,8 +67,8 @@ minetest.override_item("farming:pineapple", {
                 local inv = placer:get_inventory()
                 ring_stack = inv:add_item("main", ring_stack)
             end
-            local pos = minetest.get_pointed_thing_position(pointed_thing, true) or placer:get_pos()
-            minetest.add_item(pos, ring_stack)
+            local pos = core.get_pointed_thing_position(pointed_thing, true) or placer:get_pos()
+            core.add_item(pos, ring_stack)
         end
 
         return itemstack2
@@ -78,15 +78,15 @@ minetest.override_item("farming:pineapple", {
 -- Temporary remove max light limit on rhubarb
 farming.registered_plants["farming:rhubarb"].maxlight = nil
 for _, stage in ipairs({ 1, 2, 3 }) do
-    minetest.override_item("farming:rhubarb_" .. stage, {
-        maxlight = minetest.LIGHT_MAX,
+    core.override_item("farming:rhubarb_" .. stage, {
+        maxlight = core.LIGHT_MAX,
     })
 end
 
 -- Slice melons and pumkins on harvest
-minetest.override_item("farming:pumpkin_8", {
+core.override_item("farming:pumpkin_8", {
     drop = "farming:pumpkin_slice 4",
 })
-minetest.override_item("farming:melon_8", {
+core.override_item("farming:melon_8", {
     drop = "farming:melon_slice 4",
 })

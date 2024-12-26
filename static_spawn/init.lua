@@ -19,20 +19,20 @@
     USA
 ]]
 
-S = minetest.get_translator("spawn")
+S = core.get_translator("spawn")
 
-minetest.register_chatcommand("spawn", {
+core.register_chatcommand("spawn", {
     description = S("Teleport to spawnpoint"),
     privs = {
         home = true
     },
     func = function(name)
-        local player = minetest.get_player_by_name(name)
+        local player = core.get_player_by_name(name)
         if not player then
             return false, S("Player object not found.")
         end
 
-        local spawn_pos = minetest.setting_get_pos("static_spawnpoint")
+        local spawn_pos = core.setting_get_pos("static_spawnpoint")
         if not spawn_pos then
             return false, S("Spawn point not set. Consult moderators to set a proper static spawnpoint.")
         end
@@ -43,7 +43,7 @@ minetest.register_chatcommand("spawn", {
     end
 })
 
-minetest.register_chatcommand("setspawn", {
+core.register_chatcommand("setspawn", {
     description = S("Override the static spawnpoint"),
     privs = {
         server = true
@@ -51,20 +51,20 @@ minetest.register_chatcommand("setspawn", {
     param = "[<pos>]",
     func = function(name, param)
         if param == "" then
-            local player = minetest.get_player_by_name(name)
+            local player = core.get_player_by_name(name)
             if not player then
                 return false, S("Player object not found.")
             end
-            param = minetest.pos_to_string(player:get_pos(), 0)
+            param = core.pos_to_string(player:get_pos(), 0)
         else
             local pos = core.string_to_pos(param)
             if not pos then
                 return false, S("Invalid position given.")
             end
-            param = minetest.pos_to_string(pos)
+            param = core.pos_to_string(pos)
         end
 
-        minetest.settings:set("static_spawnpoint", param)
+        core.settings:set("static_spawnpoint", param)
 
         return true, S("Static spawnpoint set to @1.", param)
     end

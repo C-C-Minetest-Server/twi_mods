@@ -18,11 +18,11 @@
 ]]
 
 -- Hide elevators - Use realistic elevator instead plz
-minetest.clear_craft({
+core.clear_craft({
     output = "travelnet:elevator"
 })
-local elevator_groups = table.copy(minetest.registered_nodes["travelnet:elevator"].groups)
+local elevator_groups = table.copy(core.registered_nodes["travelnet:elevator"].groups)
 elevator_groups.not_in_craft_guide = 1
-minetest.override_item("travelnet:elevator", {
+core.override_item("travelnet:elevator", {
     groups = elevator_groups
 })

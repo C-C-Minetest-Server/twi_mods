@@ -23,13 +23,13 @@ for _, name in ipairs({
     "elevator:elevator_box",
     "elevator:elevator_on"
 }) do
-    local tiles = table.copy(minetest.registered_nodes[name].tiles or {})
+    local tiles = table.copy(core.registered_nodes[name].tiles or {})
     for i, texture in ipairs(tiles) do
         if texture == "default_steel_block.png" then
             tiles[i] = "technic_wrought_iron_block.png"
         end
     end
-    minetest.override_item(name, {
+    core.override_item(name, {
         tiles = tiles,
     })
 end

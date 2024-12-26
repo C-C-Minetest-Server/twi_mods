@@ -19,7 +19,7 @@
     USA
 ]]
 
-local S = minetest.get_translator("random_tips")
+local S = core.get_translator("random_tips")
 
 --[[
     Chinese translations guidelines:

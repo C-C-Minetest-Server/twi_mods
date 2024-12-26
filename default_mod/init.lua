@@ -27,15 +27,15 @@ for _, name in ipairs({
     "default:coral_orange",
     -- "default:coral_skeleton",
 }) do
-    local groups = table.copy(minetest.registered_nodes[name].groups or {})
+    local groups = table.copy(core.registered_nodes[name].groups or {})
     groups.coral = 1
-    minetest.override_item(name, {
+    core.override_item(name, {
         groups = groups
     })
 end
 
 -- Spread default:dry_dirt_with_dry_grass to default:dry_dirt
-minetest.register_abm({
+core.register_abm({
     label = "Dry Grass Dirt spread",
     nodenames = { "default:dry_dirt" },
     neighbors = {
@@ -48,16 +48,16 @@ minetest.register_abm({
         -- Check for darkness: night, shadow or under a light-blocking node
         -- Returns if ignore above
         local above = { x = pos.x, y = pos.y + 1, z = pos.z }
-        if (minetest.get_node_light(above) or 0) < 13 then
+        if (core.get_node_light(above) or 0) < 13 then
             return
         end
 
-        minetest.set_node(pos, { name = "default:dry_dirt_with_dry_grass" })
+        core.set_node(pos, { name = "default:dry_dirt_with_dry_grass" })
     end
 })
 
 -- Craft two wood into one apple wood
-minetest.register_craft({
+core.register_craft({
     output = "default:wood 2",
     recipe = {
         { "group:wood" },

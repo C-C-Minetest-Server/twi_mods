@@ -22,7 +22,7 @@
     THE SOFTWARE.
 ]]
 
-local S = minetest.get_translator("ethereal_mod")
+local S = core.get_translator("ethereal_mod")
 
 -- place_param2 = 0
 local node_list = {
@@ -38,7 +38,7 @@ local node_list = {
     "ethereal:olive_wood",
 }
 for _, name in ipairs(node_list) do
-    minetest.override_item(name, {
+    core.override_item(name, {
         place_param2 = 0
     })
 end
@@ -52,24 +52,24 @@ for _, prefix in ipairs({
 }) do
     for _, var in ipairs({ "", "_rooted" }) do
         local name = "ethereal:" .. prefix .. var
-        local groups = table.copy(minetest.registered_nodes[name].groups or {})
+        local groups = table.copy(core.registered_nodes[name].groups or {})
         groups.coral = 1
-        minetest.override_item(name, {
+        core.override_item(name, {
             groups = groups
         })
     end
 end
 
 -- Remove flight potion
-minetest.override_item("ethereal:flight_potion", {
+core.override_item("ethereal:flight_potion", {
     on_use = function(itemstack, user, pointed_thing)
         if user:is_player() then
-            minetest.chat_send_player(user:get_player_name(), S("The flight potion is disabled."))
+            core.chat_send_player(user:get_player_name(), S("The flight potion is disabled."))
         end
         return itemstack
     end
 })
-minetest.clear_craft({
+core.clear_craft({
 	output = "ethereal:flight_potion",
 })
 
@@ -88,7 +88,7 @@ technic.register_alloy_recipe({
 })
 
 -- Reduce selection box height of fern
-minetest.override_item("ethereal:fern", {
+core.override_item("ethereal:fern", {
     selection_box = {
 		type = "fixed",
 		fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 7 / 16, 5 / 16}

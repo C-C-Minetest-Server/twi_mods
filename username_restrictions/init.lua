@@ -15,9 +15,9 @@ for _, part in ipairs({
 end
 
 local auth
-minetest.register_on_prejoinplayer(function(name)
-    if name == "singleplayer" or name == minetest.settings:get("name") then return end
-    auth = auth or minetest.get_auth_handler()
+core.register_on_prejoinplayer(function(name)
+    if name == "singleplayer" or name == core.settings:get("name") then return end
+    auth = auth or core.get_auth_handler()
     if not auth.get_auth(name) then
         if string.find(name, "L+O+L+") then
             -- As unclear as possible yet give some useful message

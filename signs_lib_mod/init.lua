@@ -23,7 +23,7 @@ signs_lib.glow_item = "default:torch"
 -- If locked, signs can be modified by both area owner (if protected) and the sign owner
 local old_can_modify = signs_lib.can_modify
 function signs_lib.can_modify(pos, player)
-	local meta = minetest.get_meta(pos)
+	local meta = core.get_meta(pos)
 	local owner = meta:get_string("owner")
 
     if owner ~= "" then
@@ -44,9 +44,9 @@ function signs_lib.can_modify(pos, player)
 		    return true
         end
 
-        if minetest.is_protected(pos, "") then
+        if core.is_protected(pos, "") then
             -- The area is protected, let the owner to edit
-            if not minetest.is_protected(pos, playername) then
+            if not core.is_protected(pos, playername) then
                 return true
             end
         end

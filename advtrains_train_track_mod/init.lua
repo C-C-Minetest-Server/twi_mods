@@ -7,7 +7,7 @@ for _, suffix in ipairs({
     "vst1", "vst2",
     "vst31", "vst32", "vst33",
 }) do
-    minetest.override_item("advtrains:dtrack_" .. suffix, {
+    core.override_item("advtrains:dtrack_" .. suffix, {
         sounds = xcompat.sounds.node_sound_gravel_defaults()
     })
 end

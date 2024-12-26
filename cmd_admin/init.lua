@@ -22,14 +22,14 @@
     THE SOFTWARE.
 ]]
 
-local S = minetest.get_translator("cmd_admin")
+local S = core.get_translator("cmd_admin")
 
 local msg = table.concat({
     S("The administrator of this server is 1F616EMO."),
     S("To contact the moderation team, type /report in the chatroom.")
 }, "\n")
 
-minetest.override_chatcommand("admin", {
+core.override_chatcommand("admin", {
     func = function(name, param)
         return true, msg
     end

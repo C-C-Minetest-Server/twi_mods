@@ -24,11 +24,11 @@
     SOFTWARE.
 ]]
 
-local S = minetest.get_translator("mobile_tips")
+local S = core.get_translator("mobile_tips")
 
 local function is_mobile(name)
-    local player_info = minetest.get_player_information(name)
-    local window_info = minetest.get_player_window_information(name)
+    local player_info = core.get_player_information(name)
+    local window_info = core.get_player_window_information(name)
 
     if player_info.formspec_version <= 4 and player_info.protocol_version <= 39 then
         -- These are values of MultiCraft 2.0.6
@@ -51,12 +51,12 @@ local msg = table.concat({
     S("Tap the \"chat box\" logo on the right-top corner if you need help."),
 }, "\n")
 
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
     local name = player:get_player_name()
     if is_mobile(name) then
-        minetest.after(1, function()
-            if minetest.get_player_by_name(name) then
-                minetest.chat_send_player(name, msg)
+        core.after(1, function()
+            if core.get_player_by_name(name) then
+                core.chat_send_player(name, msg)
             end
         end)
     end

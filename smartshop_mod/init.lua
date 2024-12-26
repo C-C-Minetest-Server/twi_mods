@@ -15,7 +15,7 @@ function smartshop.shop_class:initialize_metadata(player)
 		player_name = player:get_player_name()
 	end
 
-    if not minetest.is_creative_enabled(player_name) then
+    if not core.is_creative_enabled(player_name) then
         self:set_unlimited(false)
     end
 end

@@ -22,19 +22,19 @@
     THE SOFTWARE.
 ]]
 
-local S = minetest.get_translator("list_moderators")
+local S = core.get_translator("list_moderators")
 
 local function is_afk() return false end
 
-if minetest.global_exists("afk_indicator") then
+if core.global_exists("afk_indicator") then
     is_afk = function(name)
         local duration = afk_indicator.get(name)
         return duration and duration > 5 * 60 or false
     end
 end
 
-local color = minetest.get_color_escape_sequence("DarkOrange")
-local alt_color = minetest.get_color_escape_sequence("DarkCyan")
+local color = core.get_color_escape_sequence("DarkOrange")
+local alt_color = core.get_color_escape_sequence("DarkCyan")
 
 local busy_mods = {}
 
@@ -43,7 +43,7 @@ local function get_chat_string(name)
     local list_helpers = {}
     for _, player in pairs(core.get_connected_players()) do
         local player_name = player:get_player_name()
-        local privs = minetest.get_player_privs(player_name)
+        local privs = core.get_player_privs(player_name)
         local list
         if privs.ban == true then
             list = list_moderators
@@ -92,32 +92,32 @@ local function get_chat_string(name)
     return rtn
 end
 
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
     local name = player:get_player_name()
-    minetest.after(0.5, function()
-        if minetest.get_player_by_name(name) then
-            minetest.chat_send_player(name, get_chat_string(name))
+    core.after(0.5, function()
+        if core.get_player_by_name(name) then
+            core.chat_send_player(name, get_chat_string(name))
         end
     end)
 end)
 
-minetest.register_on_leaveplayer(function(player)
+core.register_on_leaveplayer(function(player)
     local name = player:get_player_name()
     busy_mods[name] = nil
 end)
 
-minetest.register_on_priv_revoke(function(name, _, priv)
-    local privs = minetest.get_player_privs(name)
+core.register_on_priv_revoke(function(name, _, priv)
+    local privs = core.get_player_privs(name)
     if priv == "ban" and not privs.role_helper
         or privs == "role_helper" and not privs.ban then
         busy_mods[name] = nil
     end
 end)
 
-minetest.register_chatcommand("mods_busy", {
+core.register_chatcommand("mods_busy", {
     description = S("Set yourself as busy on the moderator list"),
     func = function(name)
-        local privs = minetest.get_player_privs(name)
+        local privs = core.get_player_privs(name)
         if not (privs.ban or privs.role_helper) then
             return false, S("Insufficant privileges!")
         end
@@ -127,7 +127,7 @@ minetest.register_chatcommand("mods_busy", {
     end,
 })
 
-minetest.register_chatcommand("list_mods", {
+core.register_chatcommand("list_mods", {
     description = S("List all moderators and helpers"),
     func = function(name)
         return true, get_chat_string(name)

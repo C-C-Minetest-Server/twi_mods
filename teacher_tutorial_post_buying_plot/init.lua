@@ -17,7 +17,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ]]
 
-local S = minetest.get_translator("teacher_tutorial_post_buying_plot")
+local S = core.get_translator("teacher_tutorial_post_buying_plot")
 
 teacher.register_turorial("teacher_tutorial_post_buying_plot:post_buy", {
     title = S("After buying a plot..."),
@@ -46,8 +46,8 @@ teacher.register_turorial("teacher_tutorial_post_buying_plot:post_buy", {
 })
 
 um_area_forsale.register_on_area_tx(function(original_owner, new_owner, price, pos, list_areas, description)
-    minetest.after(1, function()
-        local player = minetest.get_player_by_name(new_owner)
+    core.after(1, function()
+        local player = core.get_player_by_name(new_owner)
         if player then
             teacher.unlock_entry_for_player(player, "teacher_tutorial_post_buying_plot:post_buy")
         end

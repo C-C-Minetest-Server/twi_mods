@@ -4,9 +4,9 @@
 -- SPDX-License-Identifier: LGPL-3.0-only
 
 local new_tiles = {}
-for i, tile in ipairs(minetest.registered_nodes["digilines:chest"].tiles) do
+for i, tile in ipairs(core.registered_nodes["digilines:chest"].tiles) do
     new_tiles[i] = tile .. "^digilines_mod_chest_overlay.png"
 end
-minetest.override_item("digilines:chest", {
+core.override_item("digilines:chest", {
     tiles = new_tiles
 })

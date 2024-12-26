@@ -8,9 +8,9 @@
 -- Copyright (C) 2013  Vanessa Ezekowitz <vanessaezekowitz@gmail.com>
 -- CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0/deed.en>
 
-local S = minetest.get_translator("rubber_cherrypick")
+local S = core.get_translator("rubber_cherrypick")
 
-minetest.override_item("moretrees:rubber_tree_trunk", {
+core.override_item("moretrees:rubber_tree_trunk", {
     description = S("Rubber Tree Trunk"),
     tiles = {
         "moretrees_rubber_tree_trunk_top.png",
@@ -19,14 +19,14 @@ minetest.override_item("moretrees:rubber_tree_trunk", {
     },
     paramtype2 = "facedir",
     is_ground_content = false,
-    on_place = minetest.rotate_node,
+    on_place = core.rotate_node,
 })
 
 twi_fx.override_group("moretrees:rubber_tree_trunk", {
     rubber_tree = 1,
 })
 
-minetest.override_item("moretrees:rubber_tree_trunk_empty", {
+core.override_item("moretrees:rubber_tree_trunk_empty", {
     description = S("Rubber Tree Trunk (Empty)"),
     tiles = {
         "moretrees_rubber_tree_trunk_top.png",
@@ -35,14 +35,14 @@ minetest.override_item("moretrees:rubber_tree_trunk_empty", {
     },
     paramtype2 = "facedir",
     is_ground_content = false,
-    on_place = minetest.rotate_node,
+    on_place = core.rotate_node,
 })
 
 twi_fx.override_group("moretrees:rubber_tree_trunk_empty", {
     rubber_tree = 1,
 })
 
-minetest.override_item("moretrees:rubber_tree_leaves", {
+core.override_item("moretrees:rubber_tree_leaves", {
     description = S("Rubber Tree Leaves"),
     drop = {
         max_items = 1,
@@ -53,7 +53,7 @@ minetest.override_item("moretrees:rubber_tree_leaves", {
     },
 })
 
-minetest.override_item("moretrees:rubber_tree_sapling", {
+core.override_item("moretrees:rubber_tree_sapling", {
     description = S("Rubber Tree Sapling"),
     on_place = function(itemstack, placer, pointed_thing)
         return default.sapling_on_place(itemstack, placer, pointed_thing,
@@ -71,7 +71,7 @@ minetest.override_item("moretrees:rubber_tree_sapling", {
     },
 })
 
-minetest.register_node(":moretrees:rubber_tree_planks", {
+core.register_node(":moretrees:rubber_tree_planks", {
     description = S("Rubber Tree Planks"),
     tiles = { "moretrees_rubber_tree_wood.png" },
     is_ground_content = false,
@@ -79,7 +79,7 @@ minetest.register_node(":moretrees:rubber_tree_planks", {
     sounds = xcompat.sounds.node_sound_wood_defaults(),
 })
 
-minetest.register_craft({
+core.register_craft({
     type = "shapeless",
     output = "moretrees:rubber_tree_planks 4",
     recipe = { "moretrees:rubber_tree_trunk" }
@@ -115,8 +115,8 @@ doors.register_fencegate("moretrees:rubber_tree_gate", {
     material = planks_name,
     groups = { choppy = 2, oddly_breakable_by_hand = 2, flammable = 2 }
 })
-minetest.register_alias(":moretrees:rubber_tree_gate_closed", "moretrees:rubber_tree_gate_closed")
-minetest.register_alias(":moretrees:rubber_tree_gate_open", "moretrees:rubber_tree_gate_open")
+core.register_alias(":moretrees:rubber_tree_gate_closed", "moretrees:rubber_tree_gate_closed")
+core.register_alias(":moretrees:rubber_tree_gate_open", "moretrees:rubber_tree_gate_open")
 
 stairsplus:register_all(
     "moretrees",
@@ -146,14 +146,14 @@ stairsplus:register_all(
     }
 )
 
-minetest.register_node(":moretrees_all_faces:all_faces_rubber_tree_trunk", {
+core.register_node(":moretrees_all_faces:all_faces_rubber_tree_trunk", {
     description = S("All-faces Rubber Tree Trunk"),
     tiles = { "moretrees_rubber_tree_trunk_top.png" },
     groups = { tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 1 },
     sounds = xcompat.sounds.node_sound_wood_defaults(),
 })
 
-minetest.register_craft({
+core.register_craft({
     output = "moretrees_all_faces:all_faces_rubber_tree_trunk 8",
     recipe = {
         { "group:rubber_tree", "group:rubber_tree", "group:rubber_tree" },
@@ -182,10 +182,10 @@ choppy.api.register_tree("moretrees:rubber", {
     },
 })
 
-if minetest.get_modpath("logspikes") then
+if core.get_modpath("logspikes") then
     logspikes.register_log_spike("logspikes:moretrees_rubber_spike", "moretrees:rubber_tree_trunk")
 end
 
-if minetest.get_modpath("banisters") then
+if core.get_modpath("banisters") then
     banisters.register("banisters", "rubber_tree", "moretrees:rubber_tree_planks")
 end

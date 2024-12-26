@@ -25,7 +25,7 @@
 local RADIUS = 10
 local INTERVAL = 0.5
 
-local F = minetest.formspec_escape
+local F = core.formspec_escape
 
 local function replace_formspec(formspec, meta)
     return string.gsub(formspec, "%${(%C+)}", function(key)
@@ -38,7 +38,7 @@ local function replace_formspec(formspec, meta)
 end
 
 local function fix_node(pos)
-    local meta = minetest.get_meta(pos)
+    local meta = core.get_meta(pos)
 
     local formspec = meta:get_string("formspec")
     if formspec == "" then return end
@@ -61,7 +61,7 @@ local function fix_node(pos)
 end
 
 local dtime_total = 0
-minetest.register_globalstep(function(dtime)
+core.register_globalstep(function(dtime)
     dtime_total = dtime_total + dtime
     if dtime_total < INTERVAL then
         return
@@ -69,13 +69,13 @@ minetest.register_globalstep(function(dtime)
     dtime_total = 0
 
     local processed = {}
-    for _, player in ipairs(minetest.get_connected_players()) do
+    for _, player in ipairs(core.get_connected_players()) do
         local pos = vector.round(player:get_pos())
         for x = pos.x - RADIUS, pos.x + RADIUS do
             for y = pos.y - RADIUS, pos.y + RADIUS do
                 for z = pos.z - RADIUS, pos.z + RADIUS do
                     local work_pos = vector.new(x,y,z)
-                    local hash = minetest.hash_node_position(work_pos)
+                    local hash = core.hash_node_position(work_pos)
                     if not processed[hash] then
                         processed[hash] = true
                         fix_node(work_pos)

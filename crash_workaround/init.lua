@@ -25,11 +25,11 @@
 -- Autocrafter psudo-item
 -- For unknwon reason this is identical to flux's, but trust me, I wrote this without his
 -- https://discord.com/channels/369122544273588224/369123275877384192/1193075939903553669
-local ndef                              = minetest.registered_nodes["pipeworks:autocrafter"]
+local ndef                              = core.registered_nodes["pipeworks:autocrafter"]
 local old_allow_metadata_inventory_put  = ndef.allow_metadata_inventory_put
 local old_allow_metadata_inventory_take = ndef.allow_metadata_inventory_take
 local old_allow_metadata_inventory_move = ndef.allow_metadata_inventory_move
-minetest.override_item("pipeworks:autocrafter", {
+core.override_item("pipeworks:autocrafter", {
     allow_metadata_inventory_put  = function(pos, listname, index, stack, player)
         if listname == "output" then
             return 0
@@ -49,4 +49,4 @@ minetest.override_item("pipeworks:autocrafter", {
         return old_allow_metadata_inventory_move(pos, from_list, from_index, to_list, to_index, count, player)
     end,
 })
-minetest.log("action", "[crash_workaround] Autocrafter workaround loaded")
+core.log("action", "[crash_workaround] Autocrafter workaround loaded")

@@ -22,7 +22,7 @@
     THE SOFTWARE.
 ]]
 
-local S = minetest.get_translator("twi_tips")
+local S = core.get_translator("twi_tips")
 
 -- /sethome on area sale
 tips.register_tips("twi_tips:sethome",
@@ -45,7 +45,7 @@ tips.register_tips("twi_tips:train",
 
 do
     local function loop()
-        for _, player in ipairs(minetest.get_connected_players()) do
+        for _, player in ipairs(core.get_connected_players()) do
             local pos = player:get_pos()
             local name = player:get_player_name()
 
@@ -65,7 +65,7 @@ do
             end
         end
 
-        minetest.after(3, loop)
+        core.after(3, loop)
     end
-    minetest.after(1, loop)
+    core.after(1, loop)
 end

@@ -3,7 +3,7 @@
 -- Copyright (C) 2024  1F616EMO
 -- SPDX-License-Identifier: GPL-3.0-or-later
 
-local minetest, mailbox, func_areas, areas = minetest, mailbox, func_areas, areas
+local minetest, mailbox, func_areas, areas = core, mailbox, func_areas, areas
 
 local S = minetest.get_translator("mailbox_mod")
 

@@ -3,7 +3,7 @@
 -- Copyright (C) 2024  1F616EMO
 -- SPDX-License-Identifier: LGPL-3.0-or-later
 
-local MP = minetest.get_modpath("twi_bgm")
+local MP = core.get_modpath("twi_bgm")
 
 -- Songs played around Spawnpoint in daytime
 background_music.register_music("twi_bgm:spawn_day", {
@@ -126,7 +126,7 @@ background_music.register_music("twi_bgm:spawn_night", {
 
 background_music.register_on_decide_music(function(player)
     local ppos = player:get_pos()
-    local timeofday = minetest.get_timeofday()
+    local timeofday = core.get_timeofday()
     -- 0.23 < day < 0.78
     local now_day = timeofday > 0.23 and timeofday < 0.78
 

@@ -37,7 +37,7 @@ function func_areas.is_in_func_area(pos, id)
        and pos.z <= area.pos2.z
 end
 
-minetest.register_on_prejoinplayer(function(name)
+core.register_on_prejoinplayer(function(name)
     if name == func_account then
         return "This username is reserved."
     end

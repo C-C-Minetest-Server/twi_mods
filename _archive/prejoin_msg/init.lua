@@ -23,8 +23,8 @@
 ]]
 
 local auth
-minetest.register_on_prejoinplayer(function(name)
-    auth = auth or minetest.get_auth_handler()
+core.register_on_prejoinplayer(function(name)
+    auth = auth or core.get_auth_handler()
     if not auth.get_auth(name) then
         twi_fx.chat_send_moderators("New player " .. name .. " is trying to join")
     else
