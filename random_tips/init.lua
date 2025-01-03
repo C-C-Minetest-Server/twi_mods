@@ -100,4 +100,7 @@ random_messages_api.from_table({
 
     -- For Sale Sign
     S("Vacant plots are indicated by a \"SALE\" sign. Right-click it to buy the plot."),
+
+    -- Other commands
+    S("Use /day to set the time to day."),
 })
