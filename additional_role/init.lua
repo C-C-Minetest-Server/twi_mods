@@ -34,3 +34,5 @@ mail.register_recipient_handler(function(sender, name)
 
     return true, list_dest
 end)
+
+social_profile.register_role("role_helper", S("Helper"), -30)
