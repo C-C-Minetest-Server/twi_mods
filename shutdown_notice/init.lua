@@ -11,7 +11,7 @@ local last_for = "8 hours, i.e. 2025/01/22 at 19:30 UTC+8"
 -- 2025年1月22日星期三 00:00:00 GMT+08:00
 local start_show = 1737475200
 
-local start_show = 0
+-- local start_show = 0
 
 local gui = flow.widgets
 
