@@ -463,7 +463,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "ctf_ranged:pistol 1 65535",
+	output = "ctf_ranged:pistol_loaded 1",
 	recipe = {
 		{"default:steel_ingot", "default:steel_ingot"},
 		{"", "default:mese_crystal"},
@@ -471,7 +471,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "ctf_ranged:rifle 1 65535",
+	output = "ctf_ranged:rifle_loaded 1",
 	recipe = {
 		{"default:steel_ingot", "", ""},
 		{"", "default:bronze_ingot", ""},
@@ -480,7 +480,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "ctf_ranged:shotgun 1 65535",
+	output = "ctf_ranged:shotgun_loaded 1",
 	recipe = {
 		{"default:steel_ingot", "", ""},
 		{"", "default:steel_ingot", ""},
@@ -489,7 +489,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "ctf_ranged:smg 1 65535",
+	output = "ctf_ranged:smg_loaded 1",
 	recipe = {
 		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
 		{"", "default:bronze_ingot", "default:mese_crystal"},
