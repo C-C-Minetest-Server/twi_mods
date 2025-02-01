@@ -453,3 +453,46 @@ minetest.register_globalstep(function(dtime)
 		end
 	end
 end)
+
+-- Crafting recipes
+
+minetest.register_craft({
+	output = "ctf_ranged:ammo",
+	type = "shapeless",
+	recipe = {"tnt:gunpowder", "default:bronze_ingot"},
+})
+
+minetest.register_craft({
+	output = "ctf_ranged:pistol 1 65535",
+	recipe = {
+		{"default:steel_ingot", "default:steel_ingot"},
+		{"", "default:mese_crystal"},
+	},
+})
+
+minetest.register_craft({
+	output = "ctf_ranged:rifle 1 65535",
+	recipe = {
+		{"default:steel_ingot", "", ""},
+		{"", "default:bronze_ingot", ""},
+		{"", "default:mese_crystal", "default:bronze_ingot"},
+	},
+})
+
+minetest.register_craft({
+	output = "ctf_ranged:shotgun 1 65535",
+	recipe = {
+		{"default:steel_ingot", "", ""},
+		{"", "default:steel_ingot", ""},
+		{"", "default:mese_crystal", "default:bronze_ingot"},
+	},
+})
+
+minetest.register_craft({
+	output = "ctf_ranged:smg 1 65535",
+	recipe = {
+		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
+		{"", "default:bronze_ingot", "default:mese_crystal"},
+		{"", "default:bronze_ingot", ""},
+	},
+})
