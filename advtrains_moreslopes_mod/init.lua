@@ -23,7 +23,7 @@ core.override_item("advtrains:dtrack_more_slopeplacer", {
     description = "<= 1:4 " .. core.registered_items["advtrains:dtrack_more_slopeplacer"].description,
 })
 
-for i = 5, 8 do
+for i = 4, 8 do
     for j = 1, i do
         local name = "advtrains:dtrack_more_vst" .. i .. j
 
