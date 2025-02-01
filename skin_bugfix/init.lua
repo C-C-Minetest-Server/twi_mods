@@ -13,7 +13,7 @@ modlib.minetest.register_globalstep(5, function()
                 skin[i] = "blank.png"
             end
 
-            core.log("Fixing missing textures in player skin for player " .. player:get_player_name())
+            core.log("action", "Fixing missing textures in player skin for player " .. player:get_player_name())
             player:set_properties({ textures = skin })
         end
     end
