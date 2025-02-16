@@ -60,13 +60,13 @@ beerchat.channels.Moderators = beerchat.channels.Moderators or {}
 beerchat.channels.Moderators.owner = owner
 beerchat.channels.Moderators.name = "Moderators"
 beerchat.channels.Moderators.password = "" -- Don't worry, players can't join anyways
-beerchat.channels.Moderators.color = beerchat.channels.color or beerchat.default_channel_color
+beerchat.channels.Moderators.color = beerchat.channels.Moderators.color or beerchat.default_channel_color
 
 beerchat.channels.grounded = beerchat.channels.grounded or {}
 beerchat.channels.grounded.owner = owner
 beerchat.channels.grounded.name = "grounded"
 beerchat.channels.grounded.password = "" -- Don't worry, players can't join anyways
-beerchat.channels.grounded.color = beerchat.channels.color or beerchat.default_channel_color
+beerchat.channels.grounded.color = beerchat.channels.grounded.color or beerchat.default_channel_color
 
 beerchat.mod_storage:set_string("channels", core.write_json(beerchat.channels))
 
