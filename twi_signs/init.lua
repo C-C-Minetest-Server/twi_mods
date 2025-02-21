@@ -62,6 +62,14 @@ signs_lib.register_sign("street_signs:sign_basic_top_only", {
     on_rotate = rotate
 })
 
+core.register_craft({
+    output = "street_signs:sign_basic_top_only",
+    recipe = {
+        { "signs:sign_wall_green" },
+        { "default:steel_ingot" },
+    }
+})
+
 core.register_node("twi_signs:sign_basic_pole", {
     description = S("Generic intersection street sign pole"),
     drawtype = "nodebox",
@@ -86,6 +94,15 @@ core.register_node("twi_signs:sign_basic_pole", {
     groups = signs_lib.standard_steel_groups,
     sounds = signs_lib.standard_steel_sign_sounds,
     on_rotate = rotate
+})
+
+core.register_craft({
+	output = "twi_signs:sign_basic_pole 3",
+	recipe = {
+		{ "dye:white", "default:steel_ingot", "" },
+		{ "dye:white", "default:steel_ingot", "" },
+		{ "dye:white", "default:steel_ingot", "" },
+	}
 })
 
 local big_sign_sizes = {
@@ -151,4 +168,33 @@ for _, s in ipairs(big_sign_sizes) do
         core.register_alias("street_signs:sign_highway_widefont_" .. size .. "_" .. color,
             "street_signs:sign_highway_" .. size .. "_" .. color .. "_widefont")
     end
+end
+
+for _, c in ipairs(big_sign_colors) do
+
+    local color = c[1]
+
+    core.register_craft({
+        output = "street_signs:sign_highway_small_"..color,
+        recipe = {
+            { "signs:sign_wall_"..color, "signs:sign_wall_"..color },
+        }
+    })
+
+    core.register_craft({
+        output = "street_signs:sign_highway_medium_"..color,
+        recipe = {
+            { "signs:sign_wall_"..color, "signs:sign_wall_"..color },
+            { "signs:sign_wall_"..color, "signs:sign_wall_"..color }
+        }
+    })
+
+    core.register_craft({
+        output = "street_signs:sign_highway_large_"..color,
+        recipe = {
+            { "signs:sign_wall_"..color, "signs:sign_wall_"..color, "signs:sign_wall_"..color },
+            { "signs:sign_wall_"..color, "signs:sign_wall_"..color, "signs:sign_wall_"..color }
+        }
+    })
+
 end
