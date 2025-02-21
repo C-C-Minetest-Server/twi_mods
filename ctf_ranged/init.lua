@@ -27,7 +27,7 @@ local shoot_cooldown = {
 			time = { _time = time }
 		end
 
-		time._timer = minetest.after(time._time, function()
+		time._timer = core.after(time._time, function()
 			if time._on_end then
 				local copy = table.copy(self.players[pname])
 
@@ -54,9 +54,9 @@ ctf_ranged = {
 local scoped = ctf_ranged.scoped
 local scale_const = 6
 
-local S = minetest.get_translator(minetest.get_current_modname())
+local S = core.get_translator(core.get_current_modname())
 
-minetest.register_craftitem("ctf_ranged:ammo", {
+core.register_craftitem("ctf_ranged:ammo", {
 	description = S("Ammo") .. "\n" .. S("Used to reload guns"),
 	inventory_image = "ctf_ranged_ammo.png",
 })
@@ -73,19 +73,19 @@ local function process_ray(ray, user, look_dir, def)
 
 	if hitpoint then
 		if hitpoint.type == "node" then
-			local node = minetest.get_node(hitpoint.under)
-			local nodedef = minetest.registered_nodes[node.name]
+			local node = core.get_node(hitpoint.under)
+			local nodedef = core.registered_nodes[node.name]
 
 			if (nodedef.on_ranged_shoot or nodedef.groups.snappy or (nodedef.groups.oddly_breakable_by_hand or 0) >= 3)
-				and not minetest.is_protected(hitpoint.under, user:get_player_name()) then
+				and not core.is_protected(hitpoint.under, user:get_player_name()) then
 				if nodedef.on_ranged_shoot then
 					nodedef.on_ranged_shoot(hitpoint.under, node, user, def.type)
 				else
-					minetest.dig_node(hitpoint.under)
+					core.dig_node(hitpoint.under)
 				end
 			else
 				if nodedef.walkable and nodedef.pointable then
-					minetest.add_particle({
+					core.add_particle({
 						pos = vector.subtract(hitpoint.intersection_point, vector.multiply(look_dir, 0.04)),
 						velocity = vector.new(),
 						acceleration = { x = 0, y = 0, z = 0 },
@@ -95,9 +95,9 @@ local function process_ray(ray, user, look_dir, def)
 						texture = "ctf_ranged_bullethole.png",
 					})
 
-					minetest.sound_play("ctf_ranged_ricochet", { pos = hitpoint.intersection_point })
+					core.sound_play("ctf_ranged_ricochet", { pos = hitpoint.intersection_point })
 				elseif nodedef.groups.liquid then
-					minetest.add_particlespawner({
+					core.add_particlespawner({
 						amount = 10,
 						time = 0.1,
 						minpos = hitpoint.intersection_point,
@@ -164,12 +164,12 @@ local function play_player_positional_sound(user, sound_name, spec)
 	local user_spec = spec and table.copy(spec) or {}
 	user_spec.to_player = user_name
 
-	minetest.sound_play(sound_name, non_user_spec, true)
-	minetest.sound_play(sound_name, user_spec, true)
+	core.sound_play(sound_name, non_user_spec, true)
+	core.sound_play(sound_name, user_spec, true)
 end
 
 function ctf_ranged.simple_register_gun(name, def)
-	minetest.register_tool(rawf.also_register_loaded_tool(name, {
+	core.register_tool(rawf.also_register_loaded_tool(name, {
 			description = def.description ..
 				("\nDMG: %d | Shots/s: %0.1f | Mag: %d"):format(
 					def.damage * (def.bullet and def.bullet.amount or 1),
@@ -268,12 +268,12 @@ function ctf_ranged.simple_register_gun(name, def)
 					local node
 
 					if pointed and pointed.under then
-						node = minetest.get_node(pointed.under)
-						pointed_def = minetest.registered_nodes[node.name]
+						node = core.get_node(pointed.under)
+						pointed_def = core.registered_nodes[node.name]
 					end
 
 					if pointed_def and pointed_def.on_rightclick then
-						return minetest.item_place(itemstack, user, pointed)
+						return core.item_place(itemstack, user, pointed)
 					else
 						return def.rightclick_func(itemstack, user, pointed, ...)
 					end
@@ -284,18 +284,18 @@ function ctf_ranged.simple_register_gun(name, def)
 		end))
 end
 
-minetest.register_on_joinplayer(function(player)
+core.register_on_joinplayer(function(player)
 	if shoot_cooldown:get(player) then
-		minetest.log("error", "Player is rejoining with a cooldown: " .. dump(shoot_cooldown:get(player)))
+		core.log("error", "Player is rejoining with a cooldown: " .. dump(shoot_cooldown:get(player)))
 	end
 end)
 
-minetest.register_on_leaveplayer(function(player)
+core.register_on_leaveplayer(function(player)
 	scoped[player:get_player_name()] = nil
 end)
 
 function ctf_ranged.show_scope(name, item_name, fov_mult)
-	local player = minetest.get_player_by_name(name)
+	local player = core.get_player_by_name(name)
 	if not player then
 		return
 	end
@@ -320,7 +320,7 @@ function ctf_ranged.show_scope(name, item_name, fov_mult)
 end
 
 function ctf_ranged.hide_scope(name)
-	local player = minetest.get_player_by_name(name)
+	local player = core.get_player_by_name(name)
 	if not player then
 		return
 	end
@@ -438,7 +438,7 @@ ctf_ranged.simple_register_gun("ctf_ranged:sniper_magnum", {
 -- player wielded when scoping
 
 local time = 0
-minetest.register_globalstep(function(dtime)
+core.register_globalstep(function(dtime)
 	time = time + dtime
 	if time < 1 then
 		return
@@ -446,7 +446,7 @@ minetest.register_globalstep(function(dtime)
 
 	time = 0
 	for name, info in pairs(scoped) do
-		local player = minetest.get_player_by_name(name)
+		local player = core.get_player_by_name(name)
 		local wielded_item = player:get_wielded_item():get_name()
 		if wielded_item ~= info.item_name then
 			ctf_ranged.hide_scope(name)
@@ -456,13 +456,13 @@ end)
 
 -- Crafting recipes
 
-minetest.register_craft({
+core.register_craft({
 	output = "ctf_ranged:ammo",
 	type = "shapeless",
 	recipe = {"tnt:gunpowder", "default:bronze_ingot"},
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = "ctf_ranged:pistol_loaded 1",
 	recipe = {
 		{"default:steel_ingot", "default:steel_ingot"},
@@ -470,7 +470,7 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = "ctf_ranged:rifle_loaded 1",
 	recipe = {
 		{"default:steel_ingot", "", ""},
@@ -479,7 +479,7 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = "ctf_ranged:shotgun_loaded 1",
 	recipe = {
 		{"default:steel_ingot", "", ""},
@@ -488,7 +488,7 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_craft({
+core.register_craft({
 	output = "ctf_ranged:smg_loaded 1",
 	recipe = {
 		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
