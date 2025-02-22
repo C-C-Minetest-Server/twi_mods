@@ -7,6 +7,9 @@ local S = core.get_translator("twi_cmds")
 
 local cooldowns_expire = {}
 
+tips.register_tips("twi_cmds:basic_settime",
+    S("Use @1 to set time to day, and use @2 to set time to night.", "/day", "/night"))
+
 function do_settime_cmd(name, time_desc, time_value, time_sound)
     local now = os.time()
     if cooldowns_expire[name] and now < cooldowns_expire[name] then
@@ -26,8 +29,11 @@ function do_settime_cmd(name, time_desc, time_value, time_sound)
 
     for _, player in ipairs(core.get_connected_players()) do
         local name = player:get_player_name()
+
         background_music.set_start_play_gap(name, 2)
         background_music.decide_and_play(player, true)
+
+        tips.unlock_tips(name, "twi_cmds:basic_settime")
     end
 
     return true, S("Successfully set time to " .. time_desc .. ".")
