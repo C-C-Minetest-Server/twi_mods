@@ -31,9 +31,11 @@ local S = core.get_translator("random_tips")
 ]]
 
 random_messages_api.from_table({
-    -- Community
+    -- Community and related sites
     S("Do you know we have a Discord server? Join it at @1", "https://discord.gg/bFhZuwQxDX"),
     S("Get and contribute information aboout the server on our Wiki: @1", "https://wiki-twi.1f616emo.xyz/"),
+    S("Set your email address on @1 to recover your account in case of password loss.",
+        "https://webpanel-twi.1f616emo.xyz/"),
 
     -- teleport commands
     S("Stuck in a hollow? Type /spawn in the chatroom to get teleported out."),
