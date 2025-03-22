@@ -69,3 +69,23 @@ core.register_chatcommand("setspawn", {
         return true, S("Static spawnpoint set to @1.", param)
     end
 })
+
+
+
+core.register_chatcommand("spawn", {
+    description = S("Teleport to origin"),
+    privs = {
+        home = true
+    },
+    func = function(name)
+        local player = core.get_player_by_name(name)
+        if not player then
+            return false, S("Player object not found.")
+        end
+
+        player:set_pos({ x = 37, y = 18, z = -42 })
+        background_music.set_start_play_gap(name, 2)
+        background_music.decide_and_play(player, true)
+        return true, S("Teleported to Origin!")
+    end
+})
