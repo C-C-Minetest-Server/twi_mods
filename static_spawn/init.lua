@@ -22,7 +22,7 @@
 S = core.get_translator("spawn")
 
 core.register_chatcommand("spawn", {
-    description = S("Teleport to spawnpoint"),
+    description = S("Teleport to the spawn point"),
     privs = {
         home = true
     },
@@ -70,10 +70,8 @@ core.register_chatcommand("setspawn", {
     end
 })
 
-
-
-core.register_chatcommand("spawn", {
-    description = S("Teleport to origin"),
+core.register_chatcommand("origin", {
+    description = S("Teleport to Origin"),
     privs = {
         home = true
     },
@@ -87,5 +85,23 @@ core.register_chatcommand("spawn", {
         background_music.set_start_play_gap(name, 2)
         background_music.decide_and_play(player, true)
         return true, S("Teleported to Origin!")
+    end
+})
+
+core.register_chatcommand("grapehills", {
+    description = S("Teleport to Grape Hills"),
+    privs = {
+        home = true
+    },
+    func = function(name)
+        local player = core.get_player_by_name(name)
+        if not player then
+            return false, S("Player object not found.")
+        end
+
+        player:set_pos({ x = -3292, y = 19, z = 1027 })
+        background_music.set_start_play_gap(name, 2)
+        background_music.decide_and_play(player, true)
+        return true, S("Teleported to Grape Hills!")
     end
 })
