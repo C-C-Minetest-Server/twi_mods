@@ -35,6 +35,10 @@ local cmd_alias = {
     pt    = "protect",
     h     = "help",
     ["?"] = "tutorial",
+
+    reports = "report",
+    feedback = "report",
+    feedbacks = "report",
 }
 
 for from, to in pairs(cmd_alias) do
