@@ -19,7 +19,7 @@
     USA
 ]]
 
-S = core.get_translator("spawn")
+local S = core.get_translator("spawn")
 
 core.register_chatcommand("spawn", {
     description = S("Teleport to the spawn point"),
