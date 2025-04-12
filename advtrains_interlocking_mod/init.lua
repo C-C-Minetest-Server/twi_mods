@@ -4,9 +4,9 @@
 -- SPDX-License-Identifier: AGPL-3.0-or-later
 
 for _, name in ipairs({
-    "advtrains_interlocking:ds_danger",
-    "advtrains_interlocking:ds_free",
-    "advtrains_interlocking:ds_slow"
+    -- "advtrains_interlocking:ds_danger",
+    -- "advtrains_interlocking:ds_free",
+    -- "advtrains_interlocking:ds_slow"
 }) do
     twi_fx.override_group(name, {
         not_in_creative_inventory = 1,

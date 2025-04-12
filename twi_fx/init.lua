@@ -35,6 +35,7 @@ function twi_fx.register_all_stairsplus(modname, name)
 end
 
 function twi_fx.override_group(name, new_groups)
+    assert(core.registered_items[name], "Item " .. name .. " does not exist")
     local groups = table.copy(core.registered_items[name].groups or {})
     for k, v in pairs(new_groups) do
         groups[k] = v == 0 and nil or v
