@@ -130,7 +130,7 @@ for _, s in ipairs(big_sign_sizes) do
 
     for _, c in ipairs(big_sign_colors) do
         local color = c[1]
-        local defc = c[2]
+        local def = c[2]
 
         signs_lib.register_sign("street_signs:sign_highway_" .. size .. "_" .. color, {
             description = S("Generic highway sign (@1-line, @2, @3)", nlines, size, color),
