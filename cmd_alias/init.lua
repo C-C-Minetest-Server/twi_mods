@@ -35,6 +35,7 @@ local cmd_alias = {
     pt    = "protect",
     h     = "help",
     ["?"] = "tutorial",
+    gh    = "grapehills",
 
     reports = "report",
     feedback = "report",
