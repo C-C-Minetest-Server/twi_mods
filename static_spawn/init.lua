@@ -25,7 +25,6 @@ local POS_ORIGIN = { x = 37, y = 18, z = -42 }
 local POS_GRAPEHILLS = { x = -3292, y = 19, z = 1027 }
 
 -- Dynamic, teleport by static_spawn
---[[
 core.register_chatcommand("spawn", {
     description = S("Teleport to the spawn point"),
     privs = {
@@ -47,9 +46,9 @@ core.register_chatcommand("spawn", {
         return true, S("Teleported to Spawn!")
     end
 })
-]]
 
 -- opt-in choice
+--[[
 core.register_chatcommand("spawn", {
     description = S("Teleport to the spawn point, or opt-in to the new spawn"),
     params = "[set grapehills|set origin]",
@@ -91,6 +90,7 @@ core.register_chatcommand("spawn", {
         return true, S("Teleported to @1!", spawn_desc)
     end
 })
+]]
 
 core.register_chatcommand("setspawn", {
     description = S("Override the static spawnpoint"),
