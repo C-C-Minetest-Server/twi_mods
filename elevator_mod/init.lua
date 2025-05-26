@@ -18,6 +18,7 @@
     PERFORMANCE OF THIS SOFTWARE.
 ]]
 
+-- 1. Override tiles to use Technic's iron texture
 for _, name in ipairs({
     "elevator:motor",
     "elevator:elevator_box",
@@ -33,3 +34,31 @@ for _, name in ipairs({
         tiles = tiles,
     })
 end
+
+-- 2. Restore farming redo-based recipes
+
+core.register_craft({
+    output = "elevator:elevator_off",
+    recipe = {
+        { "technic:cast_iron_ingot",       "farming:hemp_rope",    "technic:cast_iron_ingot" },
+        { "technic:cast_iron_ingot",       "default:mese_crystal", "technic:cast_iron_ingot" },
+        { "technic:stainless_steel_ingot", "default:glass",        "technic:stainless_steel_ingot" },
+    },
+})
+
+core.register_craft({
+    output = "elevator:shaft",
+    recipe = {
+        { "technic:cast_iron_ingot", "default:glass" },
+        { "default:glass",           "farming:hemp_rope" },
+    },
+})
+
+core.register_craft({
+    output = "elevator:motor",
+    recipe = {
+        { "default:diamond",    "technic:control_logic_unit", "default:diamond" },
+        { "default:steelblock", "technic:motor",              "default:steelblock" },
+        { "farming:hemp_rope",  "default:diamond",            "farming:hemp_rope" }
+    },
+})
