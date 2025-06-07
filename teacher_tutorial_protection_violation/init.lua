@@ -18,8 +18,8 @@ teacher.register_turorial("teacher_tutorial_protection_violation:on_violation", 
     {
         texture = "teacher_tutorial_protection_violation_2.jpg",
         text =
-            S("Follow the \"Are you new?\" signs from the spawn point to go to a place where you can build. " ..
-                "Type /spawn to go back to the spawn point.")
+            S("Follow the \"Open space to build\" direction line at Spawn, then walk into the travelnet labeled " ..
+                "\"Free Land To Explore\". Select a destination, and you can start building.")
     },
     {
         texture = "teacher_tutorial_protection_violation_3.jpg",
