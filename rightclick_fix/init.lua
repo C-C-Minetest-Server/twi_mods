@@ -50,11 +50,11 @@ local function on_place(itemstack, placer, pointed_thing, old_on_place)
 
     if is_function_node(pos) then
         local control = placer:get_player_control()
-        if control.sneak then
+        if not control.sneak then
             -- Do node function instead
             local node = core.get_node(pos)
             local ndef = core.registered_nodes[node.name]
-            if not ndef.on_rightclick then
+            if ndef.on_rightclick then
                 return ndef.on_rightclick(pos, node, placer, itemstack, pointed_thing)
             end
             return itemstack
