@@ -54,7 +54,7 @@ local function on_place(itemstack, placer, pointed_thing, old_on_place)
             -- Do node function instead
             local node = core.get_node(pos)
             local ndef = core.registered_nodes[node.name]
-            if ndef.on_rightclick then
+            if not ndef.on_rightclick then
                 return ndef.on_rightclick(pos, node, placer, itemstack, pointed_thing)
             end
             return itemstack
