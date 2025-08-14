@@ -1,0 +1,21 @@
+# textdomain: twi_welcome
+
+##[ src/news.lua ]##
+Server News=
+There are news updates, type /news to see them=
+Show the latest news=
+News shown.=
+Failed to fetch news.=
+Update the news cache=
+News cache updated.=
+Failed to update news cache.=
+
+##[ src/rules.lua ]##
+Rules are not available at the moment.=
+Server Rules=
+Show the rules=
+Rules shown.=
+Failed to fetch rules.=
+Update the rules cache=
+Rules cache updated.=
+Failed to update rules cache.=
