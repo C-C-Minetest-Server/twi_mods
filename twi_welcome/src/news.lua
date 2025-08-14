@@ -15,7 +15,7 @@ local function fetch_news(callback)
     return html_to_luanti.helpers.parse_mediawiki_page(
         http,
         "https://wiki-twi.1f616emo.xyz/api.php",
-        "Template:News/body",
+        "Template:News",
         function(fs_hypertext, revid)
             return callback(fs_hypertext and {
                 fs_hypertext = fs_hypertext,
