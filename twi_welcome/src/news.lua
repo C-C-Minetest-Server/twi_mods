@@ -27,17 +27,55 @@ end
 local news_cache = nil
 local news_cache_revid = nil
 
+local function player_check(player)
+    local pname = player:get_player_name()
+    local meta = player:get_meta()
+
+    if news_cache_revid ~= meta:get_string("twi_welcome:news_revid") then
+        core.chat_send_player(pname, core.colorize("green", S("There are news updates, type /news to see them")))
+
+        if not hud:exists(player, "text") and not hud:exists(player, "bg") then
+            hud:add(player, "text", {
+                hud_elem_type = "text",
+                position = { x = 1, y = 1 },
+                offset = { x = -24, y = -22 },
+                alignment = { x = "left", y = "up" },
+                text = S("There are news updates, type /news to see them"),
+                color = 0x00FF00,
+                z_index = 100
+            })
+            hud:add(player, "bg", {
+                hud_elem_type = "image",
+                position = { x = 1, y = 1 },
+                alignment = { x = "left", y = "up" },
+                texture = "twi_welcome_news_gui_formbg.png",
+                image_scale = 0.8,
+                z_index = 99
+            })
+
+            core.after(60, function()
+                if hud:exists(pname, "text") then
+                    hud:clear(pname)
+                end
+            end)
+        end
+    end
+end
+
 function twi_welcome.update_news(callback)
     return fetch_news(function(news)
         if news then
             news_cache = news.fs_hypertext
             news_cache_revid = tostring(news.revid)
+
+            for _, player in pairs(core.get_connected_players()) do
+                player_check(player)
+            end
+
             if callback then
                 return callback(true)
             end
-            return
-        end
-        if callback then
+        elseif callback then
             return callback(false)
         end
     end)
@@ -97,41 +135,6 @@ function twi_welcome.register_check_news(pname)
     end
 end
 
-local function player_check(player)
-    local pname = player:get_player_name()
-    local meta = player:get_meta()
-
-    if news_cache_revid ~= meta:get_string("twi_welcome:news_revid") then
-        core.chat_send_player(pname, core.colorize("green", S("There are news updates, type /news to see them")))
-
-        if not hud:exists(player, "text") and not hud:exists(player, "bg") then
-            hud:add(player, "text", {
-                hud_elem_type = "text",
-                position = { x = 1, y = 1 },
-                offset = { x = -24, y = -22 },
-                alignment = { x = "left", y = "up" },
-                text = S("There are news updates, type /news to see them"),
-                color = 0x00FF00,
-                z_index = 100
-            })
-            hud:add(player, "bg", {
-                hud_elem_type = "image",
-                position = { x = 1, y = 1 },
-                alignment = { x = "left", y = "up" },
-                texture = "twi_welcome_news_gui_formbg.png",
-                image_scale = 0.8,
-                z_index = 99
-            })
-
-            core.after(60, function()
-                if hud:exists(pname, "text") then
-                    hud:clear(pname)
-                end
-            end)
-        end
-    end
-end
-
 core.register_on_joinplayer(player_check)
 
 twi_welcome.update_news()
@@ -157,10 +160,6 @@ core.register_chatcommand("update_news", {
                 core.chat_send_player(name, S("News cache updated."))
             else
                 core.chat_send_player(name, S("Failed to update news cache."))
-            end
-
-            for _, player in pairs(core.get_connected_players()) do
-                player_check(player)
             end
         end)
         return true
