@@ -21,6 +21,8 @@ for _, name in ipairs({
     "moretrains_wagon_wood_aspen",
     "moretrains_wagon_box",
     "moretrains_railroad_car",
+    "moretrains_engine_japan",
+    "moretrains_wagon_japan",
 }) do
     core.registered_entities["advtrains:" .. name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
     advtrains.wagon_prototypes["advtrains:" .. name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
