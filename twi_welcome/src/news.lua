@@ -65,11 +65,13 @@ end
 function twi_welcome.update_news(callback)
     return fetch_news(function(news)
         if news then
-            news_cache = news.fs_hypertext
-            news_cache_revid = tostring(news.revid)
+            if news_cache_revid ~= tostring(news.revid) then
+                news_cache = news.fs_hypertext
+                news_cache_revid = tostring(news.revid)
 
-            for _, player in pairs(core.get_connected_players()) do
-                player_check(player)
+                for _, player in pairs(core.get_connected_players()) do
+                    player_check(player)
+                end
             end
 
             if callback then
