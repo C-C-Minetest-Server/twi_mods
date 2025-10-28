@@ -21,9 +21,15 @@ for _, name in ipairs({
     "moretrains_wagon_wood_aspen",
     "moretrains_wagon_box",
     "moretrains_railroad_car",
+}) do
+    core.registered_entities["advtrains:" .. name].max_speed = math.min(twi_fx.ADVTRAINS_MAX_TRAIN_SPEED, 30)
+    advtrains.wagon_prototypes["advtrains:" .. name].max_speed = math.min(twi_fx.ADVTRAINS_MAX_TRAIN_SPEED, 30)
+end
+
+for _, name in ipairs({
     "moretrains_engine_japan",
     "moretrains_wagon_japan",
 }) do
-    core.registered_entities["advtrains:" .. name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
-    advtrains.wagon_prototypes["advtrains:" .. name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
+    core.registered_entities["advtrains:" .. name].max_speed = math.min(twi_fx.ADVTRAINS_MAX_TRAIN_SPEED, 40)
+    advtrains.wagon_prototypes["advtrains:" .. name].max_speed = math.min(twi_fx.ADVTRAINS_MAX_TRAIN_SPEED, 40)
 end

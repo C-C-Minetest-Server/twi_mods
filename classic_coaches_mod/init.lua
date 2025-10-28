@@ -10,6 +10,6 @@ for _, name in ipairs({
     "classic_coaches:open_coach_class2",
     "classic_coaches:bistro_coach",
 }) do
-    core.registered_entities[name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
-    advtrains.wagon_prototypes[name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
+    core.registered_entities[name].max_speed = math.min(twi_fx.ADVTRAINS_MAX_TRAIN_SPEED, 30)
+    advtrains.wagon_prototypes[name].max_speed = math.min(twi_fx.ADVTRAINS_MAX_TRAIN_SPEED, 30)
 end

@@ -8,6 +8,6 @@ for _, name in ipairs({
     "dlxtrains_diesel_locomotives:locomotive_type2",
     "dlxtrains_diesel_locomotives:locomotive_type3",
 }) do
-    core.registered_entities[name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
-    advtrains.wagon_prototypes[name].max_speed = twi_fx.ADVTRAINS_MAX_TRAIN_SPEED
+    core.registered_entities[name].max_speed = math.min(twi_fx.ADVTRAINS_MAX_TRAIN_SPEED, 30)
+    advtrains.wagon_prototypes[name].max_speed = math.min(twi_fx.ADVTRAINS_MAX_TRAIN_SPEED, 30)
 end

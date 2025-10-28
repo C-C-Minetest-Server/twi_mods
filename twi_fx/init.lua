@@ -51,4 +51,4 @@ twi_fx.register_on_chat_message =
     or core.register_on_chat_message
 
 -- Limit that out hardware can bear
-twi_fx.ADVTRAINS_MAX_TRAIN_SPEED = 30
+twi_fx.ADVTRAINS_MAX_TRAIN_SPEED = 40
