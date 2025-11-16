@@ -1,0 +1,8 @@
+# textdomain: twi_billboards
+
+##[ init.lua ]##
+Grape Hills Railway Map=
+Confounded Face=
+Billboard @1=
+@1 (Scale: @2)=
+Billboards Shop=
