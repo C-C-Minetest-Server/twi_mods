@@ -1,0 +1,9 @@
+# textdomain: twi_billboards
+
+##[ init.lua ]##
+Grape Hills Railway Map=葡萄山鐵路路線圖
+Origin Railway Map=始源鐵路路線圖
+Confounded Face=討厭臉
+Billboard @1=@1廣告板
+@1 (Scale: @2)=@1（縮放倍數：@2）
+Billboards Shop=廣告板商店

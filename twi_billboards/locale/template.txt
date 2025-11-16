@@ -2,6 +2,7 @@
 
 ##[ init.lua ]##
 Grape Hills Railway Map=
+Origin Railway Map=
 Confounded Face=
 Billboard @1=
 @1 (Scale: @2)=
