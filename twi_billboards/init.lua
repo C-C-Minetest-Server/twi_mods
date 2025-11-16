@@ -20,6 +20,20 @@ local billboards = {
         shop_item_count = 1,
     },
 
+    -- Origin Railway Map (2025-11-16)
+    -- Source: https://metromapmaker.com/map/KfHj__im
+    -- Copyright (C) 2025  1F616EMO
+    -- License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
+    ["spn_railway_map"] = {
+        description = S("Origin Railway Map"),
+        texture = "twi_billboards_spn_railway_map.jpg",
+        scales = { 2.0, 2.5, 3.0 },
+        use_texture_alpha = "clip",
+        light_source = 1,
+        shop_item_cost = 5,
+        shop_item_count = 1,
+    },
+
     -- Twemoji v13: confounded face
     -- Source: https://commons.wikimedia.org/wiki/File:Twemoji13_1f616.svg
     -- Copyright (C) 2019 Twitter, Inc and other contributors
