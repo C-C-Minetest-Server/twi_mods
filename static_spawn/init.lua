@@ -41,6 +41,8 @@ core.register_chatcommand("spawn", {
             return false, S("Spawn point not set. Consult moderators to set a proper static spawnpoint.")
         end
         player:set_pos(spawn_pos)
+        player:set_look_horizontal(0)
+        player:set_look_vertical(0)
         background_music.set_start_play_gap(name, 2)
         background_music.decide_and_play(player, true)
         return true, S("Teleported to Spawn!")
