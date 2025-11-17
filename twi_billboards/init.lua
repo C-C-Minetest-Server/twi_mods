@@ -64,6 +64,36 @@ local billboards = {
         shop_item_count = 1,
     },
 
+    -- Grape Hills Line 2 Map (flipped)
+    -- Source: ./textures_src/twi_billboards_line_map_grh2.svg
+    -- Copyright (C) 2025  1F616EMO
+    -- License: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
+    ["line_map_grh2_flipped"] = {
+        description = S("Grape Hills Line 2 Map (flipped)"),
+        texture = "twi_billboards_line_map_grh2_flipped.png",
+        natural_scale = 3.0,
+        scales = { 1.0, },
+        use_texture_alpha = "clip",
+        light_source = 1,
+        shop_item_cost = 5,
+        shop_item_count = 1,
+    },
+
+    -- Grape Hills Line 2 Map (white text, flipped)
+    -- Source: ./textures_src/twi_billboards_line_map_grh2_white_text.svg
+    -- Copyright (C) 2025  1F616EMO
+    -- License: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
+    ["line_map_grh2_white_text_flipped"] = {
+        description = S("Grape Hills Line 2 Map (white text, flipped)"),
+        texture = "twi_billboards_line_map_grh2_white_text_flipped.png",
+        natural_scale = 3.0,
+        scales = { 1.0, },
+        use_texture_alpha = "clip",
+        light_source = 1,
+        shop_item_cost = 5,
+        shop_item_count = 1,
+    },
+
 
     -- Twemoji v13: confounded face
     -- Source: https://commons.wikimedia.org/wiki/File:Twemoji13_1f616.svg
