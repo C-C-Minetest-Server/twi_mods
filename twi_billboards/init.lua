@@ -34,6 +34,37 @@ local billboards = {
         shop_item_count = 1,
     },
 
+    -- Grape Hills Line 2 Map
+    -- Source: ./textures_src/twi_billboards_line_map_grh2.svg
+    -- Copyright (C) 2025  1F616EMO
+    -- License: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
+    ["line_map_grh2"] = {
+        description = S("Grape Hills Line 2 Map"),
+        texture = "twi_billboards_line_map_grh2.png",
+        natural_scale = 3.0,
+        scales = { 1.0, },
+        use_texture_alpha = "clip",
+        light_source = 1,
+        shop_item_cost = 5,
+        shop_item_count = 1,
+    },
+
+    -- Grape Hills Line 2 Map (white text)
+    -- Source: ./textures_src/twi_billboards_line_map_grh2_white_text.svg
+    -- Copyright (C) 2025  1F616EMO
+    -- License: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
+    ["line_map_grh2_white_text"] = {
+        description = S("Grape Hills Line 2 Map (white text)"),
+        texture = "twi_billboards_line_map_grh2_white_text.png",
+        natural_scale = 3.0,
+        scales = { 1.0, },
+        use_texture_alpha = "clip",
+        light_source = 1,
+        shop_item_cost = 5,
+        shop_item_count = 1,
+    },
+
+
     -- Twemoji v13: confounded face
     -- Source: https://commons.wikimedia.org/wiki/File:Twemoji13_1f616.svg
     -- Copyright (C) 2019 Twitter, Inc and other contributors
@@ -82,7 +113,7 @@ for name, data in pairs(billboards) do
         local node_name = "twi_billboards:" .. name .. "_" .. string.gsub(tostring(scale), "%.", "_")
         local def = table.copy(basic_definition)
         def.description = S("@1 (Scale: @2)", data.description, tostring(scale))
-        def.visual_scale = scale
+        def.visual_scale = scale * (data.natural_scale or 1.0)
 
         core.register_node(node_name, def)
 
