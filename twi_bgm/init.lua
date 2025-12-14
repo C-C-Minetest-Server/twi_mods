@@ -59,7 +59,7 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
     },
 
     -- Town Themne
-    -- Pixelsphere OST? (cynicmusic)
+    -- The Cynic Project (cynicmusic)
     -- https://opengameart.org/content/town-theme-rpg
     -- License: CC0
     {
@@ -69,7 +69,7 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
 
         -- Attribution information
         title = "Town Theme",
-        author = "cynicmusic",
+        author = "The Cynic Project",
         author_link = "https://opengameart.org/content/town-theme-rpg",
         license = "CC0-1.0",
         license_link = "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -109,34 +109,26 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
         license_link = "https://creativecommons.org/licenses/by/3.0/",
     },
 
-    -- Little Town [TODO]
-    -- bart (remix: 1F616EMO)
-    -- https://opengameart.org/content/little-town
-    -- License: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
-    -- {
-    --     file = MP .. "/bgms/1f616emo_little_town",
-    -- },
+    -- Blue Ridge
+    -- Eric Matyas
+    -- https://soundimage.org/quiet-peaceful-mellow/
+    -- License: Soundimage International Public License https://soundimage.org/sample-page/
+    {
+        file = MP .. "/bgms/eric_matyas_blue_ridge.ogg",
+        gain = 0.4,
+        resend_time = 81.4,
+
+        -- Attribution information
+        title = "Blue Ridge",
+        author = "Eric Matyas",
+        author_link = "https://soundimage.org/", -- As required
+        license = "Soundimage International Public License",
+        license_link = "https://soundimage.org/sample-page/",
+    },
 })
 
 -- Songs played around Grape Hills Spawnpoint at night
 background_music.register_music("twi_bgm:gh_spawn_night", {
-    -- Del Erad
-    -- Radakan OST (Janne Hanhisuanto for Radakan)
-    -- https://opengameart.org/content/radakan-del-erad
-    -- License: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
-    {
-        file = MP .. "/bgms/radakan_del_erad.ogg",
-        gain = 0.4,
-        resend_time = 300.8,
-
-        -- Attribution information
-        title = "Del Erad",
-        author = "Janne Hanhisuanto",
-        author_link = "https://opengameart.org/content/radakan-del-erad",
-        license = "CC BY-SA 3.0",
-        license_link = "https://creativecommons.org/licenses/by-sa/3.0/",
-    },
-
     -- Never Grow Up
     -- Diminixed
     -- License:CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
@@ -187,20 +179,38 @@ background_music.register_music("twi_bgm:gh_spawn_night", {
         license_link = "https://creativecommons.org/publicdomain/zero/1.0/",
     },
 
-    -- Path to Lake Land
-    -- Alexandr Zhelanov
-    -- License: CC-BY 3.0 https://creativecommons.org/licenses/by/3.0/
+    -- Dusk
+    -- Eric Matyas
+    -- https://soundimage.org/quiet-peaceful-mellow/
+    -- License: Soundimage International Public License https://soundimage.org/sample-page/
     {
-        file = MP .. "/bgms/zhelanov_path_lake_land.ogg",
+        file = MP .. "/bgms/eric_matyas_dusk.ogg",
         gain = 0.4,
-        resend_time = 254.8,
+        resend_time = 96.6,
 
         -- Attribution information
-        title = "Path to Lake Land",
-        author = "Alexandr Zhelanov",
-        author_link = "",
-        license = "CC BY 3.0",
-        license_link = "https://creativecommons.org/licenses/by/3.0/",
+        title = "Dusk",
+        author = "Eric Matyas",
+        author_link = "https://soundimage.org/", -- As required
+        license = "Soundimage International Public License",
+        license_link = "https://soundimage.org/sample-page/",
+    },
+
+    -- Vaporware
+    -- The Cynic Project (cynicmusic)
+    -- https://opengameart.org/content/calm-piano-1-vaporware
+    -- License: CC0
+    {
+        file = MP .. "/bgms/cynicmusic_vaporware.ogg",
+        gain = 0.4,
+        resend_time = 165.0,
+
+        -- Attribution information
+        title = "Vaporware",
+        author = "The Cynic Project",
+        author_link = "https://opengameart.org/content/calm-piano-1-vaporware",
+        license = "CC0-1.0",
+        license_link = "https://creativecommons.org/publicdomain/zero/1.0/",
     },
 })
 
