@@ -115,7 +115,7 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
     -- License: Soundimage International Public License https://soundimage.org/sample-page/
     {
         file = MP .. "/bgms/eric_matyas_blue_ridge.ogg",
-        gain = 0.4,
+        gain = 0.65,
         resend_time = 81.4,
 
         -- Attribution information
@@ -185,7 +185,7 @@ background_music.register_music("twi_bgm:gh_spawn_night", {
     -- License: Soundimage International Public License https://soundimage.org/sample-page/
     {
         file = MP .. "/bgms/eric_matyas_dusk.ogg",
-        gain = 0.4,
+        gain = 1.0,
         resend_time = 96.6,
 
         -- Attribution information
@@ -202,7 +202,7 @@ background_music.register_music("twi_bgm:gh_spawn_night", {
     -- License: CC0
     {
         file = MP .. "/bgms/cynicmusic_vaporware.ogg",
-        gain = 0.4,
+        gain = 0.80,
         resend_time = 165.0,
 
         -- Attribution information
