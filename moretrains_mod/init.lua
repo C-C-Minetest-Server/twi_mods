@@ -21,6 +21,8 @@ for _, name in ipairs({
     "moretrains_wagon_wood_aspen",
     "moretrains_wagon_box",
     "moretrains_railroad_car",
+    "moretrains_silberling",
+    "moretrains_silberling_dining",
 }) do
     core.registered_entities["advtrains:" .. name].max_speed = math.min(twi_fx.ADVTRAINS_MAX_TRAIN_SPEED, 30)
     advtrains.wagon_prototypes["advtrains:" .. name].max_speed = math.min(twi_fx.ADVTRAINS_MAX_TRAIN_SPEED, 30)
