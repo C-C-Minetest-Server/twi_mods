@@ -13,7 +13,7 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
     -- License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
     {
         file = MP .. "/bgms/john_leviathan_03.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 198.4,
 
         -- Attribution information
@@ -30,7 +30,7 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
     -- License: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
     {
         file = MP .. "/bgms/tom_inca_pan_flute.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 146.4,
 
         -- Attribution information
@@ -47,7 +47,7 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
     -- License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
     {
         file = MP .. "/bgms/tom_fluffy_style.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 161.9,
 
         -- Attribution information
@@ -64,7 +64,7 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
     -- License: CC0
     {
         file = MP .. "/bgms/cynicmusic_town_theme.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 97.5,
 
         -- Attribution information
@@ -81,7 +81,7 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
     -- License: CC0
     {
         file = MP .. "/bgms/john_duskfire_07.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 100.2,
 
         -- Attribution information
@@ -98,7 +98,7 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
     -- License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
     {
         file = MP .. "/bgms/pablo_stepping_pebbles_nodrums.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 64.4,
 
         -- Attribution information
@@ -115,7 +115,7 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
     -- License: Soundimage International Public License https://soundimage.org/sample-page/
     {
         file = MP .. "/bgms/eric_matyas_blue_ridge.ogg",
-        gain = 0.65,
+        gain = 1,
         resend_time = 81.4,
 
         -- Attribution information
@@ -134,7 +134,7 @@ background_music.register_music("twi_bgm:gh_spawn_night", {
     -- License:CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
     {
         file = MP .. "/bgms/diminixed_nevergrowup.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 71.4,
 
         -- Attribution information
@@ -151,7 +151,7 @@ background_music.register_music("twi_bgm:gh_spawn_night", {
     -- License: CC0
     {
         file = MP .. "/bgms/pixelsphere_25_new_town.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 62.3,
 
         -- Attribution information
@@ -168,7 +168,7 @@ background_music.register_music("twi_bgm:gh_spawn_night", {
     -- License: CC0
     {
         file = MP .. "/bgms/john_ardune_07.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 193.5,
 
         -- Attribution information
@@ -185,7 +185,7 @@ background_music.register_music("twi_bgm:gh_spawn_night", {
     -- License: Soundimage International Public License https://soundimage.org/sample-page/
     {
         file = MP .. "/bgms/eric_matyas_dusk.ogg",
-        gain = 1.0,
+        gain = 1,
         resend_time = 96.6,
 
         -- Attribution information
@@ -202,7 +202,7 @@ background_music.register_music("twi_bgm:gh_spawn_night", {
     -- License: CC0
     {
         file = MP .. "/bgms/cynicmusic_vaporware.ogg",
-        gain = 0.80,
+        gain = 1,
         resend_time = 165.0,
 
         -- Attribution information
@@ -222,7 +222,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- License: CC0
     {
         file = MP .. "/bgms/john_leviathan_03.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 198.4,
 
         -- Attribution information
@@ -239,7 +239,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- License: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
     {
         file = MP .. "/bgms/tom_inca_pan_flute.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 146.4,
 
         -- Attribution information
@@ -256,7 +256,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
     {
         file = MP .. "/bgms/tom_fluffy_style.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 161.9,
 
         -- Attribution information
@@ -273,7 +273,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- License: CC0
     {
         file = MP .. "/bgms/cynicmusic_town_theme.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 97.5,
 
         -- Attribution information
@@ -290,7 +290,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- License: CC0
     {
         file = MP .. "/bgms/john_duskfire_07.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 100.2,
 
         -- Attribution information
@@ -307,7 +307,7 @@ background_music.register_music("twi_bgm:spawn_day", {
     -- License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
     {
         file = MP .. "/bgms/pablo_stepping_pebbles_nodrums.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 64.4,
 
         -- Attribution information
@@ -327,7 +327,7 @@ background_music.register_music("twi_bgm:spawn_night", {
     -- License: CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
     {
         file = MP .. "/bgms/radakan_del_erad.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 300.8,
 
         -- Attribution information
@@ -343,7 +343,7 @@ background_music.register_music("twi_bgm:spawn_night", {
     -- License:CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
     {
         file = MP .. "/bgms/diminixed_nevergrowup.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 71.4,
 
         -- Attribution information
@@ -360,7 +360,7 @@ background_music.register_music("twi_bgm:spawn_night", {
     -- License: CC0
     {
         file = MP .. "/bgms/pixelsphere_25_new_town.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 62.3,
 
         -- Attribution information
@@ -377,7 +377,7 @@ background_music.register_music("twi_bgm:spawn_night", {
     -- License: CC0
     {
         file = MP .. "/bgms/john_ardune_07.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 193.5,
 
         -- Attribution information
@@ -393,7 +393,7 @@ background_music.register_music("twi_bgm:spawn_night", {
     -- License: CC-BY 3.0 https://creativecommons.org/licenses/by/3.0/
     {
         file = MP .. "/bgms/zhelanov_path_lake_land.ogg",
-        gain = 0.4,
+        gain = 1,
         resend_time = 254.8,
 
         -- Attribution information
