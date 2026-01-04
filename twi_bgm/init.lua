@@ -125,6 +125,22 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
         license = "Soundimage International Public License",
         license_link = "https://soundimage.org/sample-page/",
     },
+
+    -- Morning
+    -- Kevin MacLeod
+    -- https://incompetech.com/music/royalty-free/music.html
+    -- License: CC BY 4.0 http://creativecommons.org/licenses/by/4.0/
+    {
+        file = MP .. "/bgms/incompetech_morning.ogg",
+        gain = 1,
+        resend_time = 153.3,
+
+        title = "Morning",
+        author = "Kevin MacLeod",
+        author_link = "https://incompetech.com/",
+        license = "CC BY 4.0",
+        license_link = "http://creativecommons.org/licenses/by/4.0/",
+    },
 })
 
 -- Songs played around Grape Hills Spawnpoint at night
@@ -211,6 +227,38 @@ background_music.register_music("twi_bgm:gh_spawn_night", {
         author_link = "https://opengameart.org/content/calm-piano-1-vaporware",
         license = "CC0-1.0",
         license_link = "https://creativecommons.org/publicdomain/zero/1.0/",
+    },
+
+    -- Evening
+    -- Kevin MacLeod
+    -- https://incompetech.com/music/royalty-free/music.html
+    -- License: CC BY 4.0 http://creativecommons.org/licenses/by/4.0/
+    {
+        file = MP .. "/bgms/incompetech_evening.ogg",
+        gain = 1,
+        resend_time = 186.3,
+
+        title = "Evening",
+        author = "Kevin MacLeod",
+        author_link = "https://incompetech.com/",
+        license = "CC BY 4.0",
+        license_link = "http://creativecommons.org/licenses/by/4.0/",
+    },
+
+    -- Midnight Tale
+    -- Kevin MacLeod
+    -- https://incompetech.com/music/royalty-free/music.html
+    -- License: CC BY 4.0 http://creativecommons.org/licenses/by/4.0/
+    {
+        file = MP .. "/bgms/imcompletech_midnight_tale.ogg",
+        gain = 1,
+        resend_time = 161.6,
+
+        title = "Midnight Tale",
+        author = "Kevin MacLeod",
+        author_link = "https://incompetech.com/",
+        license = "CC BY 4.0",
+        license_link = "http://creativecommons.org/licenses/by/4.0/",
     },
 })
 
