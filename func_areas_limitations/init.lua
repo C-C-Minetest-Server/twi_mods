@@ -63,7 +63,6 @@ local function is_in_public_farm(pos)
     return func_areas.is_in_func_area(pos, 13)  -- Spawn Public Farm
         or func_areas.is_in_func_area(pos, 92)  -- SCL Jail Farm
         or func_areas.is_in_func_area(pos, 496) -- Eastern SmushyVille Public Farm
-        or func_areas.is_in_func_area(pos, 548) -- Great SmushyVille Public Farm
     --  or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
 end
 
