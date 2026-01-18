@@ -64,6 +64,9 @@ local function is_in_public_farm(pos)
         or func_areas.is_in_func_area(pos, 92)  -- SCL Jail Farm
         or func_areas.is_in_func_area(pos, 496) -- Eastern SmushyVille Public Farm
     --  or func_areas.is_in_func_area(pos, 400) -- cycle's Public Farm
+        or func_areas.is_in_func_area(pos, 2611) -- Groma PF, Zone 1 (Wheat)
+        or func_areas.is_in_func_area(pos, 2612) -- Groma PF, Zone 2 (Onion)
+        or func_areas.is_in_func_area(pos, 2613) -- Groma PF, Zone 3 (Cotton)
 end
 
 local old_is_protected = core.is_protected
@@ -95,6 +98,12 @@ function extended_protection.item_place_node_is_protected(itemstack, placer, poi
         return true
     elseif func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
         return true
+    elseif func_areas.is_in_func_area(pos, 2611) and item_name ~= "farming:seed_wheat" then
+        return true
+    elseif func_areas.is_in_func_area(pos, 2612) and item_name ~= "farming:onion" then
+        return true
+    elseif func_areas.is_in_func_area(pos, 2613) and item_name ~= "farming:seed_cotton" then
+        return true
     elseif is_in_public_farm(pos) and not is_seed(item_name) then
         return true
     elseif func_areas.is_in_func_area(pos, 136) then
@@ -115,6 +124,20 @@ extended_protection.register_on_item_place_node_protection_violation(function(it
         core.chat_send_player(name, S("You can only place down apple tree saplings in the Public Tree Farm."))
     elseif func_areas.is_in_func_area(pos, 225) and item_name ~= "default:sapling" then
         core.chat_send_player(name, S("You can only place down apple tree saplings in the Public Tree Farm."))
+    elseif func_areas.is_in_func_area(pos, 2611) then
+        if item_name == "farming:wheat" then
+            core.chat_send_player(name, S("You should place down wheat seeds instead of wheat."))
+        elseif item_name ~= "farming:seed_wheat" then
+            core.chat_send_player(name, S("You can only place down wheat seeds in this zong of the the Public Farm."))
+        end
+    elseif func_areas.is_in_func_area(pos, 2612) and item_name ~= "farming:onion" then
+        core.chat_send_player(name, S("You can only place down onion in this zong of the the Public Farm."))
+    elseif func_areas.is_in_func_area(pos, 2613) then
+        if item_name == "farming:cotton" then
+            core.chat_send_player(name, S("You should place down cotton seeds instead of cotton."))
+        elseif item_name ~= "farming:seed_cotton" then
+            core.chat_send_player(name, S("You can only place down cotton seeds in this zong of the the Public Farm."))
+        end
     elseif is_in_public_farm(pos) and not is_seed(item_name) then
         core.chat_send_player(name, S("You can only place down plant seeds in the Public Farm."))
     elseif func_areas.is_in_func_area(pos, 136) then
