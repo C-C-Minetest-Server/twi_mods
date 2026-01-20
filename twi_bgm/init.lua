@@ -41,22 +41,22 @@ background_music.register_music("twi_bgm:gh_spawn_day", {
         license_link = "https://creativecommons.org/licenses/by-sa/3.0/",
     },
 
-    -- Fluffy style
+    -- Le détroit
     -- Totraf
-    -- https://opengameart.org/content/fluffy-style
-    -- License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
-    {
+    -- https://soundcloud.com/totraf/le-d-troit
+    -- License: ???
+    --[[{
         file = MP .. "/bgms/tom_fluffy_style.ogg",
         gain = 1,
         resend_time = 161.9,
 
         -- Attribution information
-        title = "Fluffy Style",
+        title = "Le détroit",
         author = "Totraf",
-        author_link = "https://opengameart.org/content/fluffy-style",
-        license = "CC BY 3.0",
-        license_link = "https://creativecommons.org/licenses/by/3.0/",
-    },
+        author_link = "https://soundcloud.com/totraf/le-d-troit",
+        --license = "CC BY 3.0",
+        --license_link = "https://creativecommons.org/licenses/by/3.0/",
+    },]]
 
     -- Town Themne
     -- The Cynic Project (cynicmusic)
@@ -298,22 +298,22 @@ background_music.register_music("twi_bgm:spawn_day", {
         license_link = "https://creativecommons.org/licenses/by-sa/3.0/",
     },
 
-    -- Fluffy style
+    -- Le détroit
     -- Totraf
-    -- https://opengameart.org/content/fluffy-style
-    -- License: CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
-    {
+    -- https://soundcloud.com/totraf/le-d-troit
+    -- License: ???
+    --[[{
         file = MP .. "/bgms/tom_fluffy_style.ogg",
         gain = 1,
         resend_time = 161.9,
 
         -- Attribution information
-        title = "Fluffy Style",
+        title = "Le détroit",
         author = "Totraf",
-        author_link = "https://opengameart.org/content/fluffy-style",
-        license = "CC BY 3.0",
-        license_link = "https://creativecommons.org/licenses/by/3.0/",
-    },
+        author_link = "https://soundcloud.com/totraf/le-d-troit",
+        --license = "CC BY 3.0",
+        --license_link = "https://creativecommons.org/licenses/by/3.0/",
+    },]]
 
     -- Town Themne
     -- Pixelsphere OST? (cynicmusic)
