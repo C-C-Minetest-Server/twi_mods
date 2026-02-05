@@ -25,20 +25,22 @@
 local S = core.get_translator("cmd_alias")
 
 local cmd_alias = {
-    doc   = "helpform",
-    snp   = "snippets",
-    tp    = "teleport",
-    lua   = "/lua",
-    t     = "tutorial",
-    p1    = "area_pos1",
-    p2    = "area_pos2",
-    pt    = "protect",
-    h     = "help",
-    ["?"] = "tutorial",
-    gh    = "grapehills",
+    ca        = "centralauth",
+    d         = "day",
+    doc       = "helpform",
+    snp       = "snippets",
+    tp        = "teleport",
+    lua       = "/lua",
+    t         = "tutorial",
+    p1        = "area_pos1",
+    p2        = "area_pos2",
+    pt        = "protect",
+    h         = "help",
+    ["?"]     = "tutorial",
+    gh        = "grapehills",
 
-    reports = "report",
-    feedback = "report",
+    reports   = "report",
+    feedback  = "report",
     feedbacks = "report",
 }
 
