@@ -94,6 +94,20 @@ local billboards = {
         shop_item_count = 1,
     },
 
+    -- Intercity Railway Map
+    -- Source: ./textures_src/twi_billboards_express_map.{json,xcf}
+    -- Copyright (C) 2025  1F616EMO
+    -- License: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
+    ["express_map"] = {
+        description = S("Intercity Railway Map"),
+        texture = "twi_billboards_express_map.png",
+        natural_scale = 2.0,
+        scales = { 0.5, 1.0, 1.5, 2.0, 3.0 },
+        use_texture_alpha = "clip",
+        light_source = 1,
+        shop_item_cost = 5,
+        shop_item_count = 1,
+    },
 
     -- Twemoji v13: confounded face
     -- Source: https://commons.wikimedia.org/wiki/File:Twemoji13_1f616.svg
