@@ -8,6 +8,9 @@ local fix_tools = {
     "screwdriver:screwdriver",
     "technic:sonic_screwdriver",
 
+    -- Technic tools
+    "technic:prospector",
+
     -- Advtrains tools
     "advtrains:trackworker",
     "advtrains:copytool",
