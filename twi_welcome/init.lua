@@ -9,5 +9,6 @@ local MP = core.get_modpath("twi_welcome")
 
 twi_welcome = {}
 
+dofile(MP .. "/src/chatroom_tutorial.lua")
 loadfile(MP .. "/src/news.lua")(http)
 loadfile(MP .. "/src/rules.lua")(http)
