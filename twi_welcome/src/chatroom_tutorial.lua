@@ -78,19 +78,18 @@ core.register_on_joinplayer(function(player)
     -- Show every month between 26 and 28 server time
     -- Or after executing /wfc_message_test on last login
     -- Abort showing chatroom tutorial when WFC is shown
-    local show_wfc = false
     local this_month = tonumber(os.date("%Y%m"))
     local this_date = tonumber(os.date("%d"))
     if
         (
-            this_date >= 26 and thia_date <= 28
+            this_date >= 26 and this_date <= 28
             and meta:get_int("chatroom_tutorial_wfc_message_last") < this_month
         )
         or meta:get_int("chatroom_tutorial_wfc_message_test") ~= 0
     then
         meta:set_int("chatroom_tutorial_wfc_message_test", 0)
         meta:set_int("chatroom_tutorial_wfc_message_last", this_month)
-        
+
         -- Show regardless of whether this have been unlocked before
         teacher.unlock_entry_for_player(player, "chatroom_tutorial:wfc_fire")
         teacher.simple_show(player, "chatroom_tutorial:wfc_fire")
@@ -109,7 +108,9 @@ twi_fx.register_on_chat_message(function(name, message)
     if not player then return end
 
     if hud:exists(player, "chatroom_tutorial_show_msg") then
-        player:get_meta():set_int("chatroom_tutorial_show_msg", 0)
+        local meta = player:get_meta()
+        meta:set_int("chatroom_tutorial_show_msg", 0)
+        meta:set_int("chatroom_tutorial_show_tutorial", 0)
         hud:remove(player, "chatroom_tutorial_show_msg")
     end
 end)
