@@ -45,6 +45,18 @@ function twi_fx.override_group(name, new_groups)
     })
 end
 
+-- Determine if we are inside the mourning period
+-- Returns current month in format of YYYYMM if yes, nil otherwise
+function twi_fx.is_wang_fuk_court_mourning()
+    local this_date = tonumber(os.date("%d"))
+
+    if this_date < 26 or this_date > 28 then
+        return nil
+    end
+
+    return tonumber(os.date("%Y%m"))
+end
+
 twi_fx.register_on_chat_message =
     core.global_exists("beerchat")
     and beerchat.register_on_chat_message

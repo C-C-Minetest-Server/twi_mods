@@ -456,8 +456,8 @@ background_music.register_music("twi_bgm:spawn_night", {
 background_music.register_on_decide_music(function(player)
     local ppos = player:get_pos()
     local timeofday = core.get_timeofday()
-    -- 0.23 < day < 0.78
-    local now_day = timeofday > 0.23 and timeofday < 0.78
+    -- 0.23 < day < 0.78, though always play the night album if in mourning
+    local now_day = twi_fx.is_wang_fuk_court_mourning() or (timeofday > 0.23 and timeofday < 0.78)
 
     if func_areas.is_in_func_area(ppos, 2207) then
         -- Grape Hills Spawn

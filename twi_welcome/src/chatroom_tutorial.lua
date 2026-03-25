@@ -40,6 +40,13 @@ teacher.register_turorial("chatroom_tutorial:wfc_fire", {
             ),
             S("The calamity, as well as all the losses of lives and " ..
                 "suffers, shall not be forgotten."),
+            S(
+                "\"If human error causes a catastrophe, the lesson is not " ..
+                "that it's the person's fault, it's that the system is " ..
+                "unsafe and lacks guardrails to prevent the same thing " ..
+                "happening again in the future.\" - by Mlkj, when talking " ..
+                "about a Wikipedia incident, @1", "https://w.wiki/KJS4"
+            ),
             S("Learn more: @1", WFC_WIKILINK),
         },
     },
@@ -78,13 +85,9 @@ core.register_on_joinplayer(function(player)
     -- Show every month between 26 and 28 server time
     -- Or after executing /wfc_message_test on last login
     -- Abort showing chatroom tutorial when WFC is shown
-    local this_month = tonumber(os.date("%Y%m"))
-    local this_date = tonumber(os.date("%d"))
+    local this_month = twi_fx.is_wang_fuk_court_mourning()
     if
-        (
-            this_date >= 26 and this_date <= 28
-            and meta:get_int("chatroom_tutorial_wfc_message_last") < this_month
-        )
+        (this_month and meta:get_int("chatroom_tutorial_wfc_message_last") < this_month)
         or meta:get_int("chatroom_tutorial_wfc_message_test") ~= 0
     then
         meta:set_int("chatroom_tutorial_wfc_message_test", 0)
