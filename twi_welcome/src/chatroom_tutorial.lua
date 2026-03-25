@@ -24,6 +24,7 @@ teacher.register_turorial("chatroom_tutorial:chatroom", {
 -- Should be the w.wiki short link of the language.
 local WFC_WIKILINK = S("https://w.wiki/GSeT")
 
+-- Translation guide: BOTH English and Chinese (Traditional) should be seen as the source languages.
 teacher.register_turorial("chatroom_tutorial:wfc_fire", {
     title = S("The Wang Fuk Court fire"),
     {
