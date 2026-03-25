@@ -457,7 +457,11 @@ background_music.register_on_decide_music(function(player)
     local ppos = player:get_pos()
     local timeofday = core.get_timeofday()
     -- 0.23 < day < 0.78, though always play the night album if in mourning
-    local now_day = twi_fx.is_wang_fuk_court_mourning() or (timeofday > 0.23 and timeofday < 0.78)
+    local now_day = timeofday > 0.23 and timeofday < 0.78
+    if twi_fx.is_wang_fuk_court_mourning() then
+        -- Just inappropriate to play cheerful music when we are showing mourning messages
+        now_day = false
+    end
 
     if func_areas.is_in_func_area(ppos, 2207) then
         -- Grape Hills Spawn
