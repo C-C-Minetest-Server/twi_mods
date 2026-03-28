@@ -5,7 +5,7 @@
 
 local S = core.get_translator("teacher_tutorial_protection_violation")
 
-teacher.register_turorial("teacher_tutorial_protection_violation:on_violation", {
+teacher.register_tutorial("teacher_tutorial_protection_violation:on_violation", {
     title = S("Position is protected..."),
     show_on_unlock = true,
     show_disallow_close = true,

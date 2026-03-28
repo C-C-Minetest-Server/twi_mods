@@ -5,7 +5,7 @@
 
 local S = core.get_translator("teacher_tutorial_public_farm")
 
-teacher.register_turorial("teacher_tutorial_public_farm:public_farm", {
+teacher.register_tutorial("teacher_tutorial_public_farm:public_farm", {
     title = S("The Public Farm"),
     show_on_unlock = true,
     show_disallow_close = true,

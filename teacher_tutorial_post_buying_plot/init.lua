@@ -19,7 +19,7 @@
 
 local S = core.get_translator("teacher_tutorial_post_buying_plot")
 
-teacher.register_turorial("teacher_tutorial_post_buying_plot:post_buy", {
+teacher.register_tutorial("teacher_tutorial_post_buying_plot:post_buy", {
     title = S("After buying a plot..."),
     show_on_unlock = true,
 

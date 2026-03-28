@@ -5,7 +5,7 @@
 
 local S = core.get_translator("teacher_tutorial_public_mine")
 
-teacher.register_turorial("teacher_tutorial_public_mine:public_mine", {
+teacher.register_tutorial("teacher_tutorial_public_mine:public_mine", {
     title = S("The Public Mine"),
     {
         texture = "teacher_tutorial_public_mine_1.jpg",
