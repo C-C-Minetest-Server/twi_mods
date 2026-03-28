@@ -93,3 +93,17 @@ modlib.minetest.register_globalstep(60, function()
         end
     end
 end)
+
+-- /ping
+core.register_chatcommand("ping", {
+    description = S("Check your latency to the server"),
+    func = function(name)
+        local player = core.get_player_by_name(name)
+        if not player then
+            return false, S("You must be online to run this command.")
+        end
+
+        local info = core.get_player_information(name)
+        return true, S("PONG! RTT: @1s, Jitter: @2s", info.avg_rtt, info.avg_jitter)
+    end,
+})
