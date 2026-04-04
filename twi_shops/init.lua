@@ -65,8 +65,20 @@ shop_dialog.register_dialog("twi_shops:advtrains", {
             max_amount = check_atlatc,
         },
         {
+            item = ItemStack("luaatc_textline:wall_textline_green"),
+            description = S("For LuaATC operators only. Wall display that runs LuaATC code."),
+            cost = 5,
+            max_amount = check_atlatc,
+        },
+        {
+            item = ItemStack("luaatc_textline:wall_textline_orange"),
+            description = S("For LuaATC operators only. Wall display that runs LuaATC code."),
+            cost = 5,
+            max_amount = check_atlatc,
+        },
+        {
             item = ItemStack("luaatc_textline:textline"),
-            description = S("For LuaATC operators only. Textline that runs LuaATC code."),
+            description = S("For LuaATC operators only. Plain textline that runs LuaATC code."),
             cost = 5,
             max_amount = check_atlatc,
         },
