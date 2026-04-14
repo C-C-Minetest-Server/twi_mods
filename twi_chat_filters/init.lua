@@ -13,8 +13,6 @@ local blocked_string = {
 }
 
 beerchat.register_callback('on_receive', function(data)
-    print(dump(data))
-    print(dump(blocked_string))
     local name, message = data.name, data.message
     if not name or not message then return false end
 
