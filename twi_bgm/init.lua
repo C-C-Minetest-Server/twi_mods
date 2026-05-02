@@ -453,15 +453,51 @@ background_music.register_music("twi_bgm:spawn_night", {
     },
 })
 
+background_music.register_music("twi_bgm:wfc_mouring", {
+    -- Valley of Ghosts
+    -- Exhale & Tim Unwin
+    -- License: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+    {
+        file = MP .. "/bgms/exhale_and_tim_unwin_valley_of_ghosts.ogg",
+        gain = 1,
+        resend_time = 143.1,
+
+        title = "Valley of Ghosts",
+        author = "Exhale & Tim Unwin",
+        author_link = "",
+        license = "CC BY-SA 4.0",
+        license_link = "https://creativecommons.org/licenses/by-sa/4.0/",
+    },
+
+    -- Full of Memories
+    -- Alexandr Zhelanov
+    -- License: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
+    {
+        file = MP .. "/bgms/alexandar_zhelanov_full_of_memories.ogg",
+        gain = 1,
+        resend_time = 85.1,
+
+        title = "Full of Memories",
+        author = "Alexandr Zhelanov",
+        author_link = "",
+        license = "CC BY 4.0",
+        license_link = "https://creativecommons.org/licenses/by/4.0/",
+    },
+})
+
 background_music.register_on_decide_music(function(player)
     local ppos = player:get_pos()
+
+    if twi_fx.is_wang_fuk_court_mourning() and (
+            func_areas.is_in_func_area(ppos, 2207) or func_areas.is_in_func_area(ppos, 497)
+        ) then
+        -- Play dedicated album
+        return "twi_bgm:wfc_mouring"
+    end
+
     local timeofday = core.get_timeofday()
     -- 0.23 < day < 0.78, though always play the night album if in mourning
     local now_day = timeofday > 0.23 and timeofday < 0.78
-    if twi_fx.is_wang_fuk_court_mourning() then
-        -- Just inappropriate to play cheerful music when we are showing mourning messages
-        now_day = false
-    end
 
     if func_areas.is_in_func_area(ppos, 2207) then
         -- Grape Hills Spawn
