@@ -22,6 +22,40 @@
     THE SOFTWARE.
 ]]
 
+-- core.register_mapgen_script(core.get_modpath("ethereal_mod") .. "/mapgen.lua")
+
+core.register_lbm({
+    name = "ethereal_mod:fix_quicksand",
+    nodenames = {"ethereal:quicksand2"},
+    run_at_every_load = false,
+    action = function(pos, node)
+        -- Search upwards:
+        -- 1. if quicksand2: continue
+        -- 2. if any gravity nodes: replace all quicksand2 below with sand, then stop
+        --    (group:falling_node ~= 0)
+        -- 3. if other nodes: stops
+
+        local new_y = pos.y
+        while true do
+            new_y = new_y + 1
+
+            local current_node = core.get_node({x = pos.x, y = new_y, z = pos.z})
+            if current_node.name == "ethereal:quicksand2" then
+                -- continue searching upwards
+            elseif core.get_item_group(current_node.name, "falling_node") ~= 0 then
+                -- replace all quicksand2 below with sand, then stop
+                for y = pos.y, new_y - 1 do
+                    core.set_node({x = pos.x, y = y, z = pos.z}, {name = "default:sand"})
+                end
+                break
+            else
+                -- stops
+                break
+            end
+        end
+    end,
+})
+
 local S = core.get_translator("ethereal_mod")
 
 -- place_param2 = 0
