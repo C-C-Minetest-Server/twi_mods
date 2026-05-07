@@ -22,7 +22,7 @@
 local S = core.get_translator("spawn")
 
 local POS_ORIGIN = { x = 37, y = 18, z = -42 }
-local POS_GRAPEHILLS = { x = -3292, y = 19, z = 1027 }
+local POS_GRAPEHILLS = { x = -3299, y = 19, z = 1135 }
 
 -- Dynamic, teleport by static_spawn
 core.register_chatcommand("spawn", {
@@ -41,13 +41,17 @@ core.register_chatcommand("spawn", {
             return false, S("Spawn point not set. Consult moderators to set a proper static spawnpoint.")
         end
         player:set_pos(spawn_pos)
-        player:set_look_horizontal(0)
+        player:set_look_horizontal(3 * math.pi / 2)
         player:set_look_vertical(0)
         background_music.set_start_play_gap(name, 2)
         background_music.decide_and_play(player, true)
         return true, S("Teleported to Spawn!")
     end
 })
+
+core.register_on_newplayer(function(player)
+    player:set_look_horizontal(3 * math.pi / 2)
+end)
 
 -- opt-in choice
 --[[
