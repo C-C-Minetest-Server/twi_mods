@@ -30,43 +30,6 @@ teacher.register_tutorial("chatroom_tutorial:chatroom", {
     },
 })
 
-
--- MultiCraft Deprecation notice
--- To be replaced by code that blocks players on old clients in 2026-05-15
--- Note: We support the latest dev version, latest stable version, and one version before the stable.
-local min_protocol_version = 50 -- 5.14.0
-local min_formspec_version = 10 -- 5.13.0
-
-teacher.register_tutorial("chatroom_tutorial:multicraft_deprecation", {
-    title = S("MultiCraft Deprecation Notice"),
-    {
-        texture = "twi_welcome_multicraft_deprecation.jpg",
-        text = {
-            S(
-                "To better utilize new client-side features, MultiCraft, " ..
-                "which is the only approved client on iOS, will be " ..
-                "deprecated, and players will soon be unable to join the " ..
-                "server with it. MultiCraft is based on Luanti 5.4.1, " ..
-                "a version released 5 years ago, and is missing various " ..
-                "client-side rendering features. It's not Luanti's fault, " ..
-                "but due to Apple's evilness for imposing restrictions " ..
-                "going against free software."
-            ),
-            S(
-            "The change will happen in mid-May 2026. To continue playing " ..
-                "on the server, iOS players are advised to switch to a PC " ..
-                "or use an Android phone."
-            ),
-            S("If you are not playing on MultiCraft but still received this " ..
-                "message, it means your client is outdated and also lacks " ..
-                "necessary features. Please update to the latest official " ..
-                "client (Luanti @1), which can be downloaded from @2.",
-                "5.15.0", "https://luanti.org/"
-            ),
-        }
-    },
-})
-
 -- Should be the w.wiki short link of the language.
 local WFC_WIKILINK = S("https://w.wiki/GSeT")
 
@@ -143,17 +106,6 @@ core.register_on_joinplayer(function(player)
         -- Show regardless of whether this have been unlocked before
         teacher.unlock_entry_for_player(player, "chatroom_tutorial:wfc_fire")
         teacher.simple_show(player, "chatroom_tutorial:wfc_fire")
-        return
-    end
-
-    -- Deprecation notice logics
-    local pname = player:get_player_name()
-    local pinfo = core.get_player_information(pname)
-    local protocol_version = pinfo.protocol_version or 0
-    local formspec_version = pinfo.formspec_version or 0
-    if protocol_version < min_protocol_version or formspec_version < min_formspec_version then
-        teacher.unlock_entry_for_player(player, "chatroom_tutorial:multicraft_deprecation")
-        teacher.simple_show(player, "chatroom_tutorial:multicraft_deprecation")
         return
     end
 
