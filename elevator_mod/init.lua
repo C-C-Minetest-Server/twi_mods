@@ -62,3 +62,57 @@ core.register_craft({
         { "farming:hemp_rope",  "default:diamond",            "farming:hemp_rope" }
     },
 })
+
+-- 3. Open elevator interface on walk in
+local ELEVATOR_ITEMS = {
+    ["elevator:elevator_off"] = true,
+    ["elevator:shaft"] = true,
+    ["elevator:motor"] = true,
+}
+
+local player_last_pos = {}
+local counter = 0
+core.register_globalstep(function(dtime)
+    counter = counter + dtime
+    if counter < 0.4 then return end
+    counter = 0
+
+    for _, player in ipairs(core.get_connected_players()) do
+        local name = player:get_player_name()
+        local pos = player:get_pos()
+
+        if elevator.riding[name] then
+            -- Prevent triggering on arrival by setting the last position to the target
+            player_last_pos[name] = elevator.riding[name].target
+        else
+            local rounded_pos = vector.round(pos)
+            local node = core.get_node(rounded_pos)
+            if
+                node.name == "elevator:elevator_on"
+                and player_last_pos[name]
+                and not vector.equals(player_last_pos[name], rounded_pos)
+            then
+                -- HACK: If the player is holding elevator items, temporary clear it
+                local wielded_item = player:get_wielded_item()
+                if ELEVATOR_ITEMS[wielded_item:get_name()] then
+                    player:set_wielded_item(ItemStack())
+                else
+                    wielded_item = nil
+                end
+
+                core.registered_items["elevator:elevator_on"].on_rightclick(rounded_pos, node, player)
+
+                if wielded_item then
+                    player:set_wielded_item(wielded_item)
+                end
+            end
+
+            player_last_pos[name] = rounded_pos
+        end
+    end
+end)
+
+core.register_on_leaveplayer(function(player)
+    local name = player:get_player_name()
+    player_last_pos[name] = nil
+end)
