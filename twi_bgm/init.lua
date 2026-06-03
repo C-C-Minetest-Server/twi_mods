@@ -489,7 +489,7 @@ background_music.register_on_decide_music(function(player)
     local ppos = player:get_pos()
 
     -- Always play WFC album in memorials
-    if func_areas.is_in_func_area(ppos, 1950) then
+    if func_areas.is_in_func_area(ppos, 2950) then
         return "twi_bgm:wfc_mouring"
     end
 
