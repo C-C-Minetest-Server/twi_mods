@@ -488,6 +488,11 @@ background_music.register_music("twi_bgm:wfc_mouring", {
 background_music.register_on_decide_music(function(player)
     local ppos = player:get_pos()
 
+    -- Always play WFC album in memorials
+    if func_areas.is_in_func_area(ppos, 1950) then
+        return "twi_bgm:wfc_mouring"
+    end
+
     if twi_fx.is_wang_fuk_court_mourning() and (
             func_areas.is_in_func_area(ppos, 2207) or func_areas.is_in_func_area(ppos, 497)
         ) then
