@@ -189,3 +189,7 @@ end
 if core.get_modpath("banisters") then
     banisters.register("banisters", "rubber_tree", "moretrees:rubber_tree_planks")
 end
+
+if core.get_modpath("ts_furniture") then
+    ts_furniture.register_furniture("moretrees:rubber_tree_planks", "Rubber Tree")
+end
