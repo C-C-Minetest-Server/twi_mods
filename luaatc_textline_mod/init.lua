@@ -75,3 +75,19 @@ core.register_node(':luaatc_textline:background', {
 	light_source = 0,
 	paramtype2 = 'facedir', -- '4dir',
 })
+
+-- Hide sprites for players who canot see them, reusing function from digisprite
+
+do
+	local txt_def = core.registered_entities['luaatc_textline:text']
+	local sp_def = core.registered_entities['digisprite:image']
+
+	local old_step = txt_def.on_step
+
+	local function new_step(self, dtime)
+		sp_def.on_step(self, dtime)
+		return old_step(self, dtime)
+	end
+
+	txt_def.on_step = new_step
+end
