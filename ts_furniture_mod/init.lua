@@ -60,8 +60,6 @@ for name in pairs(core.registered_nodes) do
                     end
                 end
 
-                print(dump(recipe_table))
-
                 core.register_craft({
                     type = "shaped",
                     output = craft.output,
