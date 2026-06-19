@@ -1,5 +1,6 @@
 -- twi_mods/ts_furniture_mod/init.lua
 -- Modifications to ts_furniture
+-- SPDX-License-Identifier: MIT
 
 -- Solve craft recipe conflict with banisters: use slab to craft
 
