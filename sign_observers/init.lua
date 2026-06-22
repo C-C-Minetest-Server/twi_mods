@@ -40,6 +40,25 @@ do
     end)
 end
 
+-- We tend to be conservative on determining that a node do block sight
+local function is_blocking_node(name)
+    local def = core.registered_nodes[name]
+
+    if not def then
+        return false
+    end
+
+    if def.sunlight_propagates then
+        return false
+    end
+
+    if def.drawtype and def.drawtype ~= "normal" then
+        return false
+    end
+
+    return true
+end
+
 local function observer_on_step(self, dtime)
     if self._observer_dtime == nil then
         self._observer_dtime = 0
@@ -75,9 +94,8 @@ local function observer_on_step(self, dtime)
                     if pt.type == "node" then
                         local rnpos = pt.under
                         local rnode = core.get_node(rnpos)
-                        local rndef = core.registered_nodes[rnode.name]
 
-                        if rndef and not rndef.sunlight_propagates then
+                        if is_blocking_node(rnode.name) then
                             shows = false
                             break
                         end
