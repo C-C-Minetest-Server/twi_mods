@@ -25,9 +25,13 @@ local LARGE_SIGNS = {
 }
 
 local function observer_on_step(self, dtime)
-    self._observer_dtime = (self._observer_dtime or 0) + dtime
-    if self._observer_dtime < 1 then return end
-    self._observer_dtime = 0
+    if self._observer_dtime == nil then
+        self._observer_dtime = 0
+    else
+        self._observer_dtime = self._observer_dtime + dtime
+        if self._observer_dtime < 1 then return end
+        self._observer_dtime = 0
+    end
 
     local pos = self.object:get_pos()
     local npos = vector.round(pos)
