@@ -120,6 +120,10 @@ for _, name in ipairs({
     "signs_lib:text",
     "signs:display_text",
     "luaatc_textline:text",
+    "smartshop:quad_upright_sprite",
+    "smartshop:single_sprite",
+    "smartshop:single_upright_sprite",
+    "smartshop:single_wielditem",
 }) do
     local def = core.registered_entities[name]
 
