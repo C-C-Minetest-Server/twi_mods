@@ -75,7 +75,7 @@ local function observer_on_step(self, dtime)
                         local rnode = core.get_node(rnpos)
                         local rndef = core.registered_nodes[rnode.name]
 
-                        if not rndef.sunlight_propagates then
+                        if rndef and not rndef.sunlight_propagates then
                             shows = false
                             break
                         end
