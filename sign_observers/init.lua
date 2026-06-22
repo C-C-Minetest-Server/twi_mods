@@ -82,14 +82,18 @@ local function observer_on_step(self, dtime)
             or not this_step_player_new_signs[pname]
             or this_step_player_new_signs[pname] < MAX_NEW_SIGNS_PER_SECOND
         then
-            local ppos = player:get_pos()
-            local distance = vector.distance(pos, ppos)
+            local pprop = player:get_properties()
+            local vpos = vector.add(
+                vector.add(player:get_pos(), player:get_eye_offset()[1]),
+                { x = 0, y = pprop.eye_height, z = 0 }
+            )
+            local distance = vector.distance(pos, vpos)
 
             local shows = true
             if distance > MAX_OBSERVER_DISTANCE then
                 shows = false
             elseif distance > basic_radius then
-                local rc = core.raycast(ppos, pos, false, false)
+                local rc = core.raycast(vpos, pos, false, false)
                 for pt in rc do
                     if pt.type == "node" then
                         local rnpos = pt.under
