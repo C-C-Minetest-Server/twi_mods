@@ -141,3 +141,7 @@ for _, name in ipairs({
         def.on_step = observer_on_step
     end
 end
+
+-- However, completely override digisprite handler
+
+core.registered_entities["digisprite:image"].on_step = observer_on_step
