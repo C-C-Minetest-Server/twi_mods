@@ -6,6 +6,7 @@
 local SHORT_OBSERVER_DISTANCE = 30
 local LONG_OBSERVER_DISTANCE = 60
 local MAX_OBSERVER_DISTANCE = 100
+local MAX_NEW_SIGNS_PER_SECOND = 30
 
 -- Set of node names
 local LARGE_SIGNS = {
@@ -24,6 +25,19 @@ local LARGE_SIGNS = {
     ["street_signs:sign_highway_large_orange"] = true,
 }
 
+local this_step_player_new_signs = {}
+
+do
+    local cleanup_dtime = 0
+
+    core.register_globalstep(function(dtime)
+        cleanup_dtime = cleanup_dtime + dtime
+        if cleanup_dtime < 1 then return end
+        cleanup_dtime = 0
+        this_step_player_new_signs = {}
+    end)
+end
+
 local function observer_on_step(self, dtime)
     if self._observer_dtime == nil then
         self._observer_dtime = 0
@@ -38,32 +52,43 @@ local function observer_on_step(self, dtime)
     local node = core.get_node(npos)
     local basic_radius = LARGE_SIGNS[node.name] and LONG_OBSERVER_DISTANCE or SHORT_OBSERVER_DISTANCE
 
+    local existing_observers = self.object:get_observers()
     local observers = {}
     for _, player in ipairs(core.get_connected_players()) do
         local pname = player:get_player_name()
-        local ppos = player:get_pos()
-        local distance = vector.distance(pos, ppos)
+        if
+            (existing_observers and existing_observers[pname])
+            or not this_step_player_new_signs[pname]
+            or this_step_player_new_signs[pname] < MAX_NEW_SIGNS_PER_SECOND
+        then
+            local ppos = player:get_pos()
+            local distance = vector.distance(pos, ppos)
 
-        if distance < basic_radius then
-            observers[pname] = true
-        elseif distance < MAX_OBSERVER_DISTANCE then
-            local rc = core.raycast(ppos, pos, false, false)
-            local blocks = false
-            for pt in rc do
-                if pt.type == "node" then
-                    local rnpos = pt.under
-                    local rnode = core.get_node(rnpos)
-                    local rndef = core.registered_nodes[rnode.name]
+            local shows = true
+            if distance > MAX_OBSERVER_DISTANCE then
+                shows = false
+            elseif distance > basic_radius then
+                local rc = core.raycast(ppos, pos, false, false)
+                for pt in rc do
+                    if pt.type == "node" then
+                        local rnpos = pt.under
+                        local rnode = core.get_node(rnpos)
+                        local rndef = core.registered_nodes[rnode.name]
 
-                    if not rndef.sunlight_propagates then
-                        blocks = true
-                        break
+                        if not rndef.sunlight_propagates then
+                            shows = false
+                            break
+                        end
                     end
                 end
             end
 
-            if not blocks then
+            if shows then
                 observers[pname] = true
+
+                if not existing_observers or not existing_observers[pname] then
+                    this_step_player_new_signs[pname] = (this_step_player_new_signs[pname] or 0) + 1
+                end
             end
         end
     end
