@@ -99,6 +99,7 @@ end
 for _, name in ipairs({
     "signs_lib:text",
     "signs:display_text",
+    "luaatc_textline:text",
 }) do
     local def = core.registered_entities[name]
 
