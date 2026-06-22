@@ -104,6 +104,8 @@ core.register_chatcommand("ping", {
         end
 
         local info = core.get_player_information(name)
-        return true, S("PONG! RTT: @1s, Jitter: @2s", info.avg_rtt, info.avg_jitter)
+        local rtt = string.format("%.2f", info.avg_rtt * 1000)
+        local jitter = string.format("%.2f", info.avg_jitter * 1000)
+        return true, S("PONG! RTT: @1 ms, Jitter: @2 ms", rtt, jitter)
     end,
 })
