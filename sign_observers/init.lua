@@ -6,9 +6,11 @@
 local SHORT_OBSERVER_DISTANCE = 30
 local LONG_OBSERVER_DISTANCE = 60
 local MAX_OBSERVER_DISTANCE = 100
+
+local UPDATE_DTIME = 1
 local MAX_NEW_SIGNS_PER_SECOND = 30
 
--- Set of node names
+-- Set of node names that should still be seen from far away
 local LARGE_SIGNS = {
     ["signs_roal:large_street_sign"] = true,
     ["street_signs:sign_highway_small_green"] = true,
@@ -32,7 +34,7 @@ do
 
     core.register_globalstep(function(dtime)
         cleanup_dtime = cleanup_dtime + dtime
-        if cleanup_dtime < 1 then return end
+        if cleanup_dtime < UPDATE_DTIME then return end
         cleanup_dtime = 0
         this_step_player_new_signs = {}
     end)
@@ -43,7 +45,7 @@ local function observer_on_step(self, dtime)
         self._observer_dtime = 0
     else
         self._observer_dtime = self._observer_dtime + dtime
-        if self._observer_dtime < 1 then return end
+        if self._observer_dtime < UPDATE_DTIME then return end
         self._observer_dtime = 0
     end
 
