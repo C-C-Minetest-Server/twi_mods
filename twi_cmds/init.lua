@@ -109,3 +109,25 @@ core.register_chatcommand("ping", {
         return true, S("PONG! RTT: @1 ms, Jitter: @2 ms", rtt, jitter)
     end,
 })
+
+-- /hover
+core.register_chatcommand("hover", {
+    description = S("Teleport to the above of another player, avoiding jumpscares"),
+    privs = { teleport = true, bring = true },
+    func = function(name, param)
+        local player = core.get_player_by_name(name)
+        if not player then
+            return false, S("You must be online to run this command.")
+        end
+
+        local target = core.get_player_by_name(param)
+        if not target then
+            return false, S("Target player @1 is not online.", param)
+        end
+
+        local pos = vector.add(target:get_pos(), { x = 0, y = 3, z = 0 })
+        player:set_pos(pos)
+
+        return true, S("Successfully teleported to @1.", param)
+    end,
+})
