@@ -10,7 +10,7 @@ local statues = {
     ["1F616EMO"] = "character.1272",
     ["RelaxingPlay"] = "character.990",
     ["y5nw"] = "character.2292",
-    ["HelenasaurusRex"] = "character.1917",
+    ["HelenasaurusRex"] = "character.2180",
 }
 
 for name, skin_name in pairs(statues) do
