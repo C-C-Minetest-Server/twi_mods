@@ -35,9 +35,12 @@ local cmd_alias = {
     p1        = "area_pos1",
     p2        = "area_pos2",
     pt        = "protect",
-    h         = "help",
     ["?"]     = "tutorial",
     gh        = "grapehills",
+
+    h         = "home",
+    sh        = "sethome",
+
 
     reports   = "report",
     feedback  = "report",
@@ -50,5 +53,30 @@ for from, to in pairs(cmd_alias) do
         def.description = S("Alias of /@1: @2", to, def.description or "")
 
         core.register_chatcommand(from, def)
+    end
+end
+
+-- Custom alias: /area_pos {get,set,set1,set2}
+
+if core.registered_chatcommands.area_pos then
+    local cdef = core.registered_chatcommands.area_pos
+    for alias, part in pairs({
+        g      = "get",
+        s      = "set",
+        ["s1"] = "set1",
+        ["s2"] = "set2",
+    }) do
+        core.register_chatcommand("p" .. alias, {
+            description = S("Alias of /@1: @2", "area_pos " .. part, cdef.description or ""),
+            privs = table.copy(cdef.privs),
+            func = function(name, params)
+                if params ~= "" then
+                    params = " " .. params
+                end
+                params = part .. params
+
+                return cdef.func(name, params)
+            end,
+        })
     end
 end
