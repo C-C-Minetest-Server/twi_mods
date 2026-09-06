@@ -7,12 +7,12 @@ local S = core.get_translator("twi_billboards")
 
 local billboards = {
     -- Grape Hills Railway Map (2025-11-16)
-    -- Source: https://metromapmaker.com/map/mRL-j0Zq
-    -- Copyright (C) 2025  1F616EMO
+    -- Source: https://metromapmaker.com/map/01m0gsr2
+    -- Copyright (C) 2025-2026  1F616EMO
     -- License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
     ["gh_railway_map"] = {
         description = S("Grape Hills Railway Map"),
-        texture = "twi_billboards_gh_railway_map.jpg",
+        texture = "twi_billboards_gh_railway_map.png",
         scales = { 1.0, 2.0, 2.5, 3.0 },
         use_texture_alpha = "clip",
         light_source = 1,
